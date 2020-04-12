@@ -17,16 +17,10 @@ x = 0
 for r in color[0]:
     for g in color[1]:
         x += nc2
-        if r > g:
-            if (r + (r - g)) in color[2]:
-                x -= 1
-            if (g - (r - g)) in color[2]:
-                x -= 1
-        else:
-            if (g + (g - r)) in color[2]:
-                x -= 1
-            if (r - (g - r)) in color[2]:
-                x -= 1
+        if (r + r - g) in color[2]:
+            x -= 1
+        if (g + g - r) in color[2]:
+            x -= 1
         c = r + g
         if c % 2 == 0 and (c // 2) in color[2]:
             x -= 1
