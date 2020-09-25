@@ -10,7 +10,7 @@ for i in range(n - 1):
     for j in range(i, n - 1):
         if ans[i] < s[j]:
             ans[i] = s[j]
-        else:
+        elif ans[i] % f[j] > 0:
             ans[i] += f[j] - ans[i] % f[j]
         ans[i] += c[j]
 
