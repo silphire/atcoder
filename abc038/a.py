@@ -1,0 +1,1 @@
+print(['NO', 'YES'][int(input().rstrip()[-1] == 'T')])
