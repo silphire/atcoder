@@ -71,7 +71,7 @@ class Prime(object):
         for i in range(2, upper_bound):
             if not primes[i]:
                 continue
-            for j in range(i, n + 1, i):
+            for j in range(2 * i, n + 1, i):
                 primes[j] = False
         return [i for i in range(2, n + 1) if primes[i]]
 
@@ -153,6 +153,7 @@ class BinaryIndexedTree(object):
     def __init__(self):
         pass
 
+# 素因数分解
 # 高速なnCrの計算 w/ MOD 10**9+7
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
