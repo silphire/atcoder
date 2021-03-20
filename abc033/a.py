@@ -1,0 +1,1 @@
+print(["DIFFERENT", "SAME"][int(len(set(list(input().rstrip()))) == 1)])
