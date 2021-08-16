@@ -1,13 +1,20 @@
-MOD = 1000000007
 
 w, h = map(int, input().split())
-dp = [1] * w
-for i in range(1, h):
-    ndp = [0] * w
-    ndp[0] = dp[0]
-    for j in range(1, w):
-        ndp[j] = (dp[j] + ndp[j - 1]) % MOD
-    dp = ndp
-    print(dp)
-print(dp[-1])
 
+n = w + h - 2 + 1
+fact = [0] * n
+finv = [0] * n
+inv = [0] * n
+
+MOD = 10 ** 9 + 7
+fact[0] = fact[1] = 1
+finv[0] = finv[1] = 1
+inv[1] = 1
+for x in range(2, n):
+    fact[x] = fact[x - 1] * x % MOD
+    inv[x] = MOD - inv[MOD % x] * (MOD // x) % MOD
+    finv[x] = finv[x - 1] * inv[x] % MOD
+
+x, y = max(w + h - 2, h - 1), min(w + h - 2, h - 1)
+ans = fact[x] * (finv[y] * finv[x - y] % MOD) % MOD
+print(ans)
