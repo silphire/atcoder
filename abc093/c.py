@@ -1,16 +1,15 @@
-aa = list(sorted(map(int, input().split())))
-nn = sum(map(lambda x: x % 2, aa))
-ans = 0
-if nn == 1:
-    ans += 1
-    for i in range(3):
-        if aa[i] % 2 == 0:
-            aa[i] += 1
-elif nn == 2:
-    ans += 1
-    for i in range(3):
-        if aa[i] % 2 == 1:
-            aa[i] += 1
-ans += (aa[2] - aa[0]) // 2
-ans += (aa[2] - aa[1]) // 2
-print(ans)
+n = int(input())
+aa = list(map(int, input().split()))
+
+total = 0
+for i in range(1, n):
+    total += abs(aa[i] - aa[i - 1])
+total += abs(aa[0]) + abs(aa[-1])
+
+for i in range(n):
+    if i == 0:
+        print(total - abs(aa[0]) - abs(aa[1] - aa[0]) + abs(aa[1]))
+    elif i == n - 1:
+        print(total - abs(aa[-1]) + - abs(aa[-1] - aa[-2]) + abs(aa[-2]))
+    else:
+        print(total - abs(aa[i] - aa[i - 1]) - abs(aa[i + 1] - aa[i]) + abs(aa[i - 1] - aa[i + 1]))
