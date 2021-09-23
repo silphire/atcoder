@@ -1,4 +1,7 @@
 class UnionFind(object):
+    """
+    Union-Find (Disjoint Set Union)
+    """
     def __init__(self, n: int):
         self.parent = [x for x in range(n)]
         self.size = [1] * n
@@ -25,6 +28,9 @@ class UnionFind(object):
 
 
 class Kruskal(object):
+    """
+    クラスカル法 (最小全域木)
+    """
     def __init__(self):
         pass
 
