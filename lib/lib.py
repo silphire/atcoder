@@ -159,6 +159,24 @@ class BinaryIndexedTree(object):
     def __init__(self):
         pass
 
+
+class LCA(object):
+    """
+    Lowest Common Ancestor
+    """
+    def __init__(self):
+        pass
+
+    def lca(x: int, y: int):
+        pass
+
+    def dist(x: int, y: int):
+        pass
+
+    def dfs(x: int):
+        pass
+
+
 # 素因数分解
 # 高速なnCrの計算 w/ MOD 10**9+7
 # scipy.special.comb(n, r)
