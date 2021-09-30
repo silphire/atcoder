@@ -193,6 +193,26 @@ class LCA(object):
         pass
 
 
+class MOD(object):
+    def __init__(self, modulo: int):
+        self.modulo = modulo
+        self.size = 2
+        self.fact = [1, 1]
+        self.inv = [1, 1]
+        self.finv = [0, 1]
+    
+    def comb(self, n: int, k: int):
+        if n < k or n < 0 or k < 0:
+            return 0
+        if self.size < n:
+            for i in range(self.size, n + 1):
+                self.fact.append(self.fact[-1] * i % self.modulo)
+                self.inv.append(self.modulo - self.inv[self.modulo % i] * (self.modulo // i) % self.modulo)
+                self.finv.append(self.finv[-1] * self.inv[i] % self.modulo)
+            self.size = n
+        return self.fact[n] * (self.finv[k] * self.finv[n - k] % self.modulo) % self.modulo
+
+
 # 素因数分解
 # 高速なnCrの計算 w/ MOD 10**9+7
 # scipy.special.comb(n, r)
