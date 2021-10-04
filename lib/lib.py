@@ -211,6 +211,26 @@ class MOD(object):
                 self.finv.append(self.finv[-1] * self.inv[i] % self.modulo)
             self.size = n
         return self.fact[n] * (self.finv[k] * self.finv[n - k] % self.modulo) % self.modulo
+    
+    def modinv(a: int, p: int):
+        """ mod pとした時のaの逆元
+        """
+        b = p
+        u = 1
+        v = 0
+        while b > 0:
+            t = a // b
+
+            a -= t * b
+            a, b = b, a
+
+            u -= t * v
+            u, v = v, u
+
+        u %= p
+        if u < 0:
+            u += p
+        return u
 
 
 # 素因数分解
