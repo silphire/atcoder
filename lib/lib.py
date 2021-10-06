@@ -172,8 +172,27 @@ class BinaryIndexedTree(object):
     """
     Fenwick Tree
     """
-    def __init__(self):
-        pass
+    def __init__(self, size: int):
+        self.size = size + 1
+        self.arr = [0] * self.size
+
+    def add(self, pos: int, val: int):
+        assert 0 < pos <= self.size
+
+        p = pos
+        while p <= self.size:
+            self.arr[p] += val
+            p += p & -p
+
+    def sum(self, pos: int):
+        assert 0 < pos <= self.size
+
+        ans = 0
+        p = pos
+        while p > 0:
+            ans += self.arr[p]
+            p -= p & -p
+        return ans
 
 
 class LCA(object):
@@ -238,6 +257,7 @@ class MOD(object):
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
+# Grundy数
 
 if __name__ == '__main__':
     pass
