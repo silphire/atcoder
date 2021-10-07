@@ -251,9 +251,17 @@ class MOD(object):
             u += p
         return u
 
+def lcm(a, b):
+    """ 最小公倍数
+    """
+    import math
 
-# 素因数分解
-# 高速なnCrの計算 w/ MOD 10**9+7
+    if b == 0:
+        return a
+    else:
+        return math.gcd(b, a % b)
+
+
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
