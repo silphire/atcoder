@@ -262,6 +262,23 @@ def lcm(a, b):
         return math.gcd(b, a % b)
 
 
+""" 幾何ライブラリ
+"""
+class Geometry(object):
+    def rotate(x, y, theta):
+        """回転行列
+        """
+        import math
+        return (
+            math.cos(theta) * x - math.sin(theta) * y,
+            math.sin(theta) * x + math.cos(theta) * y,
+        )
+    
+    # 線分の直行判定
+    # 線分の並行判定
+    # 点の線分上での存在判定
+
+
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
