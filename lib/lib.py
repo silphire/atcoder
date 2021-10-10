@@ -276,7 +276,7 @@ class Geometry(object):
     
     # 線分の直交判定 (ベクトルの内積が0)
     def is_orthogonal(x1: int, y1: int, x2: int, y2: int) -> bool:
-        raise
+        return x1 * x2 + y1 * y2 < 1e-8
 
     # 線分の並行判定 (ベクトルの外積が0)
     # 点の線分上での存在判定
