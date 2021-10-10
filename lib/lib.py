@@ -274,8 +274,11 @@ class Geometry(object):
             math.sin(theta) * x + math.cos(theta) * y,
         )
     
-    # 線分の直行判定
-    # 線分の並行判定
+    # 線分の直交判定 (ベクトルの内積が0)
+    def is_orthogonal(x1: int, y1: int, x2: int, y2: int) -> bool:
+        raise
+
+    # 線分の並行判定 (ベクトルの外積が0)
     # 点の線分上での存在判定
 
 
