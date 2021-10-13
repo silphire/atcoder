@@ -199,16 +199,30 @@ class LCA(object):
     """
     Lowest Common Ancestor
     """
-    def __init__(self):
-        pass
+    def __init__(self, tree):
+        """
+            graph: 0を根とする木
+        """
+        self.size = len(tree)
+        s2 = 1
+        while (1 << s2) < self.size:
+            s2 += 1
+        self.parent = [[-1] * s2 for _ in range(tree)]
+        self.dist = [-1] * self.size
+        self.tree = tree
 
-    def lca(x: int, y: int):
-        pass
+        def dfs(v, par, depth):
+            self.parent[0][v] = par
+            self.dist[v] = depth
+            for e in self.tree[v]:
+                if e != par:
+                    dfs(e, v, depth + 1)
+        dfs(0, -1, 0)
 
-    def dist(x: int, y: int):
-        pass
+    def lca(self, x: int, y: int):
+        pass        
 
-    def dfs(x: int):
+    def dist(self, x: int, y: int):
         pass
 
 
