@@ -201,29 +201,44 @@ class LCA(object):
     """
     def __init__(self, tree):
         """
-            graph: 0を根とする木
+            graph: 0を根とする木。リスト内のリストはその添え字が表す頂点の子の頂点。
         """
         self.size = len(tree)
         s2 = 1
         while (1 << s2) < self.size:
             s2 += 1
         self.parent = [[-1] * s2 for _ in range(tree)]
-        self.dist = [-1] * self.size
+        self.depth = [-1] * self.size
         self.tree = tree
 
-        def dfs(v, par, depth):
+        def dfs(v, par, d):
             self.parent[0][v] = par
-            self.dist[v] = depth
+            self.depth[v] = d
             for e in self.tree[v]:
                 if e != par:
-                    dfs(e, v, depth + 1)
+                    dfs(e, v, d + 1)
         dfs(0, -1, 0)
 
     def lca(self, x: int, y: int):
-        pass        
+        if self.depth[x] < self.depth[y]:
+            x, y = y, x
+
+        for i in range(self.size):
+            d = self.depth[x] - self.depth[y]
+            if (d >> i) & 1 == 1:
+                x = self.parent[i][x]
+        
+        if x == y:
+            return x
+        
+        for i in range(self.size - 1, -1, -1):
+            if self.parent[i][x] != self.parent[i][y]:
+                x = self.parent[i][x]
+                y = self.parent[i][y]
+        return self.parent[0][x]
 
     def dist(self, x: int, y: int):
-        pass
+        return self.depth[x] + self.depth[y] - 2 * self.depth[self.lca(x, y)]
 
 
 class MOD(object):
