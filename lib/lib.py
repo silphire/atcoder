@@ -200,8 +200,8 @@ class LCA(object):
     Lowest Common Ancestor
     """
     def __init__(self, size):
-        """
-            graph: 0を根とする木。リスト内のリストはその添え字が表す頂点の子の頂点。
+        """ 保存領域の初期化。
+            辺に重みがついている時の頂点間の重み計算にはcostを使えます。
         """
         self.size = size
         self.graph = [[] for _ in range(size)]
@@ -350,6 +350,7 @@ class Geometry(object):
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
 # Grundy数
+# BITの区間更新
 
 if __name__ == '__main__':
     pass
