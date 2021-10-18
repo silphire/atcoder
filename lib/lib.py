@@ -205,7 +205,7 @@ class LCA(object):
         """
         self.size = size
         self.graph = [[] for _ in range(size)]
-        self.cost = [[] for _ in range(size)]
+        self.cost_edge = [[] for _ in range(size)]
 
     def add_edge(self, x: int, y: int, cost: int = 1):
         """ 木の辺を追加します。
@@ -215,8 +215,8 @@ class LCA(object):
 
         self.graph[x].append(y)
         self.graph[y].append(x)
-        self.cost[x].append(cost)
-        self.cost[y].append(cost)
+        self.cost_edge[x].append(cost)
+        self.cost_edge[y].append(cost)
     
     def init(self):
         """ 全ての辺を追加した後に、LCAを求める為の初期化をする。
@@ -224,14 +224,15 @@ class LCA(object):
         s2 = 1
         while (1 << s2) < self.size:
             s2 += 1
-        self.parent = [[-1] * s2 for _ in range(self.tree)]
+        self.parent = [[-1] * s2 for _ in range(len(self.graph))]
         self.depth = [-1] * self.size
+        self.cost_root = [0] * self.size
 
         def dfs(v, par, d, c):
-            self.parent[0][v] = par
+            self.parent[v][0] = par
             self.depth[v] = d
-            self.cost[v] = c
-            for e, cc in zip(self.tree[v], self.cost[v]):
+            self.cost_root[v] = c
+            for e, cc in zip(self.graph[v], self.cost_edge[v]):
                 if e != par:
                     dfs(e, v, d + 1, c + cc)
         dfs(0, -1, 0, 0)
@@ -251,10 +252,10 @@ class LCA(object):
             return x
         
         for i in range(self.size - 1, -1, -1):
-            if self.parent[i][x] != self.parent[i][y]:
-                x = self.parent[i][x]
-                y = self.parent[i][y]
-        return self.parent[0][x]
+            if self.parent[x][i] != self.parent[y][i]:
+                x = self.parent[x][i]
+                y = self.parent[y][i]
+        return self.parent[x][0]
 
     def dist(self, x: int, y: int):
         """ 2つの頂点間の距離を返します。
@@ -266,7 +267,7 @@ class LCA(object):
         """ 2つの頂点間のコストを返します。
         """
         z = self.lca(x, y)
-        return self.cost[x] + self.cost[y] - 2 * self.cost[z]
+        return self.cost_root[x] + self.cost_root[y] - 2 * self.cost_root[z]
 
 
 class MOD(object):
