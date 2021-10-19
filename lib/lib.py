@@ -240,18 +240,23 @@ class LCA(object):
     def lca(self, x: int, y: int):
         """ 2つの頂点の最小共通祖先である頂点を返します。
         """
+        assert x < self.size
+        assert y < self.size
+
         if self.depth[x] < self.depth[y]:
             x, y = y, x
 
-        for i in range(self.size):
+        s2 = len(self.parent[0])
+
+        for i in range(s2):
             d = self.depth[x] - self.depth[y]
             if (d >> i) & 1 == 1:
-                x = self.parent[i][x]
+                x = self.parent[x][i]
         
         if x == y:
             return x
         
-        for i in range(self.size - 1, -1, -1):
+        for i in range(s2 - 1, -1, -1):
             if self.parent[x][i] != self.parent[y][i]:
                 x = self.parent[x][i]
                 y = self.parent[y][i]
@@ -260,12 +265,18 @@ class LCA(object):
     def dist(self, x: int, y: int):
         """ 2つの頂点間の距離を返します。
         """
+        assert x < self.size
+        assert y < self.size
+
         z = self.lca(x, y)
         return self.depth[x] + self.depth[y] - 2 * self.depth[z]
     
     def cost(self, x: int, y: int):
         """ 2つの頂点間のコストを返します。
         """
+        assert x < self.size
+        assert y < self.size
+
         z = self.lca(x, y)
         return self.cost_root[x] + self.cost_root[y] - 2 * self.cost_root[z]
 
