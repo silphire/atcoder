@@ -236,6 +236,13 @@ class LCA(object):
                 if e != par:
                     dfs(e, v, d + 1, c + cc)
         dfs(0, -1, 0, 0)
+        
+        for i in range(s2 - 1):
+            for j in range(self.size):
+                if self.parent[j][i] < 0:
+                    self.parent[j][i + 1] = -1
+                else:
+                    self.parent[j][i + 1] = self.parent[self.parent[j][i]][i]
 
     def lca(self, x: int, y: int):
         """ 2つの頂点の最小共通祖先である頂点を返します。
