@@ -361,6 +361,14 @@ class Geometry(object):
             (x1, y1) と (x2, y2) は (0, 0) を基点としたベクトル
         """
         return x1 * y2 - x2 * y1 < 1e-8
+    
+    def triangle_area(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int):
+        xa = x1 - x3
+        ya = y1 - y3
+        xb = x2 - x3
+        yb = y2 - y3
+        return abs(xa * yb - xb * ya) / 2
+
 
     # 点の線分上での存在判定
 
