@@ -25,6 +25,9 @@ class UnionFind(object):
 
         self.parent[ry] = rx
         self.size[rx] += self.size[ry]
+    
+    def get_size(self, x: int) -> int:
+        return self.size[self.root(x)]
 
 
 class Kruskal(object):
