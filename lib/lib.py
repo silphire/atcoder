@@ -74,6 +74,8 @@ class Prime(object):
         pass
 
     def prime_sequence(self, n: int):
+        """ nまでの素数
+        """
         primes = [True] * (n + 1)
         primes[0] = primes[1] = False
         upper_bound = int(n ** 0.5) + 1
@@ -85,6 +87,8 @@ class Prime(object):
         return [i for i in range(2, n + 1) if primes[i]]
 
     def prime_factorize(self, n: int):
+        """ nを素因数分解する
+        """
         spf = [1] * (n + 1)
         spf[0] = 0
         for i in range(2, n + 1):
@@ -292,6 +296,8 @@ class LCA(object):
 
 
 class MOD(object):
+    """ mod K 上の演算ライブラリ
+    """
     def __init__(self, modulo: int):
         self.modulo = modulo
         self.size = 2
