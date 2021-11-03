@@ -183,7 +183,7 @@ class BinaryIndexedTree(object):
         self.size = size + 1
         self.arr = [0] * self.size
 
-    def add(self, pos: int, val: int):
+    def add(self, pos: int, val: int) -> None:
         assert 0 < pos <= self.size
 
         p = pos
@@ -191,7 +191,7 @@ class BinaryIndexedTree(object):
             self.arr[p] += val
             p += p & -p
 
-    def sum(self, pos: int):
+    def sum(self, pos: int) -> int:
         assert 0 < pos <= self.size
 
         ans = 0
@@ -214,7 +214,7 @@ class LCA(object):
         self.graph = [[] for _ in range(size)]
         self.cost_edge = [[] for _ in range(size)]
 
-    def add_edge(self, x: int, y: int, cost: int = 1):
+    def add_edge(self, x: int, y: int, cost: int = 1) -> None:
         """ 木の辺を追加します。
         """
         assert x < self.size
@@ -225,7 +225,7 @@ class LCA(object):
         self.cost_edge[x].append(cost)
         self.cost_edge[y].append(cost)
     
-    def init(self):
+    def init(self) -> None:
         """ 全ての辺を追加した後に、LCAを求める為の初期化をする。
         """
         s2 = 1
@@ -235,7 +235,7 @@ class LCA(object):
         self.depth = [-1] * self.size
         self.cost_root = [0] * self.size
 
-        def dfs(v, par, d, c):
+        def dfs(v, par, d, c) -> None:
             self.parent[v][0] = par
             self.depth[v] = d
             self.cost_root[v] = c
@@ -251,7 +251,7 @@ class LCA(object):
                 else:
                     self.parent[j][i + 1] = self.parent[self.parent[j][i]][i]
 
-    def lca(self, x: int, y: int):
+    def lca(self, x: int, y: int) -> int:
         """ 2つの頂点の最小共通祖先である頂点を返します。
         """
         assert x < self.size
@@ -276,7 +276,7 @@ class LCA(object):
                 y = self.parent[y][i]
         return self.parent[x][0]
 
-    def dist(self, x: int, y: int):
+    def dist(self, x: int, y: int) -> int:
         """ 2つの頂点間の距離を返します。
         """
         assert x < self.size
@@ -285,7 +285,7 @@ class LCA(object):
         z = self.lca(x, y)
         return self.depth[x] + self.depth[y] - 2 * self.depth[z]
     
-    def cost(self, x: int, y: int):
+    def cost(self, x: int, y: int) -> int:
         """ 2つの頂点間のコストを返します。
         """
         assert x < self.size
@@ -305,7 +305,7 @@ class MOD(object):
         self.inv = [1, 1]
         self.finv = [0, 1]
     
-    def comb(self, n: int, k: int):
+    def comb(self, n: int, k: int) -> int:
         if n < k or n < 0 or k < 0:
             return 0
         if self.size < n:
@@ -316,7 +316,7 @@ class MOD(object):
             self.size = n
         return self.fact[n] * (self.finv[k] * self.finv[n - k] % self.modulo) % self.modulo
     
-    def modinv(a: int, p: int):
+    def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
         """
         b = p
@@ -336,7 +336,7 @@ class MOD(object):
             u += p
         return u
 
-def lcm(a, b):
+def lcm(a: int, b: int) -> int:
     """ 最小公倍数
     """
     import math
