@@ -210,6 +210,7 @@ class LCA(object):
         """ 保存領域の初期化。
             辺に重みがついている時の頂点間の重み計算にはcostを使えます。
         """
+        assert size > 0
         self.size = size
         self.graph = [[] for _ in range(size)]
         self.cost_edge = [[] for _ in range(size)]
