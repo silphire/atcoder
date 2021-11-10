@@ -316,7 +316,10 @@ class MOD(object):
                 self.finv.append(self.finv[-1] * self.inv[i] % self.modulo)
             self.size = n
         return self.fact[n] * (self.finv[k] * self.finv[n - k] % self.modulo) % self.modulo
-    
+
+    def hprod(self, n: int, k: int):
+        return self.comb(n + k - 1, k - 1)
+
     def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
         """
