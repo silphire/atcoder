@@ -307,6 +307,8 @@ class MOD(object):
         self.finv = [0, 1]
     
     def comb(self, n: int, k: int) -> int:
+        """ nCk (組み合わせ) を求める
+        """
         if n < k or n < 0 or k < 0:
             return 0
         if self.size < n:
@@ -318,6 +320,8 @@ class MOD(object):
         return self.fact[n] * (self.finv[k] * self.finv[n - k] % self.modulo) % self.modulo
 
     def hprod(self, n: int, k: int):
+        """ nHk (重複組み合わせ) を求める
+        """
         return self.comb(n + k - 1, k - 1)
 
     def modinv(a: int, p: int) -> int:
