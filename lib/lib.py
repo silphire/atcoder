@@ -70,6 +70,9 @@ class Prim(object):
 
 
 class Prime(object):
+    """素数関係の関数群
+    """
+
     def __init__(self):
         pass
 
