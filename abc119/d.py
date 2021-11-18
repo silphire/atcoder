@@ -1,11 +1,11 @@
 import bisect
 
 a, b, q = map(int, input().split())
-ss = sorted([float('-inf'), float('inf')] + [
+ss = sorted([0, float('inf')] + [
     int(input())
     for _ in range(a)
 ])
-tt = sorted([float('-inf'), float('inf')] + [
+tt = sorted([0, float('inf')] + [
     int(input())
     for _ in range(b)
 ])
@@ -13,25 +13,26 @@ xx = [
     int(input())
     for _ in range(q)
 ]
-print(ss)
-print(tt)
 
 for x in xx:
-    slp = bisect.bisect_left(ss, x)
-    tlp = bisect.bisect_left(tt, x)
+    slp = bisect.bisect_left(ss, x) - 1
+    tlp = bisect.bisect_left(tt, x) - 1
     srp = bisect.bisect_right(ss, x)
     trp = bisect.bisect_right(tt, x)
 
-    ans = [None] * 6    
-    ans[0] = x - min(ss[slp], tt[tlp])
+    ans = [None] * 6
+    if slp > 0 and tlp > 0:
+        ans[0] = x - min(ss[slp], tt[tlp])
 
-    ans[1] = max(ss[srp], tt[trp]) - x
+    if srp < len(ss) - 1 and trp < len(tt) - 1:
+        ans[1] = max(ss[srp], tt[trp]) - x
 
-    ans[2] = (x - ss[slp]) * 2 + tt[trp] - ss[slp]
-    ans[3] = (tt[trp] - x) * 2 + x - ss[slp]
+    if slp > 0 and trp < len(tt) - 1:
+        ans[2] = (x - ss[slp]) * 2 + tt[trp] - x
+        ans[3] = (tt[trp] - x) * 2 + x - ss[slp]
 
-    ans[4] = (x - tt[tlp]) * 2 + ss[srp] - tt[tlp]
-    ans[5] = (ss[srp] - x) * 2 + x - tt[tlp]
+    if tlp > 0 and srp < len(ss) - 1:
+        ans[4] = (x - tt[tlp]) * 2 + ss[srp] - x
+        ans[5] = (ss[srp] - x) * 2 + x - tt[tlp]
 
-    # print(ans)
-    print(min(ans))
+    print(min(filter(lambda x: x is not None, ans)))
