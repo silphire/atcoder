@@ -129,6 +129,10 @@ class Dijkstra(object):
             self.route[v2].append((-w, v1))
 
     def dijkstra(self, start: int, goal = None):
+        """ startで示す頂点からの最短経路を求める
+            goal = Noneの場合は全頂点の最短距離を、
+            goalに頂点番号が指定された場合はgoalまでの最短経路のみ求める。
+        """
         import heapq
 
         assert start < self.n_vertex
