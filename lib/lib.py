@@ -52,19 +52,43 @@ class Kruskal(object):
 
 
 class Prim(object):
+    """プリム法 (最小全域木)
+    """
     def __init__(self):
         pass
 
-    def prim(self, edges, n_vertex: int):
+    def prim(self, edges, start: int, n_vertex: int):
+        """プリム法で最小全域木を求めます
+        * edges: [(cost, v1, v2)] (0 <= vn < n_vertex)
+        * 適当に取る点
+        * n_vertex: 頂点の数
+        """
         import heapq
-        
-        tree = []
-        used = [False] * n_vertex
-        remain = n_vertex
 
-        v = 0
+        n = len(edges)
+        
+        used = [False] * n_vertex
+        used[start] = True
+        remain = n_vertex - 1
+        tree = []
+        candidates = [
+            (edges[i][0], i)
+            for i in range(n)
+            if edges[i][1] == start or edges[i][2] == start
+        ]
+        heapq.heapify(candidates)
         while remain > 0:
-            pass
+            e = heapq.heappop(candidates)
+            if used[e[1]] and used[e[2]]:
+                continue
+            tree.append(e)
+            for i in range(1, 3):
+                if not used[e[i]]:
+                    remain -= 1
+                    used[e[i]] = True
+                    for ne in edges:
+                        if not used[ne[1]] or not used[ne[2]]:
+                            heapq.heappush(candidates, ne)
 
         return tree
 
