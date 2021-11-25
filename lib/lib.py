@@ -60,7 +60,7 @@ class Prim(object):
     def prim(self, edges, start: int, n_vertex: int):
         """プリム法で最小全域木を求めます
         * edges: [(cost, v1, v2)] (0 <= vn < n_vertex)
-        * 適当に取る点
+        * start: 適当に取る点
         * n_vertex: 頂点の数
         """
         import heapq
