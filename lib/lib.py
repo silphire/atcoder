@@ -240,6 +240,7 @@ class LCA(object):
     def __init__(self, size):
         """ 保存領域の初期化。
             辺に重みがついている時の頂点間の重み計算にはcostを使えます。
+            size: 頂点の数
         """
         assert size > 0
         self.size = size
