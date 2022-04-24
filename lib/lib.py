@@ -103,6 +103,8 @@ class Prime(object):
     def prime_sequence(self, n: int):
         """ nまでの素数
         """
+        assert n > 0
+        
         primes = [True] * (n + 1)
         primes[0] = primes[1] = False
         upper_bound = int(n ** 0.5) + 1
