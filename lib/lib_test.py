@@ -20,6 +20,16 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(2, x.get_size(1))
 
 
+class TestKruskal(unittest.TestCase):
+    def test_kruskal(self):
+        self.assertEqual([], lib.Kruskal().kruskal([], 0))
+        self.assertEqual([], lib.Kruskal().kruskal([], 1))
+        self.assertCountEqual([(1, 0, 1)], lib.Kruskal().kruskal([(1, 0, 1)], 2))
+        self.assertCountEqual([(1, 0, 1)], lib.Kruskal().kruskal([(1, 0, 1), (1, 0, 1)], 2))
+        self.assertCountEqual([(1, 0, 1), (1, 0, 2)], lib.Kruskal().kruskal([(1, 0, 1), (1, 0, 2)], 3))
+        self.assertCountEqual([(1, 0, 1), (1, 0, 2)], lib.Kruskal().kruskal([(1, 0, 1), (1, 0, 2), (2, 0, 2)], 3))
+
+
 class TestPrime(unittest.TestCase):
     def test_prime_sequence(self):
         self.assertRaises(AssertionError, lib.Prime().prime_sequence, 0)
