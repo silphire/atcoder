@@ -43,5 +43,13 @@ class TestPrime(unittest.TestCase):
         self.assertCountEqual([2, 2, 5, 5], lib.Prime().prime_factorize(100))
 
 
+class TestDijkstra(unittest.TestCase):
+    def test_dijkstra(self):
+        self.assertEqual(0, lib.Dijkstra([], 1).dijkstra(0, 0))
+        self.assertEqual(1, lib.Dijkstra([(1, 0, 1)], 2).dijkstra(0, 1))
+        self.assertEqual(1, lib.Dijkstra([(1, 0, 1), (2, 0, 1)], 2).dijkstra(0, 1))
+        self.assertEqual(3, lib.Dijkstra([(1, 0, 1), (1, 1, 2), (3, 0, 2)], 3).dijkstra(0, 2))
+
+
 if __name__ == '__main__':
     unittest.main()
