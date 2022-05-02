@@ -38,6 +38,10 @@ class Kruskal(object):
         pass
 
     def kruskal(self, edges, n_vertex: int):
+        assert n_vertex >= 0
+        if n_vertex == 0:
+            return []
+            
         tree = []
         uf = UnionFind(n_vertex)
 
@@ -64,6 +68,10 @@ class Prim(object):
         * n_vertex: 頂点の数
         """
         import heapq
+
+        assert n_vertex >= 0
+        if n_vertex == 0:
+            return []
 
         n = len(edges)
         
