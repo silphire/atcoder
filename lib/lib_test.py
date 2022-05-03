@@ -30,6 +30,15 @@ class TestKruskal(unittest.TestCase):
         self.assertCountEqual([(1, 0, 1), (1, 0, 2)], lib.Kruskal().kruskal([(1, 0, 1), (1, 0, 2), (2, 0, 2)], 3))
 
 
+class TestPrim(unittest.TestCase):
+    def test_prim(self):
+        self.assertEqual([], lib.Prim().prim([], 0, 0))
+        self.assertEqual([], lib.Prim().prim([], 0, 1))
+        self.assertCountEqual([(1, 0, 1)], lib.Prim().prim([(1, 0, 1)], 0, 2))
+        self.assertCountEqual([(1, 0, 1)], lib.Prim().prim([(1, 0, 1), (1, 0, 1)], 0, 2))
+        self.assertCountEqual([(1, 0, 1), (1, 0, 2)], lib.Prim().prim([(1, 0, 1), (1, 0, 2)], 0, 3))
+        self.assertCountEqual([(1, 0, 1), (1, 0, 2)], lib.Prim().prim([(1, 0, 1), (1, 0, 2), (2, 0, 2)], 0, 3))
+
 class TestPrime(unittest.TestCase):
     def test_prime_sequence(self):
         self.assertRaises(AssertionError, lib.Prime().prime_sequence, 0)

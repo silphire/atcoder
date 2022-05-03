@@ -62,7 +62,8 @@ class Prim(object):
         pass
 
     def prim(self, edges, start: int, n_vertex: int):
-        """プリム法で最小全域木を求めます
+        """プリム法で最小全域木を求めます。
+           双方向を前提としています。
         * edges: [(cost, v1, v2)] (0 <= vn < n_vertex)
         * start: 適当に取る点
         * n_vertex: 頂点の数
@@ -86,7 +87,8 @@ class Prim(object):
         ]
         heapq.heapify(candidates)
         while remain > 0:
-            e = heapq.heappop(candidates)
+            w, i = heapq.heappop(candidates)
+            e = edges[i]
             if used[e[1]] and used[e[2]]:
                 continue
             tree.append(e)
@@ -94,9 +96,9 @@ class Prim(object):
                 if not used[e[i]]:
                     remain -= 1
                     used[e[i]] = True
-                    for ne in edges:
+                    for i, ne in enumerate(edges):
                         if not used[ne[1]] or not used[ne[2]]:
-                            heapq.heappush(candidates, ne)
+                            heapq.heappush(candidates, (ne[0], i))
 
         return tree
 
