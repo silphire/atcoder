@@ -149,20 +149,24 @@ class Dijkstra(object):
     * edges: [(weight, vertex_1, vertex_2)]
     """
 
-    def __init__(self, edges, n_vertex: int):
+    MIN = 1
+    MAX = -1
+
+    def __init__(self, edges, n_vertex: int, priority: int = MIN):
         from collections import defaultdict
 
         assert n_vertex > 0
 
         self.edges = edges
         self.n_vertex = n_vertex
+        self.priority = priority
 
         self.route = defaultdict(list)
 
         for e in edges:
             w, v1, v2 = e[:3]
-            self.route[v1].append((-w, v2))
-            self.route[v2].append((-w, v1))
+            self.route[v1].append((self.priority * w, v2))
+            self.route[v2].append((self.priority * w, v1))
 
     def dijkstra(self, start: int, goal = None):
         """ startで示す頂点からの最短経路を求める
@@ -187,13 +191,11 @@ class Dijkstra(object):
             visited[v] = True
 
             if goal is not None and v == goal:
-                return -w
+                return self.priority * w
 
             for wn, vn in self.route[v]:
                 if goal is None:
-                    distance[vn] = min(distance[vn], -(w + wn))
-                elif vn == goal:
-                    return -(w + wn)
+                    distance[vn] = min(distance[vn], self.priority * (w + wn))
                 heapq.heappush(q, (w + wn, vn))
 
         if goal is None:
