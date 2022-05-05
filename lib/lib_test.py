@@ -60,5 +60,10 @@ class TestDijkstra(unittest.TestCase):
         self.assertEqual(3, lib.Dijkstra([(1, 0, 1), (1, 1, 2), (3, 0, 2)], 3).dijkstra(0, 2))
 
 
+class TestMOD(unittest.TestCase):
+    def test_mod_comb(self):
+        self.assertEqual(0, lib.MOD(10 ** 9 + 7).comb(1, 1))
+
+
 if __name__ == '__main__':
     unittest.main()
