@@ -57,7 +57,7 @@ class TestDijkstra(unittest.TestCase):
         self.assertEqual(0, lib.Dijkstra([], 1).dijkstra(0, 0))
         self.assertEqual(1, lib.Dijkstra([(1, 0, 1)], 2).dijkstra(0, 1))
         self.assertEqual(1, lib.Dijkstra([(1, 0, 1), (2, 0, 1)], 2).dijkstra(0, 1))
-        self.assertEqual(3, lib.Dijkstra([(1, 0, 1), (1, 1, 2), (3, 0, 2)], 3).dijkstra(0, 2))
+        self.assertEqual(2, lib.Dijkstra([(1, 0, 1), (1, 1, 2), (3, 0, 2)], 3).dijkstra(0, 2))
 
 
 class TestMOD(unittest.TestCase):
