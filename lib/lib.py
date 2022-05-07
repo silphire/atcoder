@@ -342,6 +342,66 @@ class LCA(object):
         return self.cost_root[x] + self.cost_root[y] - 2 * self.cost_root[z]
 
 
+class ModInt(object):
+    def __init__(self, x: int, modulo: int):
+        self.__x = x
+        self.__modulo = modulo
+
+    def __modret(self, x: int):
+        return self.__class__(x % self.__modulo, self.__modulo)
+
+    def __int__(self):
+        return self.__x
+
+    def __float__(self):
+        return float(self.__x)
+
+    def modinv(a: int, p: int) -> int:
+        """ mod pとした時のaの逆元
+        """
+        b = p
+        u = 1
+        v = 0
+        while b > 0:
+            t = a // b
+
+            a -= t * b
+            a, b = b, a
+
+            u -= t * v
+            u, v = v, u
+
+        u %= p
+        if u < 0:
+            u += p
+        return u
+
+    def __add__(self, x: 'ModInt') -> 'ModInt':
+        return self.__modret(self.__x + int(x))
+
+    def __sub__(self, x: 'ModInt') -> 'ModInt':
+        y = self.__x - int(x)
+        while y < 0:
+            y += self.__modulo
+        return self.__modret(y)
+
+    def __mul__(self, x: 'ModInt') -> 'ModInt':
+        return self.__modret(self.__x * int(x))
+
+    def __truediv__(self, x: 'ModInt') -> 'ModInt':
+        return NotImplemented
+
+    def __floordiv__(self, x: 'ModInt') -> 'ModInt':
+        inv = self.__class__.modinv(int(x), self.__modulo)
+        return self.__modret(self.x * inv)
+
+    def __mod__(self, x: 'ModInt') -> 'ModInt':
+        return self.__modret(int(x))
+
+    def __pow__(self, x: 'ModInt') -> 'ModInt':
+        return self.__class__(pow(self.__x, int(x), self.__modulo), self.__modulo)
+
+
 class MOD(object):
     """ mod K 上の演算ライブラリ
     """
@@ -351,7 +411,7 @@ class MOD(object):
         self.fact = [1, 1]
         self.inv = [1, 1]
         self.finv = [0, 1]
-    
+
     def comb(self, n: int, k: int) -> int:
         """ nCk (組み合わせ) を求める
         """
