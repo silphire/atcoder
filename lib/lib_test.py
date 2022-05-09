@@ -62,7 +62,10 @@ class TestDijkstra(unittest.TestCase):
 
 class TestMOD(unittest.TestCase):
     def test_mod_comb(self):
-        self.assertEqual(0, lib.MOD(10 ** 9 + 7).comb(1, 1))
+        self.assertEqual(1, lib.MOD(10 ** 9 + 7).comb(1, 1))
+        self.assertEqual(2, lib.MOD(10 ** 9 + 7).comb(2, 1))
+        self.assertEqual(3, lib.MOD(10 ** 9 + 7).comb(3, 1))
+        self.assertEqual(3, lib.MOD(10 ** 9 + 7).comb(3, 2))
 
 
 if __name__ == '__main__':

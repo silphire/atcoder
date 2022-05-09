@@ -409,15 +409,15 @@ class MOD(object):
         self.modulo = modulo
         self.size = 2
         self.fact = [1, 1]
-        self.inv = [1, 1]
-        self.finv = [0, 1]
+        self.inv = [0, 1]
+        self.finv = [1, 1]
 
     def comb(self, n: int, k: int) -> int:
         """ nCk (組み合わせ) を求める
         """
         if n < k or n < 0 or k < 0:
             return 0
-        if self.size < n:
+        if self.size <= n:
             for i in range(self.size, n + 1):
                 self.fact.append(self.fact[-1] * i % self.modulo)
                 self.inv.append(self.modulo - self.inv[self.modulo % i] * (self.modulo // i) % self.modulo)
