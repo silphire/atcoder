@@ -66,6 +66,10 @@ class TestMOD(unittest.TestCase):
         self.assertEqual(2, lib.MOD(10 ** 9 + 7).comb(2, 1))
         self.assertEqual(3, lib.MOD(10 ** 9 + 7).comb(3, 1))
         self.assertEqual(3, lib.MOD(10 ** 9 + 7).comb(3, 2))
+    
+    def test_modinv(self):
+        self.assertEqual(1, lib.MOD.modinv(5, 2))
+        self.assertEqual(2, lib.MOD.modinv(5, 3))
 
 
 if __name__ == '__main__':
