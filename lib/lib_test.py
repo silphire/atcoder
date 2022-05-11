@@ -72,5 +72,11 @@ class TestMOD(unittest.TestCase):
         self.assertEqual(2, lib.MOD.modinv(5, 3))
 
 
+class TestModInt(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(lib.ModInt(11, 100), lib.ModInt(1, 100) + lib.ModInt(10, 100))
+        self.assertEqual(lib.ModInt(11, 100), lib.ModInt(1, 100) + lib.ModInt(10, 500))
+
+
 if __name__ == '__main__':
     unittest.main()
