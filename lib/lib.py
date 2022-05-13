@@ -358,6 +358,9 @@ class ModInt(object):
     
     def __eq__(self, x: 'ModInt') -> 'ModInt':
         return self.__x == x.__x
+    
+    def __repr__(self):
+        return f'ModInt<{self.__x} mod {self.__modulo}>'
 
     def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
