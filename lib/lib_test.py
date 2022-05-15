@@ -82,6 +82,10 @@ class TestModInt(unittest.TestCase):
         self.assertEqual(lib.ModInt(5, 100), lib.ModInt(15, 100) - lib.ModInt(10, 100))
         self.assertEqual(lib.ModInt(99, 100), lib.ModInt(1, 100) - lib.ModInt(2, 100))
 
+    def test_mul(self):
+        self.assertEqual(lib.ModInt(45, 100), lib.ModInt(5, 100) * lib.ModInt(9, 100))
+        self.assertEqual(lib.ModInt(35, 100), lib.ModInt(15, 100) * lib.ModInt(9, 100))
+
 
 if __name__ == '__main__':
     unittest.main()
