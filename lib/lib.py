@@ -399,7 +399,7 @@ class ModInt(object):
 
     def __floordiv__(self, x: 'ModInt') -> 'ModInt':
         inv = self.__class__.modinv(int(x), self.__modulo)
-        return self.__modret(self.x * inv)
+        return self.__modret(self.__x * inv)
 
     def __mod__(self, x: 'ModInt') -> 'ModInt':
         return self.__modret(int(x))

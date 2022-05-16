@@ -85,6 +85,10 @@ class TestModInt(unittest.TestCase):
     def test_mul(self):
         self.assertEqual(lib.ModInt(45, 100), lib.ModInt(5, 100) * lib.ModInt(9, 100))
         self.assertEqual(lib.ModInt(35, 100), lib.ModInt(15, 100) * lib.ModInt(9, 100))
+    
+    def test_floordiv(self):
+        self.assertEqual(lib.ModInt(5, 100), lib.ModInt(45, 100) // lib.ModInt(9, 100))
+        self.assertEqual(lib.ModInt(10, 100), lib.ModInt(2, 100) * lib.ModInt(5, 100))   # 2 // 5 => 10, 5 * 2 = 10
 
 
 if __name__ == '__main__':
