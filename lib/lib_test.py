@@ -89,6 +89,10 @@ class TestModInt(unittest.TestCase):
     def test_floordiv(self):
         self.assertEqual(lib.ModInt(5, 100), lib.ModInt(45, 100) // lib.ModInt(9, 100))
         self.assertEqual(lib.ModInt(10, 100), lib.ModInt(2, 100) * lib.ModInt(5, 100))   # 2 // 5 => 10, 5 * 2 = 10
+    
+    def test_pow(self):
+        self.assertEqual(lib.ModInt(64, 100), lib.ModInt(2, 100) ** lib.ModInt(6, 100))
+        self.assertEqual(lib.ModInt(28, 100), lib.ModInt(2, 100) ** lib.ModInt(7, 100))
 
 
 if __name__ == '__main__':
