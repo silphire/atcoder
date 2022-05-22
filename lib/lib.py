@@ -398,6 +398,9 @@ class ModInt(object):
         return NotImplemented
 
     def __floordiv__(self, x: 'ModInt') -> 'ModInt':
+        if x.__x == 0:
+            raise ZeroDivisionError
+
         inv = self.__class__.modinv(int(x), self.__modulo)
         return self.__modret(self.__x * inv)
 
