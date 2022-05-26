@@ -8,23 +8,19 @@ if k == 1:
     print('Infinity')
     exit()
 
-vis = set()
+f = [[False] * n for _ in range(n)]
 ans = 0
 for i in range(n):
     for j in range(i + 1, n):
-        if (i, j) in vis:
+        if f[i][j]:
             continue
-        c = 2
         s = {i, j}
         for z in range(j + 1, n):
-            if (xx[j] - xx[i]) * (yy[z] - xx[i]) == (xx[z] - xx[i]) * (yy[j] - yy[i]):
-                c += 1
+            if (xx[j] - xx[i]) * (yy[z] - yy[i]) == (xx[z] - xx[i]) * (yy[j] - yy[i]):
                 s.add(z)
         for a in s:
             for b in s:
-                if a != b:
-                    vis.add((a, b))
-                    vis.add((b, a))
-        if c >= k:
+                f[a][b] = f[b][a] = True
+        if len(s) >= k:
             ans += 1
 print(ans)
