@@ -510,7 +510,8 @@ class Geometry(object):
 # 累積和。左右を操作するやつとか。
 # Grundy数
 # BITの区間更新
-# そもそもBIT本体
+# 強連結成分分解 (scc ... Strongly Connected Components)
+#   topological sort
 
 if __name__ == '__main__':
     pass
