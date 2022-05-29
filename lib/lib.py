@@ -504,14 +504,19 @@ class Geometry(object):
 
     # 点の線分上での存在判定
 
+""" 強連結成分分解
+    (Strongly Connected Components)
+"""
+class SCC(object):
+    def scc(self, edges):
+        pass
+
 
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
 # Grundy数
 # BITの区間更新
-# 強連結成分分解 (scc ... Strongly Connected Components)
-#   topological sort
 
 if __name__ == '__main__':
     pass
