@@ -508,8 +508,37 @@ class Geometry(object):
     (Strongly Connected Components)
 """
 class SCC(object):
-    def scc(self, edges):
-        pass
+    def scc(self, edges, n_vertex):
+        """ edges: [(v11, v12), (v21, v22), ...]
+        """
+        from collections import defaultdict
+
+        gf = defaultdict(set)
+        gb = defaultdict(set)
+        for v1, v2 in edges:
+            gf[v1].add(v2)
+            gb[v2].add(v1)
+
+        indexes = [None] * n_vertex
+        x = 0
+        def dfs_f(v):
+            for nv in gf[v]:
+                dfs_f(nv)
+            indexes[x] = v
+            x += 1
+        dfs_f(0)
+
+        group = [None] * n_vertex
+        x = 0
+        def dfs_b(v):
+            group[v] = x
+            for nv in gb[v]:
+                dfs_b(nv)
+        for i in reversed(indexes):
+            dfs_b(i)
+            x += 1
+        
+        return indexes, group
 
 
 # scipy.special.comb(n, r)
