@@ -1,3 +1,4 @@
+from re import L
 import unittest
 import lib
 
@@ -97,6 +98,13 @@ class TestModInt(unittest.TestCase):
     def test_int(self):
         self.assertEqual(1, int(lib.ModInt(1, 100)))
 
+
+class TestSCC(unittest.TestCase):
+    def test_scc(self):
+        scc = lib.SCC()
+        expected = [(0, 1, 2), (3, 4), (5,), (6,)]
+        actual = scc.scc([(0, 1), (1, 2), (2, 0), (2, 3), (3, 4), (4, 3), (4, 5), (4, 6)], 7)
+        self.assertEqual(expected, actual)
 
 if __name__ == '__main__':
     unittest.main()

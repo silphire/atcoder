@@ -520,8 +520,14 @@ class SCC(object):
             gb[v2].add(v1)
 
         indexes = [None] * n_vertex
+        visited = set()
         x = 0
         def dfs_f(v):
+            nonlocal x, visited, indexes, gf
+
+            if v in visited:
+                return
+            visited.add(v)
             for nv in gf[v]:
                 dfs_f(nv)
             indexes[x] = v
@@ -531,6 +537,10 @@ class SCC(object):
         group = [None] * n_vertex
         x = 0
         def dfs_b(v):
+            nonlocal x, group, gb
+
+            if group[v] is not None:
+                return
             group[v] = x
             for nv in gb[v]:
                 dfs_b(nv)
@@ -538,7 +548,11 @@ class SCC(object):
             dfs_b(i)
             x += 1
         
-        return indexes, group
+        components = defaultdict(list)
+        for i, g in enumerate(group):
+            components[g].append(i)
+        
+        return [tuple(c) for g, c in components.items()]
 
 
 # scipy.special.comb(n, r)
