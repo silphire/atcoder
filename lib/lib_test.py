@@ -106,5 +106,23 @@ class TestSCC(unittest.TestCase):
         actual = scc.scc([(0, 1), (1, 2), (2, 0), (2, 3), (3, 4), (4, 3), (4, 5), (4, 6)], 7)
         self.assertEqual(expected, actual)
 
+
+class TestLIS(unittest.TestCase):
+    def test_lis(self):
+        lis = lib.LIS()
+
+        expected = 5
+        actual = lis.lis((1, 2, 1, 5, 9, 3, 10, 2))
+        self.assertEqual(expected, actual)
+
+        expected = 1
+        actual = lis.lis((5, 4, 3, 2, 1))
+        self.assertEqual(expected, actual)
+
+        expected = 1
+        actual = lis.lis((1, 1, 1, 1, 1))
+        self.assertEqual(expected, actual)
+
+
 if __name__ == '__main__':
     unittest.main()
