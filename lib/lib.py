@@ -561,9 +561,7 @@ class LIS(object):
         pass
 
     def lis(self, xs):
-        """ return: (pos, len)
-                    pos: LISの位置
-                    len: LISの長さ
+        """ return: LISの長さ
         """
         n = len(xs)
         if n == 0:
