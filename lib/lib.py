@@ -580,6 +580,20 @@ class LIS(object):
         return len(dp)
 
 
+""" 約数列挙
+"""
+def divisors(n: int):
+    divs_first = []
+    divs_second = []
+    for x in range(2, n ** 0.5 + 1):
+        if n % x == 0:
+            divs_first.append(x)
+            if x * x != n:
+                divs_second.append(n // x)
+    divs_first.extend(reversed(divs_second))
+    return divs_first
+
+
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
