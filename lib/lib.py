@@ -583,7 +583,7 @@ class LIS(object):
 def divisors(n: int):
     divs_first = []
     divs_second = []
-    for x in range(2, n ** 0.5 + 1):
+    for x in range(1, n ** 0.5 + 1):
         if n % x == 0:
             divs_first.append(x)
             if x * x != n:
