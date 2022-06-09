@@ -11,14 +11,11 @@ struct obj {
         kind = kind_;
     }
     bool operator<(const obj& t) const {
-        if(h == t.h) return kind < t.kind;
-        return h < t.h;
+        if(h == t.h) return kind > t.kind;
+        return h > t.h;
     }
     bool operator==(const obj& t) const {
         return h == t.h && w == t.w && kind == t.kind;
-    }
-    bool operator>(const obj& t) const {
-        return !(*this < t) && !(*this == t);
     }
 };
 
@@ -27,7 +24,7 @@ int main(void) {
     
     int n, m;
     cin >> n >> m;
-    
+
     vector<int> a(n), b(n), c(m), d(m);
     for(i = 0; i < n; i++) cin >> a[i];
     for(i = 0; i < n; i++) cin >> b[i];
@@ -35,13 +32,13 @@ int main(void) {
     for(i = 0; i < m; i++) cin >> d[i];
 
     vector<obj> objs(m + n);
-    for(i = 0; i < n; i++) objs[i] = obj(a[i], b[i], 1);
-    for(i = 0; i < m; i++) objs[n + i] = obj(c[i], d[i], 0);
-    sort(objs.begin(), objs.end(), std::greater<obj>());
+    for(i = 0; i < n; i++) objs[i] = obj(b[i], a[i], 0);
+    for(i = 0; i < m; i++) objs[n + i] = obj(d[i], c[i], 1);
+    sort(objs.begin(), objs.end());
 
     multiset<int> s;
     for(auto it : objs) {
-        if(it.kind == 0) {
+        if(it.kind == 1) {
             s.insert(it.w);
         } else {
             auto jt = s.lower_bound(it.w);
