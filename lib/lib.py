@@ -597,6 +597,7 @@ def divisors(n: int):
 # 累積和。左右を操作するやつとか。
 # Grundy数
 # BITの区間更新
+# multiset, ordered set
 
 if __name__ == '__main__':
     pass
