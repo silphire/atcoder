@@ -1,35 +1,29 @@
-import sys
-sys.setrecursionlimit(10000)
+from collections import deque
 
 n, q = map(int, input().split())
-gr = [set() for _ in range(n)]
-
-visited = [False] * n
-def check(x, y):
-    if visited[x]:
-        return False
-    visited[x] = True
-    for z in gr[x]:
-        if z == y:
-            return True
-        if check(z, y):
-            return True
-    return False
+gr = [[False] * n for _ in range(n)]
 
 for i in range(q):
     x, u, v = map(int, input().split())
     u -= 1
     v -= 1
     if x == 1:
-        if v in gr[u]:
-            gr[u].remove(v)
-            gr[v].remove(u)
-        else:
-            gr[u].add(v)
-            gr[v].add(u)
+        gr[u][v] = not gr[u][v]
+        gr[v][u] = not gr[v][u]
     else:
         visited = [False] * n
-        if check(u, v):
+        q = deque([u])
+        f = False
+        while q:
+            a = q.popleft()
+            if a == v:
+                f = True
+                break
+            visited[a] = True
+            for b in range(n):
+                if gr[a][b] and not visited[b]:
+                    q.append(b)
+        if f:
             print('Yes')
         else:
             print('No')
