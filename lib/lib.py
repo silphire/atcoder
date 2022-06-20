@@ -592,6 +592,13 @@ def divisors(n: int):
     return divs_first
 
 
+""" AVL木
+"""
+class Tree(object):
+    def __init__(self) -> None:
+        self.children = [ None, None ]
+
+
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
