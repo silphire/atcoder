@@ -599,6 +599,17 @@ class Tree(object):
         self.children = [ None, None ]
 
 
+class MultiSet(object):
+    def __init__(self) -> None:
+        pass
+
+    def lower_bound(x):
+        pass
+
+    def upper_bound(x):
+        pass
+
+
 # scipy.special.comb(n, r)
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
