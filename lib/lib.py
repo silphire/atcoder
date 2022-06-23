@@ -603,10 +603,13 @@ class MultiSet(object):
     def __init__(self) -> None:
         pass
 
-    def lower_bound(x):
+    def add(self, x):
         pass
 
-    def upper_bound(x):
+    def lower_bound(self, x):
+        pass
+
+    def upper_bound(self, x):
         pass
 
 
