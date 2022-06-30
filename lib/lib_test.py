@@ -123,5 +123,10 @@ class TestLIS(unittest.TestCase):
         self.assertEqual(expected, actual)
 
 
+class TestLCA(unittest.TestCase):
+    def test_empty(self):
+        self.assertRaises(AssertionError, lib.LCA, 0)
+
+
 if __name__ == '__main__':
     unittest.main()
