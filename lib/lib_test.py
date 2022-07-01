@@ -127,6 +127,25 @@ class TestLCA(unittest.TestCase):
     def test_empty(self):
         self.assertRaises(AssertionError, lib.LCA, 0)
 
+    def test_lca(self):
+        pass
+
+    def test_dist(self):
+        tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
+        lca = lib.LCA(7)
+        for x, y in tree:
+            lca.add_edge(x, y, 1)
+        lca.init()
+
+        self.assertEqual(0, lca.dist(0, 0))
+        self.assertEqual(1, lca.dist(0, 1))
+        self.assertEqual(2, lca.dist(0, 3))
+        self.assertEqual(4, lca.dist(4, 6))
+        self.assertRaises(AssertionError, lca.dist, 1, 7)
+
+    def test_cost(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
