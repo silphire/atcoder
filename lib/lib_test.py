@@ -128,7 +128,19 @@ class TestLCA(unittest.TestCase):
         self.assertRaises(AssertionError, lib.LCA, 0)
 
     def test_lca(self):
-        pass
+        tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
+        lca = lib.LCA(7)
+        for x, y in tree:
+            lca.add_edge(x, y, 1)
+        lca.init()
+
+        self.assertEqual(0, lca.lca(0, 0))
+        self.assertEqual(0, lca.lca(0, 1))
+        self.assertEqual(0, lca.lca(0, 3))
+        self.assertEqual(0, lca.lca(4, 6))
+        self.assertEqual(1, lca.lca(3, 4))
+        self.assertEqual(0, lca.lca(2, 4))
+        self.assertRaises(AssertionError, lca.dist, 1, 7)
 
     def test_dist(self):
         tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
