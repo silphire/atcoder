@@ -156,7 +156,17 @@ class TestLCA(unittest.TestCase):
         self.assertRaises(AssertionError, lca.dist, 1, 7)
 
     def test_cost(self):
-        pass
+        tree = [(0, 1, 1), (0, 2, 2), (1, 3, 3), (1, 4, 4), (2, 5, 5), (2, 6, 6)]
+        lca = lib.LCA(7)
+        for t in tree:
+            lca.add_edge(*t)
+        lca.init()
+
+        self.assertEqual(0, lca.cost(0, 0))
+        self.assertEqual(1, lca.cost(0, 1))
+        self.assertEqual(4, lca.cost(0, 3))
+        self.assertEqual(13, lca.cost(4, 6))
+        self.assertRaises(AssertionError, lca.dist, 1, 7)
 
 
 if __name__ == '__main__':
