@@ -169,5 +169,13 @@ class TestLCA(unittest.TestCase):
         self.assertRaises(AssertionError, lca.dist, 1, 7)
 
 
+class TestMath(unittest.TestCase):
+    def test_divisors(self):
+        self.assertEqual([1], lib.divisors(1))
+        self.assertEqual([1, 2], lib.divisors(2))
+        self.assertEqual([1, 2, 3, 6], lib.divisors(6))
+        self.assertEqual([1, 7], lib.divisors(7))
+
+
 if __name__ == '__main__':
     unittest.main()
