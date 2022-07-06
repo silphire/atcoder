@@ -177,5 +177,21 @@ class TestMath(unittest.TestCase):
         self.assertEqual([1, 7], lib.divisors(7))
 
 
+class TestFenwickTree(unittest.TestCase):
+    def test_bit(self):
+        bit = lib.BinaryIndexedTree(5)
+
+        bit.add(1, 10)
+        self.assertRaises(AssertionError, bit.sum, 9)
+        self.assertEqual(10, bit.sum(1))
+        self.assertEqual(10, bit.sum(2))
+        self.assertEqual(10, bit.sum(3))
+
+        bit.add(2, 20)
+        self.assertEqual(10, bit.sum(1))
+        self.assertEqual(30, bit.sum(2))
+        self.assertEqual(30, bit.sum(3))
+
+
 if __name__ == '__main__':
     unittest.main()
