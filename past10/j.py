@@ -45,7 +45,7 @@ class MOD(object):
 
 
 n, k = map(int, input().split())
-aa = list(map(int, input().split()))
+aa = list(sorted(map(int, input().split())))
 
 if k == 1:
     print(0)
