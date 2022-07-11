@@ -614,7 +614,13 @@ class MultiSet(object):
         pass
 
 
-# scipy.special.comb(n, r)
+def cumsum(a):
+    """
+    累積和
+    """
+    pass
+
+
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
 # Grundy数
