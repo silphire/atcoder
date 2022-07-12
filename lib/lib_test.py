@@ -193,5 +193,10 @@ class TestFenwickTree(unittest.TestCase):
         self.assertEqual(30, bit.sum(3))
 
 
+class TestCumsum(unittest.TestCase):
+    def test_cumsum(self):
+        self.assertEqual([1, 3, 6, 10], lib.cumsum([1, 2, 3, 4]))
+
+
 if __name__ == '__main__':
     unittest.main()

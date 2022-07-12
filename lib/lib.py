@@ -614,11 +614,15 @@ class MultiSet(object):
         pass
 
 
-def cumsum(a):
+def cumsum(arr):
     """
     累積和
     """
-    pass
+    n = len(arr)
+    cs = [0] * n
+    for i in range(n):
+        cs[i] = arr[i] + (cs[i - 1] if i > 0 else 0)
+    return cs
 
 
 # パスカルの三角形の計算
