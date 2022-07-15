@@ -503,6 +503,9 @@ class Geometry(object):
 
 
     # 点の線分上での存在判定
+    def is_on_segment(x1: int, y1: int, x2: int, y2: int, px: int, py: int) -> bool:
+        return (x1 <= px <= x2 or x2 <= px <= x1) and (y1 <= py <= y2 or y2 <= py <= y1) and (py * (x1 - x2) + y1 * (x2 - px) + y2 * (px - x1) == 0)
+
 
 """ 強連結成分分解
     (Strongly Connected Components)
