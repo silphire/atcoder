@@ -616,6 +616,9 @@ class MultiSet(object):
     def upper_bound(self, x):
         pass
 
+    def has(self, x) -> bool:
+        return False
+
 
 def cumsum(arr):
     """
