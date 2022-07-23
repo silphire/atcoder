@@ -54,6 +54,7 @@ class TestPrime(unittest.TestCase):
 
 class TestDijkstra(unittest.TestCase):
     def test_dijkstra(self):
+        self.assertRaises(AssertionError, lib.Dijkstra, [], 0)
         self.assertEqual(0, lib.Dijkstra([], 1).dijkstra(0, 0))
         self.assertEqual(1, lib.Dijkstra([(1, 0, 1)], 2).dijkstra(0, 1))
         self.assertEqual(1, lib.Dijkstra([(1, 0, 1), (2, 0, 1)], 2).dijkstra(0, 1))
@@ -126,6 +127,11 @@ class TestLIS(unittest.TestCase):
 class TestLCA(unittest.TestCase):
     def test_empty(self):
         self.assertRaises(AssertionError, lib.LCA, 0)
+    
+    def test_add_edge(self):
+        lca = lib.LCA(2)
+        self.assertRaises(AssertionError, lca.add_edge, 1, 3)
+        self.assertRaises(AssertionError, lca.add_edge, 3, 1)
 
     def test_lca(self):
         tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
@@ -141,6 +147,7 @@ class TestLCA(unittest.TestCase):
         self.assertEqual(1, lca.lca(3, 4))
         self.assertEqual(0, lca.lca(2, 4))
         self.assertRaises(AssertionError, lca.dist, 1, 7)
+        self.assertRaises(AssertionError, lca.dist, 7, 1)
 
     def test_dist(self):
         tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
