@@ -198,6 +198,12 @@ class TestFenwickTree(unittest.TestCase):
         self.assertEqual(10, bit.sum(1))
         self.assertEqual(30, bit.sum(2))
         self.assertEqual(30, bit.sum(3))
+    
+    def test_inversion_number(self):
+        self.assertEqual(0, lib.inversion_number([]))
+        self.assertEqual(0, lib.inversion_number([1, 2, 3]))
+        self.assertEqual(1, lib.inversion_number([1, 2, 4, 3]))
+        self.assertEqual(2, lib.inversion_number([3, 1, 2, 4]))
 
 
 class TestCumsum(unittest.TestCase):

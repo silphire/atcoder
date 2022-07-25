@@ -247,6 +247,20 @@ class BinaryIndexedTree(object):
         return ans
 
 
+def inversion_number(arr):
+    """
+    転倒数
+    arr: [1, ..., n] が入っているリスト
+    """
+    n = len(arr)
+    bit = BinaryIndexedTree(n + 1)
+    r = 0
+    for i, a in enumerate(arr):
+        r += i - bit.sum(a)
+        bit.add(a, 1)
+    return r
+
+
 class LCA(object):
     """
     Lowest Common Ancestor
