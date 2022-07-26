@@ -651,7 +651,6 @@ def cumsum(arr):
 # BITの区間更新
 # multiset, ordered set
 # AVL木
-# 転倒数 (BIT)
 
 if __name__ == '__main__':
     pass
