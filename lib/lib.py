@@ -247,6 +247,30 @@ class BinaryIndexedTree(object):
         return ans
 
 
+class RangeBinaryIndexedTree(object):
+    """
+    Fenwick Tree with multiple addition
+    """
+    def __init__(self, size: int):
+        self.size = size + 1
+        self.bit = [BinaryIndexedTree(size) for _ in range(2)]
+    
+    def add(self, l: int, r: int, val: int) -> None:
+        assert 0 < l <= self.size
+        assert 0 < r <= self.size
+        assert l <= r
+
+        self.bit[0].add(l, -val * (l - 1))
+        self.bit[0].add(r, val * (r - 1))
+        self.bit[1].add(l, val)
+        self.bit[1].add(r, -val)
+    
+    def sum(self, pos: int) -> int:
+        assert 0 < pos <= self.size
+
+        return self.bit[0].sum(pos) + self.bit[1].sum(pos) * pos
+
+
 def inversion_number(arr):
     """
     転倒数
