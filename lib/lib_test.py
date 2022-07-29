@@ -184,7 +184,7 @@ class TestMath(unittest.TestCase):
         self.assertEqual([1, 7], lib.divisors(7))
 
 
-class TestFenwickTree(unittest.TestCase):
+class TestBinaryIndexedTree(unittest.TestCase):
     def test_bit(self):
         bit = lib.BinaryIndexedTree(5)
 
@@ -204,6 +204,23 @@ class TestFenwickTree(unittest.TestCase):
         self.assertEqual(0, lib.inversion_number([1, 2, 3]))
         self.assertEqual(1, lib.inversion_number([1, 2, 4, 3]))
         self.assertEqual(2, lib.inversion_number([3, 1, 2, 4]))
+
+
+class TestRangeBinaryIndexedTree(unittest.TestCase):
+    def test_bit(self):
+        bit = lib.RangeBinaryIndexedTree(5)
+
+        bit.add(1, 2, 10)
+        self.assertRaises(AssertionError, bit.sum, 9)
+        self.assertEqual(10, bit.sum(1))
+        self.assertEqual(10, bit.sum(2))
+        self.assertEqual(10, bit.sum(3))
+
+        bit.add(2, 4, 20)
+        self.assertRaises(AssertionError, bit.sum, 9)
+        self.assertEqual(10, bit.sum(1))
+        self.assertEqual(30, bit.sum(2))
+        self.assertEqual(50, bit.sum(3))
 
 
 class TestCumsum(unittest.TestCase):
