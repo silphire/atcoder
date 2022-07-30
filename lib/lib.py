@@ -246,6 +246,13 @@ class BinaryIndexedTree(object):
             p -= p & -p
         return ans
 
+    def sum_range(self, l: int, r: int) -> int:
+        assert 0 < l <= self.size
+        assert 0 < r <= self.size
+        assert l < r
+
+        return self.sum(r - 1) - self.sum(l - 1)
+
 
 class RangeBinaryIndexedTree(object):
     """
