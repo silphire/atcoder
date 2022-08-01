@@ -277,6 +277,13 @@ class RangeBinaryIndexedTree(object):
 
         return self.bit[0].sum(pos) + self.bit[1].sum(pos) * pos
 
+    def sum_range(self, l: int, r: int) -> int:
+        assert 0 < l <= self.size
+        assert 0 < r <= self.size
+        assert l < r
+
+        return self.sum(r - 1) - self.sum(l - 1)
+
 
 def inversion_number(arr):
     """
