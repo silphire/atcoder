@@ -216,6 +216,7 @@ class TestRangeBinaryIndexedTree(unittest.TestCase):
         self.assertEqual(10, bit.sum(1))
         self.assertEqual(10, bit.sum(2))
         self.assertEqual(10, bit.sum(3))
+        self.assertRaises(AssertionError, bit.sum_range, 1, 1)
 
         bit.add(2, 4, 20)
         self.assertRaises(AssertionError, bit.sum, 9)
