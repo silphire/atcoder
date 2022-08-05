@@ -189,16 +189,25 @@ class TestBinaryIndexedTree(unittest.TestCase):
         bit = lib.BinaryIndexedTree(5)
 
         bit.add(1, 10)
+        self.assertRaises(AssertionError, bit.sum, -1)
         self.assertRaises(AssertionError, bit.sum, 9)
+        self.assertEqual(0, bit.sum(0))
         self.assertEqual(10, bit.sum(1))
         self.assertEqual(10, bit.sum(2))
         self.assertEqual(10, bit.sum(3))
+
         self.assertRaises(AssertionError, bit.sum_range, 1, 1)
+        self.assertEqual(10, bit.sum_range(1, 4))
+        self.assertEqual(0, bit.sum_range(2, 4))
 
         bit.add(2, 20)
         self.assertEqual(10, bit.sum(1))
         self.assertEqual(30, bit.sum(2))
         self.assertEqual(30, bit.sum(3))
+
+        self.assertEqual(10, bit.sum_range(1, 2))
+        self.assertEqual(30, bit.sum_range(1, 3))
+        self.assertEqual(20, bit.sum_range(2, 4))
     
     def test_inversion_number(self):
         self.assertEqual(0, lib.inversion_number([]))

@@ -237,7 +237,7 @@ class BinaryIndexedTree(object):
             p += p & -p
 
     def sum(self, pos: int) -> int:
-        assert 0 < pos <= self.size
+        assert 0 <= pos <= self.size
 
         ans = 0
         p = pos
