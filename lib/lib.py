@@ -225,6 +225,7 @@ class BinaryIndexedTree(object):
     Fenwick Tree
     """
     def __init__(self, size: int):
+        assert size > 0
         self.size = size + 1
         self.arr = [0] * self.size
 

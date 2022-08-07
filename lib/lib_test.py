@@ -186,6 +186,7 @@ class TestMath(unittest.TestCase):
 
 class TestBinaryIndexedTree(unittest.TestCase):
     def test_bit(self):
+        self.assertRaises(AssertionError, lib.BinaryIndexedTree, 0)
         bit = lib.BinaryIndexedTree(5)
 
         bit.add(1, 10)
