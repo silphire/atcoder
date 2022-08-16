@@ -3,6 +3,8 @@ class UnionFind(object):
     Union-Find (Disjoint Set Union)
     """
     def __init__(self, n: int):
+        assert n > 0
+        
         self.parent = [x for x in range(n)]
         self.size = [1] * n
 
