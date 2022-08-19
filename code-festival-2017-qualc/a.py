@@ -1,0 +1,1 @@
+print(['No','Yes'][int('AC' in input())])
