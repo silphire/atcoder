@@ -690,7 +690,7 @@ def cumsum(arr):
 # 累積和。左右を操作するやつとか。
 # Grundy数
 # BITの区間更新
-# multiset, ordered set
+# multiset, ordered set, 標準的な物があるなら
 # AVL木
 
 if __name__ == '__main__':
