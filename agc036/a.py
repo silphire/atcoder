@@ -1,5 +1,7 @@
 s = int(input())
+
 p = 10 ** 9
-x1y2 - x2y1 = s
-x1 - x2 = s
-print(*[0, 0, 10 ** 9, 1, s // p, s % p])
+x = (p - s % p) % p
+y = (s + x) // p
+
+print(*[0, 0, 10 ** 9, 1, x, y])
