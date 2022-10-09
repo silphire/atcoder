@@ -115,6 +115,10 @@ class TestLIS(unittest.TestCase):
     def test_lis(self):
         lis = lib.LIS()
 
+        expected = 0
+        actual = lis.lis(())
+        self.assertEqual(expected, actual)
+
         expected = 5
         actual = lis.lis((1, 2, 1, 5, 9, 3, 10, 2))
         self.assertEqual(expected, actual)
