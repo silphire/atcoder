@@ -686,6 +686,25 @@ def cumsum(arr):
     return cs
 
 
+def next_permutation(arr):
+    n = len(arr)
+    for i in range(n - 2, -1, -1):
+        if arr[i] < arr[i + 1]:
+            break
+    for j in range(n - 1, -1, -1):
+        if arr[j] > arr[i]:
+            break
+    arr[i], arr[j] = arr[j], arr[i]
+
+    i = i + 1
+    j = n - 1
+    while i < j:
+        arr[i], arr[j] = arr[j], arr[i]
+        i += 1
+        j -= 1
+        
+    return arr
+
 # パスカルの三角形の計算
 # 累積和。左右を操作するやつとか。
 # Grundy数
