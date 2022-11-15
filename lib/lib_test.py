@@ -251,5 +251,15 @@ class TestCumsum(unittest.TestCase):
         self.assertEqual([-1, -1, 0, -1], lib.cumsum([-1, 0, 1, -1]))
 
 
+class TestPermutation(unittest.TestCase):
+    def test_cumsum(self):
+        a = [1, 2, 3]
+        self.assertEqual([1, 3, 2], lib.next_permutation(a))
+        self.assertEqual([2, 1, 3], lib.next_permutation(a))
+        self.assertEqual([2, 3, 1], lib.next_permutation(a))
+        self.assertEqual([3, 1, 2], lib.next_permutation(a))
+        self.assertEqual([3, 2, 1], lib.next_permutation(a))
+
+
 if __name__ == '__main__':
     unittest.main()
