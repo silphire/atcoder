@@ -705,13 +705,27 @@ def next_permutation(arr):
         
     return arr
 
+
+def prev_permutation(arr):
+    n = len(arr)
+    for i in range(n - 2, -1, -1):
+        if arr[i] > arr[i + 1]:
+            break
+    i = i + 1
+    j = n - 1
+    while i < j:
+        arr[i], arr[j] = arr[j], arr[i]
+        i += 1
+        j -= 1
+
+    return arr
+
+
 # パスカルの三角形の計算
-# 累積和。左右を操作するやつとか。
 # Grundy数
 # BITの区間更新
 # multiset, ordered set, 標準的な物があるなら
 # AVL木
-# prev_permutation, next_permutation
 
 if __name__ == '__main__':
     pass
