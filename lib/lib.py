@@ -711,6 +711,11 @@ def prev_permutation(arr):
     for i in range(n - 2, -1, -1):
         if arr[i] > arr[i + 1]:
             break
+    for j in range(n - 1, -1, -1):
+        if arr[j] < arr[i]:
+            break
+    arr[i], arr[j] = arr[j], arr[i]
+    
     i = i + 1
     j = n - 1
     while i < j:
