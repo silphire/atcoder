@@ -260,7 +260,7 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual([3, 1, 2], lib.next_permutation(a))
         self.assertEqual([3, 2, 1], lib.next_permutation(a))
         self.assertEqual([1, 2, 3], lib.next_permutation(a))
-
+    
     def test_prev_permutation(self):
         a = [3, 2, 1]
         self.assertEqual([3, 1, 2], lib.prev_permutation(a))
@@ -269,6 +269,14 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual([1, 3, 2], lib.prev_permutation(a))
         self.assertEqual([1, 2, 3], lib.prev_permutation(a))
         self.assertEqual([3, 2, 1], lib.prev_permutation(a))
+
+    def test_empty_list_permutation(self):
+        self.assertEqual([], lib.next_permutation([]))
+        self.assertEqual([], lib.prev_permutation([]))
+
+    def test_single_element_permutation(self):
+        self.assertEqual([1], lib.next_permutation([1]))
+        self.assertEqual([1], lib.prev_permutation([1]))
 
 
 if __name__ == '__main__':

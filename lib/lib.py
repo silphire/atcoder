@@ -688,6 +688,9 @@ def cumsum(arr):
 
 def next_permutation(arr):
     n = len(arr)
+    if n <= 1:
+        return arr
+
     for i in range(n - 2, -1, -1):
         if arr[i] < arr[i + 1]:
             break
@@ -712,6 +715,9 @@ def next_permutation(arr):
 
 def prev_permutation(arr):
     n = len(arr)
+    if n <= 1:
+        return arr
+        
     for i in range(n - 2, -1, -1):
         if arr[i] > arr[i + 1]:
             break
