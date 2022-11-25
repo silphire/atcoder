@@ -218,8 +218,18 @@ class SegmentTree(object):
     """
     セグメント木
     """
-    def __init__(self):
+    def __init__(self, n, e, op):
+        self.n = n
+        self.e = e
+        self.op = op
+        self.buf = [e] * n
+    
+    def update(self, i, x):
         pass
+
+    def get(self, p, q):
+        pass
+
 
 
 class BinaryIndexedTree(object):
