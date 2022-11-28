@@ -16,17 +16,18 @@ class UnionFind(object):
     def is_same(self, x: int, y: int) -> bool:
         return self.root(x) == self.root(y)
 
-    def unite(self, x:int, y: int) -> None:
+    def unite(self, x:int, y: int) -> int:
         rx = self.root(x)
         ry = self.root(y)
         if rx == ry:
-            return
+            return rx
 
         if self.size[rx] < self.size[ry]:
             rx, ry = ry, rx
 
         self.parent[ry] = rx
         self.size[rx] += self.size[ry]
+        return rx
     
     def get_size(self, x: int) -> int:
         return self.size[self.root(x)]
