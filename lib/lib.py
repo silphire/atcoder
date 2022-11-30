@@ -219,13 +219,25 @@ class SegmentTree(object):
     """
     セグメント木
     """
-    def __init__(self, n, e, op):
+    def __init__(self, arr, e, op):
+        n = len(arr)
+        self.p2 = 1 << n.bit_length()
+        if self.p2 < n:
+            self.p2 += 1
+
         self.n = n
         self.e = e
         self.op = op
-        self.buf = [e] * n
+
+        self.buf = [e] * (self.p2 * 2)
+        for i in range(n):
+            self.buf[self.p2 + i] = arr[i]
+        for i in range(self.p2 - 1, -1, -1):
+            self.buf[i] = op(self.buf[2 * i], self.buf[2 * i + 1])
     
     def update(self, i, x):
+        """ i の位置を x に置き換える
+        """
         pass
 
     def get(self, p, q):
