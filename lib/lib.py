@@ -235,7 +235,7 @@ class SegmentTree(object):
         for i in range(self.p2 - 1, -1, -1):
             self.buf[i] = op(self.buf[2 * i], self.buf[2 * i + 1])
     
-    def update(self, i, x):
+    def set(self, i, x):
         """ i の位置を x に置き換える
         """
         assert 0 <= i < self.n
@@ -247,7 +247,23 @@ class SegmentTree(object):
             i >>= 1
 
     def get(self, p, q):
-        pass
+        assert 0 <= p <= self.n
+        assert 0 <= q <= self.n
+
+        x = self.e
+
+        p += self.p2
+        q += self.p2
+        while p < q:
+            if p & 1:
+                x = self.op(x, self.buf[p])
+                p += 1
+            if q & 1:
+                x = self.op(x, self.buf[q - 1])
+            p >>= 1
+            q >>= 1
+
+        return x
 
 
 
