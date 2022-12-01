@@ -238,7 +238,13 @@ class SegmentTree(object):
     def update(self, i, x):
         """ i の位置を x に置き換える
         """
-        pass
+        assert 0 <= i < self.n
+
+        i += self.p2
+        self.buf[i] = x
+        while i > 1:
+            self.buf[i >> 1] = self.op(self.buf[i], self.buf[i ^ 1])
+            i >>= 1
 
     def get(self, p, q):
         pass
