@@ -279,5 +279,20 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual([1], lib.prev_permutation([1]))
 
 
+class TestSegtree(unittest.TestCase):
+    def test_init(self):
+        pass
+
+    def test_rmq(self):
+        st = lib.SegmentTree([1, 2, 3, 4], float('inf'), lambda x, y: min(x, y))
+        self.assertEqual(1, st.get(0, 4))
+        self.assertEqual(2, st.get(1, 4))
+        self.assertEqual(3, st.get(2, 4))
+        self.assertEqual(4, st.get(3, 4))
+
+        st.set(0, 10)
+        self.assertEqual(2, st.get(0, 4))
+
+
 if __name__ == '__main__':
     unittest.main()
