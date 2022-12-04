@@ -220,6 +220,11 @@ class SegmentTree(object):
     セグメント木
     """
     def __init__(self, arr, e, op):
+        """
+            arr: 初期値
+            e: 単位元
+            op: 二項演算
+        """
         n = len(arr)
         self.p2 = 1 << n.bit_length()
         if self.p2 < n:
@@ -249,6 +254,7 @@ class SegmentTree(object):
     def get(self, p, q):
         assert 0 <= p <= self.n
         assert 0 <= q <= self.n
+        assert p < q
 
         x = self.e
 
@@ -264,6 +270,16 @@ class SegmentTree(object):
             q >>= 1
 
         return x
+
+    def rmq(arr):
+        """ Range Minimum Query
+        """
+        return SegmentTree(arr, float('inf'), lambda x, y: min(x, y))
+
+    def raq(arr):
+        """ Range Add Query
+        """
+        return SegmentTree(arr, 0, lambda x, y: x + y)
 
 
 
@@ -791,6 +807,7 @@ def prev_permutation(arr):
 # multiset, ordered set, 標準的な物があるなら
 # AVL木
 # topological sort (bfs, dfs)
+# Kadane's algorithm
 
 if __name__ == '__main__':
     pass
