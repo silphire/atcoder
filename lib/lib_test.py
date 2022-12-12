@@ -293,6 +293,15 @@ class TestSegtree(unittest.TestCase):
         st.set(0, 10)
         self.assertEqual(2, st.get(0, 4))
 
+    def test_raq(self):
+        st = lib.SegmentTree([1, 2, 3, 4], 0, lambda x, y: x + y)
+        self.assertEqual(3, st.get(0, 2))
+        self.assertEqual(5, st.get(1, 3))
+        self.assertEqual(10, st.get(0, 4))
+
+        st.set(2, 10)
+        self.assertEqual(17, st.get(0, 4))
+
 
 if __name__ == '__main__':
     unittest.main()
