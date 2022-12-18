@@ -240,7 +240,7 @@ class SegmentTree(object):
         for i in range(self.p2 - 1, -1, -1):
             self.buf[i] = op(self.buf[2 * i], self.buf[2 * i + 1])
     
-    def set(self, i, x):
+    def set(self, i: int, x) -> None:
         """ i の位置を x に置き換える
         """
         assert 0 <= i < self.n
@@ -251,7 +251,7 @@ class SegmentTree(object):
             self.buf[i >> 1] = self.op(self.buf[i], self.buf[i ^ 1])
             i >>= 1
 
-    def get(self, p, q):
+    def get(self, p: int, q: int):
         assert 0 <= p <= self.n
         assert 0 <= q <= self.n
         assert p < q
