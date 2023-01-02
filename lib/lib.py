@@ -4,7 +4,7 @@ class UnionFind(object):
     """
     def __init__(self, n: int):
         assert n > 0
-        
+
         self.parent = [x for x in range(n)]
         self.size = [1] * n
 
@@ -16,7 +16,7 @@ class UnionFind(object):
     def is_same(self, x: int, y: int) -> bool:
         return self.root(x) == self.root(y)
 
-    def unite(self, x:int, y: int) -> int:
+    def unite(self, x: int, y: int) -> int:
         rx = self.root(x)
         ry = self.root(y)
         if rx == ry:
@@ -28,7 +28,7 @@ class UnionFind(object):
         self.parent[ry] = rx
         self.size[rx] += self.size[ry]
         return rx
-    
+
     def get_size(self, x: int) -> int:
         return self.size[self.root(x)]
 
@@ -44,7 +44,7 @@ class Kruskal(object):
         assert n_vertex >= 0
         if n_vertex == 0:
             return []
-            
+
         tree = []
         uf = UnionFind(n_vertex)
 
@@ -78,7 +78,7 @@ class Prim(object):
             return []
 
         n = len(edges)
-        
+
         used = [False] * n_vertex
         used[start] = True
         remain = n_vertex - 1
@@ -117,7 +117,7 @@ class Prime(object):
         """ nまでの素数
         """
         assert n > 0
-        
+
         primes = [True] * (n + 1)
         primes[0] = primes[1] = False
         upper_bound = int(n ** 0.5) + 1
@@ -171,7 +171,7 @@ class Dijkstra(object):
             self.route[v1].append((self.priority * w, v2))
             self.route[v2].append((self.priority * w, v1))
 
-    def dijkstra(self, start: int, goal = None):
+    def dijkstra(self, start: int, goal=None):
         """ startで示す頂点からの最短経路を求める
             goal = Noneの場合は全頂点の最短距離を、
             goalに頂点番号が指定された場合はgoalまでの最短経路のみ求める。
@@ -239,7 +239,7 @@ class SegmentTree(object):
             self.buf[self.p2 + i] = arr[i]
         for i in range(self.p2 - 1, -1, -1):
             self.buf[i] = op(self.buf[2 * i], self.buf[2 * i + 1])
-    
+
     def set(self, i: int, x) -> None:
         """ i の位置を x に置き換える
         """
@@ -282,7 +282,6 @@ class SegmentTree(object):
         return SegmentTree(arr, 0, lambda x, y: x + y)
 
 
-
 class BinaryIndexedTree(object):
     """
     Fenwick Tree
@@ -310,12 +309,12 @@ class BinaryIndexedTree(object):
             p -= p & -p
         return ans
 
-    def sum_range(self, l: int, r: int) -> int:
-        assert 0 < l <= self.size
-        assert 0 < r <= self.size
-        assert l < r
+    def sum_range(self, left: int, right: int) -> int:
+        assert 0 < left <= self.size
+        assert 0 < right <= self.size
+        assert left < right
 
-        return self.sum(r - 1) - self.sum(l - 1)
+        return self.sum(right - 1) - self.sum(left - 1)
 
 
 class RangeBinaryIndexedTree(object):
@@ -325,28 +324,28 @@ class RangeBinaryIndexedTree(object):
     def __init__(self, size: int):
         self.size = size + 1
         self.bit = [BinaryIndexedTree(size) for _ in range(2)]
-    
-    def add(self, l: int, r: int, val: int) -> None:
-        assert 0 < l <= self.size
-        assert 0 < r <= self.size
-        assert l <= r
 
-        self.bit[0].add(l, -val * (l - 1))
-        self.bit[0].add(r, val * (r - 1))
-        self.bit[1].add(l, val)
-        self.bit[1].add(r, -val)
-    
+    def add(self, left: int, right: int, val: int) -> None:
+        assert 0 < left <= self.size
+        assert 0 < right <= self.size
+        assert left <= right
+
+        self.bit[0].add(left, -val * (left - 1))
+        self.bit[0].add(right, val * (right - 1))
+        self.bit[1].add(left, val)
+        self.bit[1].add(right, -val)
+
     def sum(self, pos: int) -> int:
         assert 0 < pos <= self.size
 
         return self.bit[0].sum(pos) + self.bit[1].sum(pos) * pos
 
-    def sum_range(self, l: int, r: int) -> int:
-        assert 0 < l <= self.size
-        assert 0 < r <= self.size
-        assert l < r
+    def sum_range(self, left: int, right: int) -> int:
+        assert 0 < left <= self.size
+        assert 0 < right <= self.size
+        assert left < right
 
-        return self.sum(r - 1) - self.sum(l - 1)
+        return self.sum(right - 1) - self.sum(left - 1)
 
 
 def inversion_number(arr):
@@ -387,7 +386,7 @@ class LCA(object):
         self.graph[y].append(x)
         self.cost_edge[x].append(cost)
         self.cost_edge[y].append(cost)
-    
+
     def init(self) -> None:
         """ 全ての辺を追加した後に、LCAを求める為の初期化をする。
         """
@@ -406,7 +405,7 @@ class LCA(object):
                 if e != par:
                     dfs(e, v, d + 1, c + cc)
         dfs(0, -1, 0, 0)
-        
+
         for i in range(s2 - 1):
             for j in range(self.size):
                 if self.parent[j][i] < 0:
@@ -429,10 +428,10 @@ class LCA(object):
             d = self.depth[x] - self.depth[y]
             if (d >> i) & 1 == 1:
                 x = self.parent[x][i]
-        
+
         if x == y:
             return x
-        
+
         for i in range(s2 - 1, -1, -1):
             if self.parent[x][i] != self.parent[y][i]:
                 x = self.parent[x][i]
@@ -447,7 +446,7 @@ class LCA(object):
 
         z = self.lca(x, y)
         return self.depth[x] + self.depth[y] - 2 * self.depth[z]
-    
+
     def cost(self, x: int, y: int) -> int:
         """ 2つの頂点間のコストを返します。
         """
@@ -471,10 +470,10 @@ class ModInt(object):
 
     def __float__(self):
         return float(self.__x)
-    
+
     def __eq__(self, x: 'ModInt') -> 'ModInt':
         return self.__x == x.__x
-    
+
     def __repr__(self):
         return f'ModInt<{self.__x} mod {self.__modulo}>'
 
@@ -524,7 +523,10 @@ class ModInt(object):
         return self.__modret(int(x))
 
     def __pow__(self, x: 'ModInt') -> 'ModInt':
-        return self.__class__(pow(self.__x, int(x), self.__modulo), self.__modulo)
+        return self.__class__(
+            pow(self.__x, int(x), self.__modulo),
+            self.__modulo
+        )
 
 
 class MOD(object):
@@ -542,13 +544,14 @@ class MOD(object):
         """
         if n < k or n < 0 or k < 0:
             return 0
+        m = self.modulo
         if self.size <= n:
             for i in range(self.size, n + 1):
-                self.fact.append(self.fact[-1] * i % self.modulo)
-                self.inv.append(self.modulo - self.inv[self.modulo % i] * (self.modulo // i) % self.modulo)
-                self.finv.append(self.finv[-1] * self.inv[i] % self.modulo)
+                self.fact.append(self.fact[-1] * i % m)
+                self.inv.append(m - self.inv[m % i] * (self.modulo // i) % m)
+                self.finv.append(self.finv[-1] * self.inv[i] % m)
             self.size = n
-        return self.fact[n] * (self.finv[k] * self.finv[n - k] % self.modulo) % self.modulo
+        return self.fact[n] * (self.finv[k] * self.finv[n - k] % m) % m
 
     def hprod(self, n: int, k: int):
         """ nHk (重複組み合わせ) を求める
@@ -575,6 +578,7 @@ class MOD(object):
             u += p
         return u
 
+
 def lcm(a: int, b: int) -> int:
     """ 最小公倍数
     """
@@ -586,9 +590,10 @@ def lcm(a: int, b: int) -> int:
         return math.gcd(b, a % b)
 
 
-""" 幾何ライブラリ
-"""
 class Geometry(object):
+    """ 幾何ライブラリ
+    """
+
     def rotate(x, y, theta):
         """回転行列
         """
@@ -597,7 +602,7 @@ class Geometry(object):
             math.cos(theta) * x - math.sin(theta) * y,
             math.sin(theta) * x + math.cos(theta) * y,
         )
-    
+
     def is_orthogonal(x1: int, y1: int, x2: int, y2: int) -> bool:
         """ 線分の直交判定 (ベクトルの内積が0)
             (x1, y1) と (x2, y2) は (0, 0) を基点としたベクトル
@@ -609,7 +614,7 @@ class Geometry(object):
             (x1, y1) と (x2, y2) は (0, 0) を基点としたベクトル
         """
         return x1 * y2 - x2 * y1 < 1e-8
-    
+
     def triangle_area(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int):
         xa = x1 - x3
         ya = y1 - y3
@@ -617,16 +622,25 @@ class Geometry(object):
         yb = y2 - y3
         return abs(xa * yb - xb * ya) / 2
 
+    def is_on_segment(
+        x1: int, y1: int,
+        x2: int, y2: int,
+        px: int, py: int
+    ) -> bool:
+        """点の線分上での存在判定
+        """
+        return (
+            (x1 <= px <= x2 or x2 <= px <= x1)
+            and (y1 <= py <= y2 or y2 <= py <= y1)
+            and (py * (x1 - x2) + y1 * (x2 - px) + y2 * (px - x1) == 0)
+        )
 
-    # 点の線分上での存在判定
-    def is_on_segment(x1: int, y1: int, x2: int, y2: int, px: int, py: int) -> bool:
-        return (x1 <= px <= x2 or x2 <= px <= x1) and (y1 <= py <= y2 or y2 <= py <= y1) and (py * (x1 - x2) + y1 * (x2 - px) + y2 * (px - x1) == 0)
 
-
-""" 強連結成分分解
-    (Strongly Connected Components)
-"""
 class SCC(object):
+    """ 強連結成分分解
+        (Strongly Connected Components)
+    """
+
     def scc(self, edges, n_vertex):
         """ edges: [(v11, v12), (v21, v22), ...]
         """
@@ -641,6 +655,7 @@ class SCC(object):
         indexes = [None] * n_vertex
         visited = set()
         x = 0
+
         def dfs_f(v):
             nonlocal x, visited, indexes, gf
 
@@ -655,6 +670,7 @@ class SCC(object):
 
         group = [None] * n_vertex
         x = 0
+
         def dfs_b(v):
             nonlocal x, group, gb
 
@@ -666,16 +682,18 @@ class SCC(object):
         for i in reversed(indexes):
             dfs_b(i)
             x += 1
-        
+
         components = defaultdict(list)
         for i, g in enumerate(group):
             components[g].append(i)
-        
+
         return [tuple(c) for g, c in components.items()]
 
-""" 最長増加部分裂 (LIS; Longest Increasing Subsequence)
-"""
+
 class LIS(object):
+    """ 最長増加部分裂 (LIS; Longest Increasing Subsequence)
+    """
+
     def __init__(self):
         pass
 
@@ -697,10 +715,12 @@ class LIS(object):
         return len(dp)
 
 
-""" 約数列挙
-"""
 def divisors(n: int):
+    """ 約数列挙
+    """
+
     import math
+
     divs_first = []
     divs_second = []
     for x in range(1, math.floor(n ** 0.5) + 1):
@@ -712,11 +732,12 @@ def divisors(n: int):
     return divs_first
 
 
-""" AVL木
-"""
 class Tree(object):
+    """ AVL木
+    """
+
     def __init__(self) -> None:
-        self.children = [ None, None ]
+        self.children = [None, None]
 
 
 class MultiSet(object):
@@ -770,7 +791,7 @@ def next_permutation(arr):
         arr[i], arr[j] = arr[j], arr[i]
         i += 1
         j -= 1
-        
+
     return arr
 
 
@@ -778,7 +799,7 @@ def prev_permutation(arr):
     n = len(arr)
     if n <= 1:
         return arr
-        
+
     for i in range(n - 2, -1, -1):
         if arr[i] > arr[i + 1]:
             break
@@ -786,7 +807,7 @@ def prev_permutation(arr):
         if arr[j] < arr[i]:
             break
     arr[i], arr[j] = arr[j], arr[i]
-    
+
     if i == 0 and j == 0:
         i = 0
         j = n - 1
