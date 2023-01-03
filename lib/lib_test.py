@@ -217,7 +217,12 @@ class TestBinaryIndexedTree(unittest.TestCase):
         self.assertEqual(10, bit.sum_range(1, 2))
         self.assertEqual(30, bit.sum_range(1, 3))
         self.assertEqual(20, bit.sum_range(2, 4))
-    
+
+    def test_size(self):
+        bit = lib.BinaryIndexedTree(1)
+        bit.add(1, 10)
+        self.assertEqual(10, bit.sum_range(1, 2))
+
     def test_inversion_number(self):
         self.assertEqual(0, lib.inversion_number([]))
         self.assertEqual(0, lib.inversion_number([1, 2, 3]))
@@ -281,7 +286,7 @@ class TestPermutation(unittest.TestCase):
 
 class TestSegtree(unittest.TestCase):
     def test_init(self):
-        pass
+        lib.SegmentTree([], 0, lambda x, y: None)
 
     def test_rmq(self):
         st = lib.SegmentTree([1, 2, 3, 4], float('inf'), lambda x, y: min(x, y))

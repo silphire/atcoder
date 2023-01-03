@@ -295,7 +295,7 @@ class BinaryIndexedTree(object):
         assert 0 < pos <= self.size
 
         p = pos
-        while p <= self.size:
+        while p < self.size:
             self.arr[p] += val
             p += p & -p
 
