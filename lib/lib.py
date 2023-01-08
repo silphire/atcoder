@@ -718,6 +718,7 @@ class LIS(object):
 def divisors(n: int):
     """ 約数列挙
     """
+    assert n >= 0
 
     import math
 
