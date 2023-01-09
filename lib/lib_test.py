@@ -174,6 +174,31 @@ class TestSCC(unittest.TestCase):
         )
         self.assertEqual(expected, actual)
 
+    def test_loop(self):
+        scc = lib.SCC()
+        expected = [(0, 1)]
+        actual = scc.scc(
+            [(0, 1), (1, 0)],
+            2,
+        )
+        self.assertEqual(expected, actual)
+
+    def test_disconnected(self):
+        scc = lib.SCC()
+        expected = [(0, ), (1, )]
+        actual = scc.scc(
+            [(0, 1), ],
+            2,
+        )
+        self.assertEqual(expected, actual)
+
+        expected = [(0, ), (1, ), (2, ), (3, )]
+        actual = scc.scc(
+            [(0, 1), (2, 3)],
+            4,
+        )
+        self.assertEqual(expected, actual)
+
 
 class TestLIS(unittest.TestCase):
     def test_lis(self):

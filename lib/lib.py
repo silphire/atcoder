@@ -653,20 +653,21 @@ class SCC(object):
             gb[v2].add(v1)
 
         indexes = [None] * n_vertex
-        visited = set()
+        visited = [False] * n_vertex
         x = 0
 
         def dfs_f(v):
             nonlocal x, visited, indexes, gf
 
-            if v in visited:
+            if visited[v]:
                 return
-            visited.add(v)
+            visited[v] = True
             for nv in gf[v]:
                 dfs_f(nv)
             indexes[x] = v
             x += 1
-        dfs_f(0)
+        for v in range(n_vertex):
+            dfs_f(v)
 
         group = [None] * n_vertex
         x = 0
