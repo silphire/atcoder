@@ -165,6 +165,11 @@ class TestModInt(unittest.TestCase):
 
 
 class TestSCC(unittest.TestCase):
+
+    def test_empty(self):
+        scc = lib.SCC()
+        self.assertEqual([], scc.scc([], 0))
+
     def test_scc(self):
         scc = lib.SCC()
         expected = [(0, 1, 2), (3, 4), (5,), (6,)]
