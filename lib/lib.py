@@ -824,13 +824,24 @@ def prev_permutation(arr):
     return arr
 
 
+def kadane(arr):
+    """ Kadane's algorithm
+        最大部分列問題(部分列の和の最大を求める)をO(n)で解く
+    """
+    r = float('-inf')
+    s = 0
+    for a in arr:
+        s = max(s + a, a)
+        r = max(r, s)
+    return r
+
+
 # パスカルの三角形の計算
 # Grundy数
 # BITの区間更新
 # multiset, ordered set, 標準的な物があるなら
 # AVL木
 # topological sort (bfs, dfs)
-# Kadane's algorithm
 
 if __name__ == '__main__':
     pass
