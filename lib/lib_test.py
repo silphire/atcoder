@@ -413,6 +413,8 @@ class TestSegtree(unittest.TestCase):
 class TestKadane(unittest.TestCase):
     def test_kadane(self):
         self.assertEqual(3, lib.kadane([1, 2, -3, 1]))
+        self.assertEqual(-1, lib.kadane([-3, -2, -1]))
+        self.assertEqual(-1, lib.kadane([-3, -2, -1, -2]))
 
 
 if __name__ == '__main__':
