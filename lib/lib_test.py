@@ -415,6 +415,7 @@ class TestKadane(unittest.TestCase):
         self.assertEqual(3, lib.kadane([1, 2, -3, 1]))
         self.assertEqual(-1, lib.kadane([-3, -2, -1]))
         self.assertEqual(-1, lib.kadane([-3, -2, -1, -2]))
+        self.assertEqual(0, lib.kadane([]))
 
 
 if __name__ == '__main__':

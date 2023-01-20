@@ -828,6 +828,9 @@ def kadane(arr):
     """ Kadane's algorithm
         最大部分列問題(部分列の和の最大を求める)をO(n)で解く
     """
+    if not arr:
+        return 0
+        
     r = float('-inf')
     s = 0
     for a in arr:
