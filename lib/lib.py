@@ -845,6 +845,7 @@ def kadane(arr):
 # multiset, ordered set, 標準的な物があるなら
 # AVL木
 # topological sort (bfs, dfs)
+# crt
 
 if __name__ == '__main__':
     pass
