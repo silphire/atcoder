@@ -5,7 +5,7 @@ ss = [
     for _ in range(n)
 ]
 
-inf = float('inf')
+inf = 1 << 60
 d = [
     [(inf, 0) for _ in range(n)]
     for _ in range(n)
