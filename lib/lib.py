@@ -830,7 +830,7 @@ def kadane(arr):
     """
     if not arr:
         return 0
-        
+
     r = float('-inf')
     s = 0
     for a in arr:
