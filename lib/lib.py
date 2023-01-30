@@ -839,6 +839,12 @@ def kadane(arr):
     return r
 
 
+def crt(r, m):
+    """ 中国剰余定理
+    """
+    pass
+
+
 # パスカルの三角形の計算
 # Grundy数
 # BITの区間更新
