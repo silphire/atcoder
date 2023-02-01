@@ -839,6 +839,24 @@ def kadane(arr):
     return r
 
 
+def topological_sort_dfs(g, n):
+    ans = []
+    visited = [False] * n
+
+    def dfs(v):
+        visited[v] = True
+        for nv in g[v]:
+            if not visited[nv]:
+                dfs(nv)
+        ans.append(v)
+
+    for v in range(n):
+        if not visited[v]:
+            dfs(v)
+
+    return reversed(ans)
+
+
 def crt(r, m):
     """ 中国剰余定理
     """
