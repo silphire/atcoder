@@ -845,7 +845,7 @@ def topological_sort_dfs(g, n):
 
     def dfs(v):
         visited[v] = True
-        for nv in g[v]:
+        for nv in g.get(v, []):
             if not visited[nv]:
                 dfs(nv)
         ans.append(v)
@@ -854,7 +854,7 @@ def topological_sort_dfs(g, n):
         if not visited[v]:
             dfs(v)
 
-    return reversed(ans)
+    return tuple(reversed(ans))
 
 
 def crt(r, m):

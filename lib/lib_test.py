@@ -418,5 +418,9 @@ class TestKadane(unittest.TestCase):
         self.assertEqual(0, lib.kadane([]))
 
 
+class TestTopologicalSort(unittest.TestCase):
+    def test_dfs(self):
+        self.assertEqual((0, 2, 3, 1), lib.topological_sort_dfs({0:[2], 2: [1, 3]}, 4))
+
 if __name__ == '__main__':
     unittest.main()
