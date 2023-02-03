@@ -857,6 +857,33 @@ def topological_sort_dfs(g, n):
     return tuple(reversed(ans))
 
 
+def topological_sort_bfs(g, n):
+    from collections import deque
+
+    cnt = [0] * n
+    for k, v in g.items():
+        for x in v:
+            c[x] += 1
+
+    q = deque()
+    for i, c in enumerate(cnt):
+        if c == 0:
+            q.append(i)
+
+    ans = []    
+    while q:
+        x = q.pop()
+        ans.append(x)
+        for y in g.get(x, []):
+            if cnt[y] > 0:
+                cnt[y] -= 1
+                if cnt[y] == 0:
+                    q.append(y)
+    
+    return ans
+
+
+
 def crt(r, m):
     """ 中国剰余定理
     """
