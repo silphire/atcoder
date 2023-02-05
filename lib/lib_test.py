@@ -302,6 +302,11 @@ class TestBinaryIndexedTree(unittest.TestCase):
         self.assertEqual(10, bit.sum(1))
         self.assertEqual(10, bit.sum(2))
         self.assertEqual(10, bit.sum(3))
+        self.assertEqual(10, bit.get(1))
+        self.assertEqual(0, bit.get(2))
+        self.assertEqual(0, bit.get(3))
+        self.assertEqual(0, bit.get(4))
+        self.assertEqual(0, bit.get(5))
 
         self.assertRaises(AssertionError, bit.sum_range, 1, 1)
         self.assertEqual(10, bit.sum_range(1, 4))

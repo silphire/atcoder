@@ -315,6 +315,10 @@ class BinaryIndexedTree(object):
         assert left < right
 
         return self.sum(right - 1) - self.sum(left - 1)
+    
+    def get(self, pos: int) -> int:
+        assert 0 < pos <= self.size
+        return self.sum_range(pos, pos + 1)
 
 
 class RangeBinaryIndexedTree(object):
