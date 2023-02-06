@@ -867,7 +867,7 @@ def topological_sort_bfs(g, n):
     cnt = [0] * n
     for k, v in g.items():
         for x in v:
-            c[x] += 1
+            cnt[x] += 1
 
     q = deque()
     for i, c in enumerate(cnt):
