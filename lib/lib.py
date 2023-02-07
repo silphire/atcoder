@@ -315,7 +315,7 @@ class BinaryIndexedTree(object):
         assert left < right
 
         return self.sum(right - 1) - self.sum(left - 1)
-    
+
     def get(self, pos: int) -> int:
         assert 0 < pos <= self.size
         return self.sum_range(pos, pos + 1)
@@ -874,7 +874,7 @@ def topological_sort_bfs(g, n):
         if c == 0:
             q.append(i)
 
-    ans = []    
+    ans = []
     while q:
         x = q.pop()
         ans.append(x)
@@ -883,9 +883,8 @@ def topological_sort_bfs(g, n):
                 cnt[y] -= 1
                 if cnt[y] == 0:
                     q.append(y)
-    
-    return ans
 
+    return ans
 
 
 def crt(r, m):
