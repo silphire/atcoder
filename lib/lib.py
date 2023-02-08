@@ -351,6 +351,10 @@ class RangeBinaryIndexedTree(object):
 
         return self.sum(right - 1) - self.sum(left - 1)
 
+    def get(self, pos: int) -> int:
+        assert 0 < pos <= self.size
+        return self.sum_range(pos, pos + 1)
+
 
 def inversion_number(arr):
     """
@@ -696,7 +700,7 @@ class SCC(object):
 
 
 class LIS(object):
-    """ 最長増加部分裂 (LIS; Longest Increasing Subsequence)
+    """ 最長増加部分列 (LIS; Longest Increasing Subsequence)
     """
 
     def __init__(self):
