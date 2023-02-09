@@ -904,6 +904,7 @@ def crt(r, m):
 # AVL木
 # topological sort (bfs, dfs)
 # crt
+# 遅延セグメント木
 
 if __name__ == '__main__':
     pass
