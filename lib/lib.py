@@ -905,6 +905,7 @@ def crt(r, m):
 # topological sort (bfs, dfs)
 # crt
 # 遅延セグメント木
+# 用途を限定したMultiSet (heapで代用できる物など)
 
 if __name__ == '__main__':
     pass
