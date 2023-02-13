@@ -897,6 +897,29 @@ def crt(r, m):
     pass
 
 
+def edit_distance(s: str, t: str) -> int:
+    """ 編集距離 (レーベンシュタイン距離)
+    """
+    ns = len(s) + 1
+    nt = len(t) + 1
+
+    dp = [[0] * nt for _ in range(ns)]
+    for i in range(ns):
+        dp[0][i] = i
+    for j in range(nt):
+        dp[j][0] = j
+
+    for i in range(1, ns):
+        for j in range(1, nt):
+            dp[i][j] = min(
+                dp[i - 1][j] + 1,
+                dp[i][j - 1] + 1,
+                dp[i - 1][j - 1] + int(ns[i] != nt[j]),
+            )
+
+    return dp[ns][nt]
+
+
 # パスカルの三角形の計算
 # Grundy数
 # BITの区間更新
