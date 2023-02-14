@@ -900,24 +900,29 @@ def crt(r, m):
 def edit_distance(s: str, t: str) -> int:
     """ 編集距離 (レーベンシュタイン距離)
     """
-    ns = len(s) + 1
-    nt = len(t) + 1
+    ns = len(s)
+    nt = len(t)
 
-    dp = [[0] * nt for _ in range(ns)]
+    if ns == 0:
+        return nt
+    elif nt == 0:
+        return ns
+
+    dp = [[0] * (nt) for _ in range(ns)]
     for i in range(ns):
-        dp[0][i] = i
+        dp[i][0] = i
     for j in range(nt):
-        dp[j][0] = j
+        dp[0][j] = j
 
     for i in range(1, ns):
         for j in range(1, nt):
             dp[i][j] = min(
                 dp[i - 1][j] + 1,
                 dp[i][j - 1] + 1,
-                dp[i - 1][j - 1] + int(ns[i] != nt[j]),
+                dp[i - 1][j - 1] + int(s[i] != t[j]),
             )
 
-    return dp[ns][nt]
+    return dp[ns - 1][nt - 1]
 
 
 # パスカルの三角形の計算

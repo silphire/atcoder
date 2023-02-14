@@ -435,5 +435,16 @@ class TestTopologicalSort(unittest.TestCase):
             lib.topological_sort_bfs({0: [2], 2: [1, 3]}, 4))
 
 
+class TestEditDistance(unittest.TestCase):
+    def test_edit_distance(self):
+        self.assertEqual(0, lib.edit_distance("", ""))
+        self.assertEqual(0, lib.edit_distance("abc", "abc"))
+
+        self.assertEqual(1, lib.edit_distance("abc", "ab"))
+        self.assertEqual(1, lib.edit_distance("ab", "abc"))
+        self.assertEqual(1, lib.edit_distance("abc", "abd"))
+        self.assertEqual(1, lib.edit_distance("abc", "abcd"))
+
+
 if __name__ == '__main__':
     unittest.main()
