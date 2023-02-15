@@ -908,21 +908,21 @@ def edit_distance(s: str, t: str) -> int:
     elif nt == 0:
         return ns
 
-    dp = [[0] * (nt) for _ in range(ns)]
-    for i in range(ns):
+    dp = [[0] * (nt + 1) for _ in range(ns + 1)]
+    for i in range(ns + 1):
         dp[i][0] = i
-    for j in range(nt):
+    for j in range(nt + 1):
         dp[0][j] = j
 
-    for i in range(1, ns):
-        for j in range(1, nt):
+    for i in range(1, ns + 1):
+        for j in range(1, nt + 1):
             dp[i][j] = min(
                 dp[i - 1][j] + 1,
                 dp[i][j - 1] + 1,
-                dp[i - 1][j - 1] + int(s[i] != t[j]),
+                dp[i - 1][j - 1] + int(s[i - 1] != t[j - 1]),
             )
 
-    return dp[ns - 1][nt - 1]
+    return dp[ns][nt]
 
 
 # パスカルの三角形の計算

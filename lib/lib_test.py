@@ -439,11 +439,17 @@ class TestEditDistance(unittest.TestCase):
     def test_edit_distance(self):
         self.assertEqual(0, lib.edit_distance("", ""))
         self.assertEqual(0, lib.edit_distance("abc", "abc"))
+        self.assertEqual(3, lib.edit_distance("", "abc"))
+        self.assertEqual(3, lib.edit_distance("abc", ""))
 
         self.assertEqual(1, lib.edit_distance("abc", "ab"))
         self.assertEqual(1, lib.edit_distance("ab", "abc"))
         self.assertEqual(1, lib.edit_distance("abc", "abd"))
         self.assertEqual(1, lib.edit_distance("abc", "abcd"))
+
+        self.assertEqual(1, lib.edit_distance("a", "b"))
+        self.assertEqual(3, lib.edit_distance("abc", "def"))
+        self.assertEqual(3, lib.edit_distance("ab", "def"))
 
 
 if __name__ == '__main__':
