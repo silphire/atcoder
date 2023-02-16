@@ -443,6 +443,7 @@ class TestEditDistance(unittest.TestCase):
         self.assertEqual(3, lib.edit_distance("abc", ""))
 
         self.assertEqual(1, lib.edit_distance("abc", "ab"))
+        self.assertEqual(3, lib.edit_distance("abc", "d"))
         self.assertEqual(1, lib.edit_distance("ab", "abc"))
         self.assertEqual(1, lib.edit_distance("abc", "abd"))
         self.assertEqual(1, lib.edit_distance("abc", "abcd"))
