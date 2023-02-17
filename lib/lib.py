@@ -927,10 +927,8 @@ def edit_distance(s: str, t: str) -> int:
 
 # パスカルの三角形の計算
 # Grundy数
-# BITの区間更新
 # multiset, ordered set, 標準的な物があるなら
 # AVL木
-# topological sort (bfs, dfs)
 # crt
 # 遅延セグメント木
 # 用途を限定したMultiSet (heapで代用できる物など)
