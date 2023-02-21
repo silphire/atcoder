@@ -849,18 +849,24 @@ def kadane(arr):
 
 def topological_sort_dfs(g, n):
     ans = []
-    visited = [False] * n
+    visited = [0] * n
 
     def dfs(v):
-        visited[v] = True
+        visited[v] = 1
         for nv in g.get(v, []):
-            if not visited[nv]:
-                dfs(nv)
+            if visited[nv] == 0:
+                if not dfs(nv):
+                    return False
+            elif visited[nv] == 1:
+                return False
         ans.append(v)
+        visited[v] = 2
+        return True
 
     for v in range(n):
-        if not visited[v]:
-            dfs(v)
+        if visited[v] == 0:
+            if not dfs(v):
+                return None
 
     return tuple(reversed(ans))
 
@@ -882,13 +888,17 @@ def topological_sort_bfs(g, n):
     while q:
         x = q.pop()
         ans.append(x)
+        n -= 1
         for y in g.get(x, []):
             if cnt[y] > 0:
                 cnt[y] -= 1
                 if cnt[y] == 0:
                     q.append(y)
 
-    return ans
+    if n == 0:
+        return ans
+    else:
+        return None
 
 
 def crt(r, m):
