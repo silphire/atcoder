@@ -848,6 +848,13 @@ def kadane(arr):
 
 
 def topological_sort_dfs(g, n):
+    """トポロジカルソート (dfs版)
+        g: グラフ
+        n: ノードの数
+        戻り値: 
+            トポロジカルソートした頂点の集合
+            閉路を検出した場合はNone
+    """
     ans = []
     visited = [0] * n
 
@@ -872,6 +879,13 @@ def topological_sort_dfs(g, n):
 
 
 def topological_sort_bfs(g, n):
+    """トポロジカルソート (bfs版)
+        g: グラフ
+        n: ノードの数
+        戻り値: 
+            トポロジカルソートした頂点の集合
+            閉路を検出した場合はNone
+    """
     from collections import deque
 
     cnt = [0] * n
