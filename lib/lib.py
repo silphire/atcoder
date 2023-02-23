@@ -847,7 +847,7 @@ def kadane(arr):
     return r
 
 
-def topological_sort_dfs(g, n):
+def topological_sort_dfs(g, n: int):
     """トポロジカルソート (dfs版)
         g: グラフ
         n: ノードの数
@@ -878,7 +878,7 @@ def topological_sort_dfs(g, n):
     return tuple(reversed(ans))
 
 
-def topological_sort_bfs(g, n):
+def topological_sort_bfs(g, n: int):
     """トポロジカルソート (bfs版)
         g: グラフ
         n: ノードの数
