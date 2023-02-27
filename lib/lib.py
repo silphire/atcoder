@@ -915,6 +915,15 @@ def topological_sort_bfs(g, n: int):
         return None
 
 
+def topological_sort_unique(g, arr) -> bool:
+    """トポロジカルソートの結果が一意かどうか
+    """
+    for i in range(1, len(arr)):
+        if arr[i] not in g.get(arr[i - 1], []):
+            return False
+    return True
+
+
 def crt(r, m):
     """ 中国剰余定理
     """
