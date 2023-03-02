@@ -965,6 +965,7 @@ def edit_distance(s: str, t: str) -> int:
 # crt
 # 遅延セグメント木
 # 用途を限定したMultiSet (heapで代用できる物など)
+# trie
 
 if __name__ == '__main__':
     pass
