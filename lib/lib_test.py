@@ -441,8 +441,11 @@ class TestTopologicalSort(unittest.TestCase):
             lib.topological_sort_bfs({0: [2], 1: [0], 2: [1]}, 3))
 
     def test_unique(self):
-        self.assertFalse(lib.topological_sort_unique({3:[1, 2]}, [3, 1, 2]))
-        self.assertTrue(lib.topological_sort_unique({1:[3], 3:[2]}, [1, 3, 2]))
+        self.assertFalse(lib.topological_sort_unique({3: [1, 2]}, [3, 1, 2]))
+        self.assertTrue(lib.topological_sort_unique(
+            {1: [3], 3: [2]},
+            [1, 3, 2],
+        ))
 
 
 class TestEditDistance(unittest.TestCase):
