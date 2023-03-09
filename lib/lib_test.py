@@ -386,6 +386,10 @@ class TestPermutation(unittest.TestCase):
         self.assertEqual([1], lib.next_permutation([1]))
         self.assertEqual([1], lib.prev_permutation([1]))
 
+    def test_same_element_permutation(self):
+        self.assertEqual([0, 0, 0], lib.next_permutation([0, 0, 0]))
+        self.assertEqual([0, 0, 0], lib.prev_permutation([0, 0, 0]))
+
 
 class TestSegtree(unittest.TestCase):
     def test_init(self):
