@@ -973,6 +973,13 @@ def edit_distance(s: str, t: str) -> int:
     return dp[ns][nt]
 
 
+def multidim(*x):
+    """多次元配列 (NumPy)
+    """
+    import numpy as np
+    return np.zeros(x, dtype=np.int64)
+
+
 # パスカルの三角形の計算
 # Grundy数
 # multiset, ordered set, 標準的な物があるなら
