@@ -488,6 +488,9 @@ class ModInt(object):
     def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
         """
+        import math
+        assert math.gcd(a, p) == 1
+
         b = p
         u = 1
         v = 0
@@ -569,6 +572,9 @@ class MOD(object):
     def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
         """
+        import math
+        assert math.gcd(a, p) == 1
+
         b = p
         u = 1
         v = 0
