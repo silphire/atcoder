@@ -994,6 +994,7 @@ def multidim(*x):
 # 遅延セグメント木
 # 用途を限定したMultiSet (heapで代用できる物など)
 # trie
+# メモリ使用量を抑える素因数分解
 
 if __name__ == '__main__':
     pass
