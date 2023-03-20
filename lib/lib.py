@@ -995,6 +995,7 @@ def multidim(*x):
 # 用途を限定したMultiSet (heapで代用できる物など)
 # trie
 # メモリ使用量を抑える素因数分解
+# 区間操作
 
 if __name__ == '__main__':
     pass
