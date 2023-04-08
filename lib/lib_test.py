@@ -280,6 +280,10 @@ class TestLCA(unittest.TestCase):
         self.assertRaises(AssertionError, lca.dist, 1, 7)
 
 
+class TestLCS(unittest.TestCase):
+    def test_lcs(self):
+        self.assertEqual(0, lib.lcs("abc", "def"))
+
 class TestMath(unittest.TestCase):
     def test_divisors(self):
         self.assertRaises(AssertionError, lib.divisors, -1)
