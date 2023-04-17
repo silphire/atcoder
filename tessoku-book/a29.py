@@ -1,0 +1,1 @@
+print(pow(*(list(map(int, input().split())) + [1000000007])))
