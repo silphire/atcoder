@@ -858,6 +858,8 @@ def lcs(s: str, t: str) -> int:
     """
     ns = len(s)
     nt = len(t)
+    assert ns == nt
+    
     dp = [[0] * (nt + 1) for _ in range(ns + 1)]
     for i in range(ns):
         for j in range(nt):

@@ -282,11 +282,15 @@ class TestLCA(unittest.TestCase):
 
 class TestLCS(unittest.TestCase):
     def test_lcs(self):
+        self.assertEqual(0, lib.lcs("", ""))
         self.assertEqual(0, lib.lcs("abc", "def"))
         self.assertEqual(1, lib.lcs("abc", "cde"))
         self.assertEqual(1, lib.lcs("abc", "cba"))
         self.assertEqual(2, lib.lcs("abc", "adc"))
         self.assertEqual(3, lib.lcs("abc", "abc"))
+
+        self.assertRaises(AssertionError, lib.lcs, "", "a")
+        self.assertRaises(AssertionError, lib.lcs, "a", "")
 
 
 class TestMath(unittest.TestCase):
