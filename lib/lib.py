@@ -209,7 +209,8 @@ class Dijkstra(object):
 
 class MaxFlow(object):
     """
-    Dinic法
+    ford-fulkerson法
+    TODO Dinic法
     """
     def __init__(self):
         pass
