@@ -598,11 +598,7 @@ def lcm(a: int, b: int) -> int:
     """ 最小公倍数
     """
     import math
-
-    if b == 0:
-        return a
-    else:
-        return math.gcd(b, a % b)
+    return a * b // math.gcd(b, a % b)
 
 
 class Geometry(object):
