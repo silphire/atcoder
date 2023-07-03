@@ -211,8 +211,10 @@ class MaxFlow(object):
     """
     ford-fulkerson法
     TODO Dinic法
+
+    * edges: [(weight, vertex_1, vertex_2)]
     """
-    def __init__(self):
+    def __init__(self, edges):
         pass
 
 
