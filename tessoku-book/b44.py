@@ -13,5 +13,4 @@ for _ in range(q):
     if op == 1:
         tb[x], tb[y] = tb[y], tb[x]
     else:
-        print(f"> {tb[y]} {x}")
         print(aa[tb[y]][x])
