@@ -603,7 +603,7 @@ def lcm(a: int, b: int) -> int:
     """
     if a == 0 or b == 0:
         return 0
-    
+
     import math
     return a * b // math.gcd(b, a % b)
 
@@ -863,7 +863,7 @@ def lcs(s: str, t: str) -> int:
     ns = len(s)
     nt = len(t)
     assert ns == nt
-    
+
     dp = [[0] * (nt + 1) for _ in range(ns + 1)]
     for i in range(ns):
         for j in range(nt):
