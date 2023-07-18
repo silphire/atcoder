@@ -171,7 +171,7 @@ class Dijkstra(object):
             self.route[v1].append((self.priority * w, v2))
             self.route[v2].append((self.priority * w, v1))
 
-    def dijkstra(self, start: int, goal=None):
+    def dijkstra(self, start: int, goal: int):
         """ startで示す頂点からの最短経路を求める
             goal = Noneの場合は全頂点の最短距離を、
             goalに頂点番号が指定された場合はgoalまでの最短経路のみ求める。
@@ -181,7 +181,7 @@ class Dijkstra(object):
         import heapq
 
         assert start < self.n_vertex
-        assert goal is None or goal < self.n_vertex
+        assert goal < self.n_vertex
 
         visited = [False] * self.n_vertex
         if goal is None:
@@ -195,7 +195,7 @@ class Dijkstra(object):
                 continue
             visited[v] = True
 
-            if goal is not None and v == goal:
+            if v == goal:
                 return self.priority * w
 
             for wn, vn in self.route[v]:
@@ -203,10 +203,29 @@ class Dijkstra(object):
                     distance[vn] = min(distance[vn], self.priority * (w + wn))
                 heapq.heappush(q, (w + wn, vn))
 
-        if goal is None:
-            return distance
-        else:
-            return float('inf')
+        return float('inf')
+    
+    def dijkstra_all_dests(self, start: int):
+        import heapq
+
+        assert start < self.n_vertex
+
+        visited = [False] * self.n_vertex
+        distance = [float('inf')] * self.n_vertex
+        distance[start] = 0
+
+        q = [(0, start)]
+        while q:
+            w, v = heapq.heappop(q)
+            if visited[v]:
+                continue
+            visited[v] = True
+
+            for wn, vn in self.route[v]:
+                distance[vn] = min(distance[vn], self.priority * (w + wn))
+                heapq.heappush(q, (w + wn, vn))
+
+        return distance
 
 
 class MaxFlow(object):
