@@ -90,6 +90,10 @@ class TestDijkstra(unittest.TestCase):
             lib.Dijkstra([(1, 0, 1), (1, 1, 2), (3, 0, 2)], 3).dijkstra(0, 2),
         )
 
+    def test_dijkstra_all_dests(self):
+        self.assertEqual([0, 1], lib.Dijkstra([(1, 0, 1)], 2).dijkstra_all_dests(0))
+        self.assertEqual([0, 1, 3], lib.Dijkstra([(1, 0, 1), (3, 0, 2)], 3).dijkstra_all_dests(0))
+
 
 class TestMOD(unittest.TestCase):
     def test_mod_comb(self):
