@@ -204,7 +204,7 @@ class Dijkstra(object):
                 heapq.heappush(q, (w + wn, vn))
 
         return float('inf')
-    
+
     def dijkstra_all_dests(self, start: int):
         import heapq
 
