@@ -172,9 +172,7 @@ class Dijkstra(object):
             self.route[v2].append((self.priority * w, v1))
 
     def dijkstra(self, start: int, goal: int):
-        """ startで示す頂点からの最短経路を求める
-            goal = Noneの場合は全頂点の最短距離を、
-            goalに頂点番号が指定された場合はgoalまでの最短経路のみ求める。
+        """ startで示す頂点からgoalで示す頂点までの最短経路を求める
 
             TODO 経路復元
         """
@@ -206,6 +204,8 @@ class Dijkstra(object):
         return float('inf')
 
     def dijkstra_all_dests(self, start: int):
+        """ startで示す頂点から全頂点への最短経路を求める
+        """
         import heapq
 
         assert start < self.n_vertex
