@@ -173,8 +173,6 @@ class Dijkstra(object):
 
     def dijkstra(self, start: int, goal: int):
         """ startで示す頂点からgoalで示す頂点までの最短経路を求める
-
-            TODO 経路復元
         """
         import heapq
 
@@ -226,6 +224,12 @@ class Dijkstra(object):
                 heapq.heappush(q, (w + wn, vn))
 
         return distance
+    
+    def dijkstra_with_route(self, start: int, goal: int):
+        """ startで示す頂点からgoalで示す頂点までの最短経路の距離とその経路を求める
+        """
+        pass
+
 
 
 class MaxFlow(object):
