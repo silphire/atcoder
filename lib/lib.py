@@ -180,9 +180,6 @@ class Dijkstra(object):
         assert goal < self.n_vertex
 
         visited = [False] * self.n_vertex
-        if goal is None:
-            distance = [float('inf')] * self.n_vertex
-            distance[start] = 0
 
         q = [(0, start)]
         while q:
@@ -195,8 +192,6 @@ class Dijkstra(object):
                 return self.priority * w
 
             for wn, vn in self.route[v]:
-                if goal is None:
-                    distance[vn] = min(distance[vn], self.priority * (w + wn))
                 heapq.heappush(q, (w + wn, vn))
 
         return float('inf')
@@ -224,12 +219,11 @@ class Dijkstra(object):
                 heapq.heappush(q, (w + wn, vn))
 
         return distance
-    
+
     def dijkstra_with_route(self, start: int, goal: int):
         """ startで示す頂点からgoalで示す頂点までの最短経路の距離とその経路を求める
         """
         pass
-
 
 
 class MaxFlow(object):
