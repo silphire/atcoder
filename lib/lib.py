@@ -223,7 +223,33 @@ class Dijkstra(object):
     def dijkstra_with_route(self, start: int, goal: int):
         """ startで示す頂点からgoalで示す頂点までの最短経路の距離とその経路を求める
         """
-        pass
+        import heapq
+
+        assert start < self.n_vertex
+        assert goal < self.n_vertex
+
+        visited = [False] * self.n_vertex
+        prev = [None] * self.n_vertex
+
+        q = [(0, start, None)]
+        while q:
+            w, v, p = heapq.heappop(q)
+            if visited[v]:
+                continue
+            visited[v] = True
+            prev[v] = p
+
+            if v == goal:
+                r = []
+                while v is not None:
+                    r.append(v)
+                    v = prev[v]
+                return self.priority * w, v[::-1]
+
+            for wn, vn in self.route[v]:
+                heapq.heappush(q, (w + wn, vn, v))
+
+        return float('inf')
 
 
 class MaxFlow(object):
