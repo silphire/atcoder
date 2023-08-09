@@ -244,12 +244,12 @@ class Dijkstra(object):
                 while v is not None:
                     r.append(v)
                     v = prev[v]
-                return self.priority * w, v[::-1]
+                return self.priority * w, r[::-1]
 
             for wn, vn in self.route[v]:
                 heapq.heappush(q, (w + wn, vn, v))
 
-        return float('inf')
+        return float('inf'), []
 
 
 class MaxFlow(object):

@@ -104,6 +104,19 @@ class TestDijkstra(unittest.TestCase):
             lib.Dijkstra([(1, 0, 1), (3, 1, 2)], 3).dijkstra_all_dests(0),
         )
 
+    def test_dijkstra_with_route(self):
+        self.assertEqual(
+            (1, [0, 1]),
+            lib.Dijkstra([(1, 0, 1), (2, 0, 1)], 2).dijkstra_with_route(0, 1),
+        )
+        self.assertEqual(
+            (2, [0, 1, 2]),
+            lib.Dijkstra(
+                [(1, 0, 1), (3, 0, 2), (1, 1, 2)],
+                3,
+            ).dijkstra_with_route(0, 2),
+        )
+
 
 class TestMOD(unittest.TestCase):
     def test_mod_comb(self):
