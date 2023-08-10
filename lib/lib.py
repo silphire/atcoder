@@ -194,7 +194,7 @@ class Dijkstra(object):
             for wn, vn in self.route[v]:
                 heapq.heappush(q, (w + wn, vn))
 
-        return float('inf')
+        return self.priority * float('inf')
 
     def dijkstra_all_dests(self, start: int):
         """ startで示す頂点から全頂点への最短経路を求める
@@ -249,7 +249,7 @@ class Dijkstra(object):
             for wn, vn in self.route[v]:
                 heapq.heappush(q, (w + wn, vn, v))
 
-        return float('inf'), []
+        return self.priority * float('inf'), []
 
 
 class MaxFlow(object):
