@@ -118,6 +118,11 @@ class TestDijkstra(unittest.TestCase):
         )
 
 
+class TestMaxFlow(unittest.TestCase):
+    def test_init(self):
+        pass
+
+
 class TestMOD(unittest.TestCase):
     def test_mod_comb(self):
         self.assertEqual(1, lib.MOD(10 ** 9 + 7).comb(1, 1))
