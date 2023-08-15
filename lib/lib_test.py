@@ -340,6 +340,9 @@ class TestMath(unittest.TestCase):
         self.assertEqual(3, lib.lcm(3, 3))
         self.assertEqual(0, lib.lcm(1, 0))
         self.assertEqual(0, lib.lcm(0, 1))
+        self.assertEqual(0, lib.lcm(-1, 0))
+        self.assertEqual(2, lib.lcm(-1, -2))
+        self.assertEqual(10, lib.lcm(5, -2))
 
 
 class TestBinaryIndexedTree(unittest.TestCase):
