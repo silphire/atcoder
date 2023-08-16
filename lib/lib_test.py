@@ -333,7 +333,7 @@ class TestMath(unittest.TestCase):
         self.assertEqual([1, 2], lib.divisors(2))
         self.assertEqual([1, 2, 3, 6], lib.divisors(6))
         self.assertEqual([1, 7], lib.divisors(7))
-    
+
     def test_lcm(self):
         self.assertEqual(10, lib.lcm(2, 5))
         self.assertEqual(2, lib.lcm(1, 2))
