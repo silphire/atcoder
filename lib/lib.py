@@ -1056,6 +1056,7 @@ def multidim(*x):
 # メモリ使用量を抑える素因数分解
 # 区間操作
 # hash value
+# type hint (Python 3.10)
 
 if __name__ == '__main__':
     pass
