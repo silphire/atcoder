@@ -592,6 +592,8 @@ class MOD(object):
     """ mod K 上の演算ライブラリ
     """
     def __init__(self, modulo: int):
+        assert modulo > 0
+        
         self.modulo = modulo
         self.size = 2
         self.fact = [1, 1]
