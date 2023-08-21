@@ -262,6 +262,9 @@ class MaxFlow(object):
     def __init__(self, edges):
         pass
 
+    def flow(self, start: int) -> int:
+        pass
+
 
 class SegmentTree(object):
     """
