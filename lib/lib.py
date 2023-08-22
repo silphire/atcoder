@@ -168,6 +168,7 @@ class Dijkstra(object):
 
         for e in edges:
             w, v1, v2 = e[:3]
+            assert w >= 0
             self.route[v1].append((self.priority * w, v2))
             self.route[v2].append((self.priority * w, v1))
 
