@@ -328,6 +328,10 @@ class TestLCS(unittest.TestCase):
         self.assertRaises(AssertionError, lib.lcs, "", "a")
         self.assertRaises(AssertionError, lib.lcs, "a", "")
 
+        self.assertEqual(0, lib.lcs((), ()))
+        self.assertEqual(0, lib.lcs((1, 2, 3), (4, 5, 6)))
+        self.assertEqual(1, lib.lcs((1, 2, 3), (3, 2, 1)))
+
 
 class TestMath(unittest.TestCase):
     def test_divisors(self):
