@@ -41,6 +41,10 @@ class Kruskal(object):
         pass
 
     def kruskal(self, edges, n_vertex: int):
+        """ クラスカル法で最小全域木を求める
+            edges: (cost, vertex_1, vertex_2)
+            コストの小さい辺から採用していく
+        """
         assert n_vertex >= 0
         if n_vertex == 0:
             return []
