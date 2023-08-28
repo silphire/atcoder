@@ -45,9 +45,7 @@ class Kruskal(object):
             edges: (cost, vertex_1, vertex_2)
             コストの小さい辺から採用していく
         """
-        assert n_vertex >= 0
-        if n_vertex == 0:
-            return []
+        assert n_vertex > 0
 
         tree = []
         uf = UnionFind(n_vertex)
