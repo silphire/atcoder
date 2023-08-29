@@ -422,7 +422,7 @@ def inversion_number(arr):
         r += i - bit.sum(a)
         bit.add(a, 1)
     return r
-
+#
 
 class LCA(object):
     """
@@ -441,8 +441,8 @@ class LCA(object):
     def add_edge(self, x: int, y: int, cost: int = 1) -> None:
         """ 木の辺を追加します。
         """
-        assert x < self.size
-        assert y < self.size
+        assert 0 <= x < self.size
+        assert 0 <= y < self.size
 
         self.graph[x].append(y)
         self.graph[y].append(x)
@@ -478,8 +478,8 @@ class LCA(object):
     def lca(self, x: int, y: int) -> int:
         """ 2つの頂点の最小共通祖先である頂点を返します。
         """
-        assert x < self.size
-        assert y < self.size
+        assert 0 <= x < self.size
+        assert 0 <= y < self.size
 
         if self.depth[x] < self.depth[y]:
             x, y = y, x
@@ -503,8 +503,8 @@ class LCA(object):
     def dist(self, x: int, y: int) -> int:
         """ 2つの頂点間の距離を返します。
         """
-        assert x < self.size
-        assert y < self.size
+        assert 0 <= x < self.size
+        assert 0 <= y < self.size
 
         z = self.lca(x, y)
         return self.depth[x] + self.depth[y] - 2 * self.depth[z]
@@ -512,8 +512,8 @@ class LCA(object):
     def cost(self, x: int, y: int) -> int:
         """ 2つの頂点間のコストを返します。
         """
-        assert x < self.size
-        assert y < self.size
+        assert 0 <= x < self.size
+        assert 0 <= y < self.size
 
         z = self.lca(x, y)
         return self.cost_root[x] + self.cost_root[y] - 2 * self.cost_root[z]
