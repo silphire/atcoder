@@ -422,7 +422,7 @@ def inversion_number(arr):
         r += i - bit.sum(a)
         bit.add(a, 1)
     return r
-#
+
 
 class LCA(object):
     """
