@@ -24,7 +24,7 @@ class TestUnionFind(unittest.TestCase):
 
 class TestKruskal(unittest.TestCase):
     def test_kruskal(self):
-        self.assertEqual([], lib.Kruskal().kruskal([], 0))
+        self.assertRaises(AssertionError, lib.Kruskal().kruskal, [], 0)
         self.assertEqual([], lib.Kruskal().kruskal([], 1))
         self.assertCountEqual(
             [(1, 0, 1)],
