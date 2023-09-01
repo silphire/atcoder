@@ -179,8 +179,8 @@ class Dijkstra(object):
         """
         import heapq
 
-        assert start < self.n_vertex
-        assert goal < self.n_vertex
+        assert 0 <= start < self.n_vertex
+        assert 0 <= goal < self.n_vertex
 
         visited = [False] * self.n_vertex
 
