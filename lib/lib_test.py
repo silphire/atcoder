@@ -140,6 +140,9 @@ class TestMOD(unittest.TestCase):
 
 
 class TestModInt(unittest.TestCase):
+    def test_init(self):
+        self.assertRaises(AssertionError, lib.ModInt, 1, 0)
+        
     def test_add(self):
         self.assertEqual(
             lib.ModInt(11, 100),
