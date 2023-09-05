@@ -716,7 +716,7 @@ class SCC(object):
         (Strongly Connected Components)
     """
 
-    def scc(self, edges, n_vertex):
+    def scc(self, edges, n_vertex: int):
         """ edges: [(v11, v12), (v21, v22), ...]
         """
         from collections import defaultdict
@@ -731,7 +731,7 @@ class SCC(object):
         visited = [False] * n_vertex
         x = 0
 
-        def dfs_f(v):
+        def dfs_f(v: int):
             nonlocal x, visited, indexes, gf
 
             if visited[v]:
@@ -747,7 +747,7 @@ class SCC(object):
         group = [None] * n_vertex
         x = 0
 
-        def dfs_b(v):
+        def dfs_b(v: int):
             nonlocal x, group, gb
 
             if group[v] is not None:
@@ -773,7 +773,7 @@ class LIS(object):
     def __init__(self):
         pass
 
-    def lis(self, xs):
+    def lis(self, xs) -> int:
         """ return: LISの長さ
         """
         n = len(xs)
