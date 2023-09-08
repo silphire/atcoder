@@ -394,6 +394,8 @@ class TestBinaryIndexedTree(unittest.TestCase):
 
     def test_inversion_number(self):
         self.assertEqual(0, lib.inversion_number([]))
+        self.assertRaises(AssertionError, lib.inversion_number, [-1])
+        self.assertEqual(0, lib.inversion_number([1]))
         self.assertEqual(0, lib.inversion_number([1, 2, 3]))
         self.assertEqual(1, lib.inversion_number([1, 2, 4, 3]))
         self.assertEqual(2, lib.inversion_number([3, 1, 2, 4]))
