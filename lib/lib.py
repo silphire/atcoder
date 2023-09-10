@@ -40,7 +40,7 @@ class Kruskal(object):
     def __init__(self):
         pass
 
-    def kruskal(self, edges, n_vertex: int):
+    def kruskal(self, edges: list[tuple[int, int, int]], n_vertex: int):
         """ クラスカル法で最小全域木を求める
             edges: (cost, vertex_1, vertex_2)
             コストの小さい辺から採用していく
@@ -231,8 +231,8 @@ class Dijkstra(object):
         assert start < self.n_vertex
         assert goal < self.n_vertex
 
-        visited = [False] * self.n_vertex
-        prev = [None] * self.n_vertex
+        visited: list[bool] = [False] * self.n_vertex
+        prev: list[int | None] = [None] * self.n_vertex
 
         q = [(0, start, None)]
         while q:
@@ -716,7 +716,7 @@ class SCC(object):
         (Strongly Connected Components)
     """
 
-    def scc(self, edges, n_vertex: int):
+    def scc(self, edges, n_vertex: int) -> list[tuple[int]]:
         """ edges: [(v11, v12), (v21, v22), ...]
         """
         from collections import defaultdict
@@ -744,7 +744,7 @@ class SCC(object):
         for v in range(n_vertex):
             dfs_f(v)
 
-        group = [None] * n_vertex
+        group: list[int] = [-1] * n_vertex
         x = 0
 
         def dfs_b(v: int):
@@ -759,7 +759,7 @@ class SCC(object):
             dfs_b(i)
             x += 1
 
-        components = defaultdict(list)
+        components: dict[int, list[int]] = defaultdict(list)
         for i, g in enumerate(group):
             components[g].append(i)
 
