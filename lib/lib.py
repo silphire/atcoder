@@ -157,7 +157,7 @@ class Dijkstra(object):
     MIN = 1
     MAX = -1
 
-    def __init__(self, edges, n_vertex: int, priority: int = MIN):
+    def __init__(self, edges: list[tuple[int]], n_vertex: int, priority: int = MIN):
         from collections import defaultdict
 
         assert n_vertex > 0
@@ -203,11 +203,12 @@ class Dijkstra(object):
         """ startで示す頂点から全頂点への最短経路を求める
         """
         import heapq
+        import sys
 
         assert start < self.n_vertex
 
-        visited = [False] * self.n_vertex
-        distance = [float('inf')] * self.n_vertex
+        visited: list[bool] = [False] * self.n_vertex
+        distance: list[int] = [sys.maxsize] * self.n_vertex
         distance[start] = 0
 
         q = [(0, start)]
@@ -727,7 +728,7 @@ class SCC(object):
             gf[v1].add(v2)
             gb[v2].add(v1)
 
-        indexes = [None] * n_vertex
+        indexes = [-1] * n_vertex
         visited = [False] * n_vertex
         x = 0
 
@@ -850,6 +851,9 @@ def next_permutation(arr):
     if n <= 1:
         return arr
 
+    i = -1
+    j = -1
+
     for i in range(n - 2, -1, -1):
         if arr[i] < arr[i + 1]:
             break
@@ -876,6 +880,9 @@ def prev_permutation(arr):
     n = len(arr)
     if n <= 1:
         return arr
+    
+    i = -1
+    j = -1
 
     for i in range(n - 2, -1, -1):
         if arr[i] > arr[i + 1]:
