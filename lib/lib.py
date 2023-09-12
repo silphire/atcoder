@@ -166,7 +166,7 @@ class Dijkstra(object):
         self.n_vertex = n_vertex
         self.priority = priority
 
-        self.route = defaultdict(list)
+        self.route: dict[int, list[tuple[int, int]]] = defaultdict(list)
 
         for e in edges:
             w, v1, v2 = e[:3]
@@ -174,17 +174,18 @@ class Dijkstra(object):
             self.route[v1].append((self.priority * w, v2))
             self.route[v2].append((self.priority * w, v1))
 
-    def dijkstra(self, start: int, goal: int):
+    def dijkstra(self, start: int, goal: int) -> int:
         """ startで示す頂点からgoalで示す頂点までの最短経路を求める
         """
         import heapq
+        import sys
 
         assert 0 <= start < self.n_vertex
         assert 0 <= goal < self.n_vertex
 
         visited = [False] * self.n_vertex
 
-        q = [(0, start)]
+        q: list[tuple[int, int]] = [(0, start)]
         while q:
             w, v = heapq.heappop(q)
             if visited[v]:
@@ -197,9 +198,9 @@ class Dijkstra(object):
             for wn, vn in self.route[v]:
                 heapq.heappush(q, (w + wn, vn))
 
-        return self.priority * float('inf')
+        return self.priority * sys.maxsize
 
-    def dijkstra_all_dests(self, start: int):
+    def dijkstra_all_dests(self, start: int) -> list[int]:
         """ startで示す頂点から全頂点への最短経路を求める
         """
         import heapq
@@ -211,7 +212,7 @@ class Dijkstra(object):
         distance: list[int] = [sys.maxsize] * self.n_vertex
         distance[start] = 0
 
-        q = [(0, start)]
+        q: list[tuple[int, int]] = [(0, start)]
         while q:
             w, v = heapq.heappop(q)
             if visited[v]:
@@ -267,7 +268,7 @@ class MaxFlow(object):
         pass
 
     def flow(self, start: int) -> int:
-        pass
+        return -1
 
 
 class SegmentTree(object):
@@ -527,16 +528,16 @@ class ModInt(object):
         self.__x = x
         self.__modulo = modulo
 
-    def __modret(self, x: int):
+    def __modret(self, x: int) -> 'ModInt':
         return self.__class__(x % self.__modulo, self.__modulo)
 
-    def __int__(self):
+    def __int__(self) -> int:
         return self.__x
 
-    def __float__(self):
+    def __float__(self) -> float:
         return float(self.__x)
 
-    def __eq__(self, x: 'ModInt') -> 'ModInt':
+    def __eq__(self, x: 'ModInt') -> bool:
         return self.__x == x.__x
 
     def __repr__(self):
@@ -612,6 +613,10 @@ class MOD(object):
     def comb(self, n: int, k: int) -> int:
         """ nCk (組み合わせ) を求める
         """
+        import math
+        if 'comb' in dir(math):
+            return math.comb(n, k)
+
         if n < k or n < 0 or k < 0:
             return 0
         m = self.modulo
