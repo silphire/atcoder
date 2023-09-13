@@ -236,7 +236,7 @@ class Dijkstra(object):
         visited: list[bool] = [False] * self.n_vertex
         prev: list[int | None] = [None] * self.n_vertex
 
-        q = [(0, start, None)]
+        q: list[tuple[int, int, int|None]] = [(0, start, None)]
         while q:
             w, v, p = heapq.heappop(q)
             if visited[v]:
@@ -327,11 +327,13 @@ class SegmentTree(object):
 
         return x
 
+    @staticmethod
     def rmq(arr):
         """ Range Minimum Query
         """
         return SegmentTree(arr, float('inf'), lambda x, y: min(x, y))
 
+    @staticmethod
     def raq(arr):
         """ Range Add Query
         """
@@ -543,6 +545,7 @@ class ModInt(object):
     def __repr__(self):
         return f'ModInt<{self.__x} mod {self.__modulo}>'
 
+    @staticmethod
     def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
         """
@@ -633,6 +636,7 @@ class MOD(object):
         """
         return self.comb(n + k - 1, k - 1)
 
+    @staticmethod
     def modinv(a: int, p: int) -> int:
         """ mod pとした時のaの逆元
         """
@@ -675,7 +679,8 @@ class Geometry(object):
     """ 幾何ライブラリ
     """
 
-    def rotate(x, y, theta):
+    @staticmethod
+    def rotate(x: float, y: float, theta: float) -> tuple[float, float]:
         """回転行列
         """
         import math
@@ -684,18 +689,21 @@ class Geometry(object):
             math.sin(theta) * x + math.cos(theta) * y,
         )
 
+    @staticmethod
     def is_orthogonal(x1: int, y1: int, x2: int, y2: int) -> bool:
         """ 線分の直交判定 (ベクトルの内積が0)
             (x1, y1) と (x2, y2) は (0, 0) を基点としたベクトル
         """
         return x1 * x2 + y1 * y2 < 1e-8
 
+    @staticmethod
     def is_parallel(x1: int, y1: int, x2: int, y2: int) -> bool:
         """ 線分の並行判定 (ベクトルの外積が0)
             (x1, y1) と (x2, y2) は (0, 0) を基点としたベクトル
         """
         return x1 * y2 - x2 * y1 < 1e-8
 
+    @staticmethod
     def triangle_area(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int):
         xa = x1 - x3
         ya = y1 - y3
@@ -703,6 +711,7 @@ class Geometry(object):
         yb = y2 - y3
         return abs(xa * yb - xb * ya) / 2
 
+    @staticmethod
     def is_on_segment(
         x1: int, y1: int,
         x2: int, y2: int,
@@ -722,7 +731,7 @@ class SCC(object):
         (Strongly Connected Components)
     """
 
-    def scc(self, edges, n_vertex: int) -> list[tuple[int]]:
+    def scc(self, edges: list[tuple[int, int]], n_vertex: int) -> list[tuple[int, ...]]:
         """ edges: [(v11, v12), (v21, v22), ...]
         """
         from collections import defaultdict
@@ -750,13 +759,13 @@ class SCC(object):
         for v in range(n_vertex):
             dfs_f(v)
 
-        group: list[int] = [-1] * n_vertex
+        group = [-1] * n_vertex
         x = 0
 
         def dfs_b(v: int):
             nonlocal x, group, gb
 
-            if group[v] is not None:
+            if group[v] >= 0:
                 return
             group[v] = x
             for nv in gb[v]:
@@ -765,7 +774,7 @@ class SCC(object):
             dfs_b(i)
             x += 1
 
-        components: dict[int, list[int]] = defaultdict(list)
+        components: defaultdict[int, list[int]] = defaultdict(list)
         for i, g in enumerate(group):
             components[g].append(i)
 
