@@ -5,7 +5,7 @@ class UnionFind(object):
     def __init__(self, n: int):
         assert n > 0
 
-        self.parent = [x for x in range(n)]
+        self.parent = list(range(n))
         self.size = [1] * n
 
     def root(self, x: int) -> int:
@@ -40,7 +40,11 @@ class Kruskal(object):
     def __init__(self):
         pass
 
-    def kruskal(self, edges: list[tuple[int, int, int]], n_vertex: int):
+    def kruskal(
+            self,
+            edges: list[tuple[int, int, int]],
+            n_vertex: int
+    ) -> list[tuple[int, int, int]]:
         """ クラスカル法で最小全域木を求める
             edges: (cost, vertex_1, vertex_2)
             コストの小さい辺から採用していく
@@ -115,7 +119,7 @@ class Prime(object):
     def __init__(self):
         pass
 
-    def prime_sequence(self, n: int):
+    def prime_sequence(self, n: int) -> list[int]:
         """ nまでの素数
         """
         assert n > 0
@@ -130,7 +134,7 @@ class Prime(object):
                 primes[j] = False
         return [i for i in range(2, n + 1) if primes[i]]
 
-    def prime_factorize(self, n: int):
+    def prime_factorize(self, n: int) -> list[int]:
         """ nを素因数分解する
         """
         spf = [1] * (n + 1)
@@ -157,7 +161,12 @@ class Dijkstra(object):
     MIN = 1
     MAX = -1
 
-    def __init__(self, edges: list[tuple[int]], n_vertex: int, priority: int = MIN):
+    def __init__(
+            self,
+            edges: list[tuple[int]],
+            n_vertex: int,
+            priority: int = MIN
+    ):
         from collections import defaultdict
 
         assert n_vertex > 0
@@ -225,10 +234,15 @@ class Dijkstra(object):
 
         return distance
 
-    def dijkstra_with_route(self, start: int, goal: int):
+    def dijkstra_with_route(
+            self,
+            start: int,
+            goal: int
+    ) -> tuple[int, list[int]]:
         """ startで示す頂点からgoalで示す頂点までの最短経路の距離とその経路を求める
         """
         import heapq
+        import sys
 
         assert start < self.n_vertex
         assert goal < self.n_vertex
@@ -236,7 +250,7 @@ class Dijkstra(object):
         visited: list[bool] = [False] * self.n_vertex
         prev: list[int | None] = [None] * self.n_vertex
 
-        q: list[tuple[int, int, int|None]] = [(0, start, None)]
+        q: list[tuple[int, int, int | None]] = [(0, start, None)]
         while q:
             w, v, p = heapq.heappop(q)
             if visited[v]:
@@ -254,7 +268,7 @@ class Dijkstra(object):
             for wn, vn in self.route[v]:
                 heapq.heappush(q, (w + wn, vn, v))
 
-        return self.priority * float('inf'), []
+        return self.priority * sys.maxsize, []
 
 
 class MaxFlow(object):
@@ -731,7 +745,11 @@ class SCC(object):
         (Strongly Connected Components)
     """
 
-    def scc(self, edges: list[tuple[int, int]], n_vertex: int) -> list[tuple[int, ...]]:
+    def scc(
+            self,
+            edges: list[tuple[int, int]],
+            n_vertex: int
+    ) -> list[tuple[int, ...]]:
         """ edges: [(v11, v12), (v21, v22), ...]
         """
         from collections import defaultdict
@@ -894,7 +912,7 @@ def prev_permutation(arr):
     n = len(arr)
     if n <= 1:
         return arr
-    
+
     i = -1
     j = -1
 
