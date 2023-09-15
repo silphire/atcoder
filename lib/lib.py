@@ -984,6 +984,7 @@ def topological_sort_dfs(g, n: int):
         戻り値:
             トポロジカルソートした頂点の集合
             閉路を検出した場合はNone
+        (Python 3.9以降はgraphlib.TopologicalSorterを使うべき)
     """
     ans = []
     visited = [0] * n
@@ -1015,6 +1016,7 @@ def topological_sort_bfs(g, n: int):
         戻り値:
             トポロジカルソートした頂点の集合
             閉路を検出した場合はNone
+        (Python 3.9以降はgraphlib.TopologicalSorterを使うべき)
     """
     from collections import deque
 
