@@ -806,7 +806,7 @@ class LIS(object):
     def __init__(self):
         pass
 
-    def lis(self, xs) -> int:
+    def lis(self, xs: list[int]) -> int:
         """ return: LISの長さ
         """
         n = len(xs)
@@ -824,7 +824,7 @@ class LIS(object):
         return len(dp)
 
 
-def divisors(n: int):
+def divisors(n: int) -> list[int]:
     """ 約数列挙
     """
     assert n >= 0
@@ -867,7 +867,7 @@ class MultiSet(object):
         return False
 
 
-def cumsum(arr):
+def cumsum(arr: list[int]) -> list[int]:
     """
     累積和
     """
@@ -878,7 +878,7 @@ def cumsum(arr):
     return cs
 
 
-def next_permutation(arr):
+def next_permutation(arr: list[any]) -> list[any]:
     n = len(arr)
     if n <= 1:
         return arr
@@ -908,7 +908,7 @@ def next_permutation(arr):
     return arr
 
 
-def prev_permutation(arr):
+def prev_permutation(arr: list[any]) -> list[any]:
     n = len(arr)
     if n <= 1:
         return arr
@@ -938,7 +938,7 @@ def prev_permutation(arr):
     return arr
 
 
-def kadane(arr):
+def kadane(arr: list[int]) -> int:
     """ Kadane's algorithm
         最大部分列問題(部分列の和の最大を求める)をO(n)で解く
     """
@@ -989,7 +989,7 @@ def topological_sort_dfs(g, n: int):
     ans = []
     visited = [0] * n
 
-    def dfs(v):
+    def dfs(v) -> bool:
         visited[v] = 1
         for nv in g.get(v, []):
             if visited[nv] == 0:
