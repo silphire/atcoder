@@ -345,7 +345,8 @@ class SegmentTree(object):
     def rmq(arr):
         """ Range Minimum Query
         """
-        return SegmentTree(arr, float('inf'), lambda x, y: min(x, y))
+        import sys
+        return SegmentTree(arr, sys.maxsize, lambda x, y: min(x, y))
 
     @staticmethod
     def raq(arr):
@@ -942,10 +943,12 @@ def kadane(arr: list[int]) -> int:
     """ Kadane's algorithm
         最大部分列問題(部分列の和の最大を求める)をO(n)で解く
     """
+    import sys
+
     if not arr:
         return 0
 
-    r = float('-inf')
+    r = -sys.maxsize
     s = 0
     for a in arr:
         s = max(s + a, a)
