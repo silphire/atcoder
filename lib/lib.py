@@ -321,7 +321,9 @@ class SegmentTree(object):
             self.buf[i >> 1] = self.op(self.buf[i], self.buf[i ^ 1])
             i >>= 1
 
-    def get(self, p: int, q: int):
+    def get(self, p: int, q: int) -> int:
+        """ [p, q) に op を適用した結果を返す
+        """
         assert 0 <= p <= self.n
         assert 0 <= q <= self.n
         assert p < q
@@ -879,7 +881,7 @@ def cumsum(arr: list[int]) -> list[int]:
     return cs
 
 
-def next_permutation(arr: list[any]) -> list[any]:
+def next_permutation(arr: list) -> list:
     n = len(arr)
     if n <= 1:
         return arr
@@ -909,7 +911,7 @@ def next_permutation(arr: list[any]) -> list[any]:
     return arr
 
 
-def prev_permutation(arr: list[any]) -> list[any]:
+def prev_permutation(arr: list) -> list:
     n = len(arr)
     if n <= 1:
         return arr
