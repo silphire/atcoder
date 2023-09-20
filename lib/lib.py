@@ -982,7 +982,10 @@ def lcs(s: str, t: str) -> int:
     return dp[ns][nt]
 
 
-def topological_sort_dfs(g, n: int):
+def topological_sort_dfs(
+    g: dict[int, list[int]],
+    n: int,
+) -> tuple[int, ...] | None:
     """トポロジカルソート (dfs版)
         g: グラフ
         n: ノードの数
@@ -994,7 +997,7 @@ def topological_sort_dfs(g, n: int):
     ans = []
     visited = [0] * n
 
-    def dfs(v) -> bool:
+    def dfs(v: int) -> bool:
         visited[v] = 1
         for nv in g.get(v, []):
             if visited[nv] == 0:
@@ -1014,7 +1017,10 @@ def topological_sort_dfs(g, n: int):
     return tuple(reversed(ans))
 
 
-def topological_sort_bfs(g, n: int):
+def topological_sort_bfs(
+    g: dict[int, list[int]],
+    n: int,
+) -> tuple[int, ...] | None:
     """トポロジカルソート (bfs版)
         g: グラフ
         n: ノードの数
@@ -1047,7 +1053,7 @@ def topological_sort_bfs(g, n: int):
                     q.append(y)
 
     if n == 0:
-        return ans
+        return tuple(ans)
     else:
         return None
 
