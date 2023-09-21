@@ -431,7 +431,7 @@ class RangeBinaryIndexedTree(object):
         return self.sum_range(pos, pos + 1)
 
 
-def inversion_number(arr):
+def inversion_number(arr) -> int:
     """
     転倒数
     arr: [1, ..., n] が入っているリスト
@@ -648,7 +648,7 @@ class MOD(object):
             self.size = n
         return self.fact[n] * (self.finv[k] * self.finv[n - k] % m) % m
 
-    def hprod(self, n: int, k: int):
+    def hprod(self, n: int, k: int) -> int:
         """ nHk (重複組み合わせ) を求める
         """
         return self.comb(n + k - 1, k - 1)
@@ -721,7 +721,7 @@ class Geometry(object):
         return x1 * y2 - x2 * y1 < 1e-8
 
     @staticmethod
-    def triangle_area(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int):
+    def triangle_area(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int) -> float:
         xa = x1 - x3
         ya = y1 - y3
         xb = x2 - x3
@@ -767,7 +767,7 @@ class SCC(object):
         visited = [False] * n_vertex
         x = 0
 
-        def dfs_f(v: int):
+        def dfs_f(v: int) -> None:
             nonlocal x, visited, indexes, gf
 
             if visited[v]:
@@ -783,7 +783,7 @@ class SCC(object):
         group = [-1] * n_vertex
         x = 0
 
-        def dfs_b(v: int):
+        def dfs_b(v: int) -> None:
             nonlocal x, group, gb
 
             if group[v] >= 0:
@@ -1058,7 +1058,7 @@ def topological_sort_bfs(
         return None
 
 
-def topological_sort_unique(g, arr) -> bool:
+def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
     """トポロジカルソートの結果が一意かどうか
     """
     for i in range(1, len(arr)):
