@@ -342,6 +342,8 @@ class SegmentTree(object):
             q >>= 1
 
         return x
+    
+    # TODO セグメント木の上での二分探索
 
     @staticmethod
     def rmq(arr):
