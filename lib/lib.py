@@ -344,6 +344,11 @@ class SegmentTree(object):
         return x
     
     # TODO セグメント木の上での二分探索
+    def leftmost(self, x, f) -> int:
+        return 0
+    
+    def rightmost(self, x, f) -> int:
+        return 0
 
     @staticmethod
     def rmq(arr):
