@@ -1115,6 +1115,20 @@ def multidim(*x):
     return np.zeros(x, dtype=np.int64)
 
 
+def bisect_boundary(arr: list, f) -> int:
+    assert callable(f)
+    
+    l = 0
+    r = len(arr)
+    while l < r:
+        x = (l + r) // 2
+        if f(arr[x]):
+            l = x
+        else:
+            r = x
+    return l
+
+
 # パスカルの三角形の計算
 # Grundy数
 # multiset, ordered set, 標準的な物があるなら
