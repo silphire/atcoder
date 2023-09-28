@@ -541,5 +541,10 @@ class TestEditDistance(unittest.TestCase):
         self.assertEqual(3, lib.edit_distance("ab", "def"))
 
 
+class TestBisectBoundary(unittest.TestCase):
+    def test_bisect_boundary(self):
+        self.assertEqual(5, lib.bisect_boundary(list(range(10)), lambda x: x <= 5))
+
+
 if __name__ == '__main__':
     unittest.main()

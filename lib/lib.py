@@ -1120,7 +1120,7 @@ def bisect_boundary(arr: list, f) -> int:
     
     l = 0
     r = len(arr)
-    while l < r:
+    while r - l > 1:
         x = (l + r) // 2
         if f(arr[x]):
             l = x
