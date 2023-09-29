@@ -543,6 +543,7 @@ class TestEditDistance(unittest.TestCase):
 
 class TestBisectBoundary(unittest.TestCase):
     def test_bisect_boundary(self):
+        self.assertRaises(AssertionError, lib.bisect_boundary, list(range(10)), None)
         self.assertEqual(5, lib.bisect_boundary(list(range(10)), lambda x: x <= 5))
 
 
