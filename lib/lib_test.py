@@ -545,6 +545,8 @@ class TestBisectBoundary(unittest.TestCase):
     def test_bisect_boundary(self):
         self.assertRaises(AssertionError, lib.bisect_boundary, list(range(10)), None)
         self.assertEqual(5, lib.bisect_boundary(list(range(10)), lambda x: x <= 5))
+        self.assertEqual(0, lib.bisect_boundary(list(range(10)), lambda x: x is None))
+        self.assertEqual(9, lib.bisect_boundary(list(range(10)), lambda x: isinstance(x, int)))
 
 
 if __name__ == '__main__':
