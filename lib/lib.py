@@ -1116,6 +1116,8 @@ def multidim(*x):
 
 
 def bisect_boundary(arr: list, f) -> int:
+    """ [False, True]の境界の位置を検索する
+    """
     assert callable(f)
     
     l = 0
