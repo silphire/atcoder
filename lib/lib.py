@@ -641,7 +641,7 @@ class MOD(object):
         """ nCk (組み合わせ) を求める
         """
         import math
-        if 'comb' in dir(math):
+        if hasattr(math, 'comb'):
             return math.comb(n, k)
 
         if n < k or n < 0 or k < 0:
@@ -690,7 +690,7 @@ def lcm(a: int, b: int) -> int:
     """
     import math
 
-    if 'lcm' in dir(math):
+    if hasattr(math, 'lcm'):
         return math.lcm(a, b)
 
     if a == 0 or b == 0:
