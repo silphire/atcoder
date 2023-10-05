@@ -342,11 +342,11 @@ class SegmentTree(object):
             q >>= 1
 
         return x
-    
+
     # TODO セグメント木の上での二分探索
     def leftmost(self, x, f) -> int:
         return 0
-    
+
     def rightmost(self, x, f) -> int:
         return 0
 
@@ -728,7 +728,11 @@ class Geometry(object):
         return x1 * y2 - x2 * y1 < 1e-8
 
     @staticmethod
-    def triangle_area(x1: int, y1: int, x2: int, y2: int, x3: int, y3: int) -> float:
+    def triangle_area(
+        x1: int, y1: int,
+        x2: int, y2: int,
+        x3: int, y3: int,
+    ) -> float:
         xa = x1 - x3
         ya = y1 - y3
         xb = x2 - x3
@@ -1119,16 +1123,16 @@ def bisect_boundary(arr: list, f) -> int:
     """ [False, True]の境界の位置を検索する
     """
     assert callable(f)
-    
-    l = 0
-    r = len(arr)
-    while r - l > 1:
-        x = (l + r) // 2
-        if f(arr[x]):
-            l = x
+
+    left = 0
+    right = len(arr)
+    while right - left > 1:
+        mid = (left + right) // 2
+        if f(arr[mid]):
+            left = mid
         else:
-            r = x
-    return l
+            right = mid
+    return left
 
 
 # パスカルの三角形の計算
