@@ -810,7 +810,7 @@ class SCC(object):
         for i, g in enumerate(group):
             components[g].append(i)
 
-        return [tuple(c) for g, c in components.items()]
+        return [tuple(c) for _, c in components.items()]
 
 
 class LIS(object):
@@ -1043,7 +1043,7 @@ def topological_sort_bfs(
     from collections import deque
 
     cnt = [0] * n
-    for k, v in g.items():
+    for _, v in g.items():
         for x in v:
             cnt[x] += 1
 
