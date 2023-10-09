@@ -897,9 +897,6 @@ def next_permutation(arr: list) -> list:
     if n <= 1:
         return arr
 
-    i = -1
-    j = -1
-
     for i in range(n - 2, -1, -1):
         if arr[i] < arr[i + 1]:
             break
@@ -926,9 +923,6 @@ def prev_permutation(arr: list) -> list:
     n = len(arr)
     if n <= 1:
         return arr
-
-    i = -1
-    j = -1
 
     for i in range(n - 2, -1, -1):
         if arr[i] > arr[i + 1]:
