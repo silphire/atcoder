@@ -631,6 +631,10 @@ class MOD(object):
     def __init__(self, modulo: int):
         assert modulo > 0
 
+        import math
+        if hasattr(math, 'comb'):
+            self.comb = math.comb
+        
         self.modulo = modulo
         self.size = 2
         self.fact = [1, 1]
