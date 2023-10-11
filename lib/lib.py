@@ -347,6 +347,7 @@ class SegmentTree(object):
     def leftmost(self, x, f) -> int:
         return 0
 
+    # TODO セグメント木の上での二分探索
     def rightmost(self, x, f) -> int:
         return 0
 
