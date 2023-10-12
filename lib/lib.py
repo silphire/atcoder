@@ -163,7 +163,7 @@ class Dijkstra(object):
 
     def __init__(
             self,
-            edges: list[tuple[int]],
+            edges: list[tuple[int, int, int]],
             n_vertex: int,
             priority: int = MIN
     ):
