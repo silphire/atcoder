@@ -637,7 +637,7 @@ class MOD(object):
         import math
         if hasattr(math, 'comb'):
             self.comb = math.comb
-        
+
         self.modulo = modulo
         self.size = 2
         self.fact = [1, 1]
