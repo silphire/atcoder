@@ -37,7 +37,7 @@ class Kruskal(object):
     """
     クラスカル法 (最小全域木)
     """
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def kruskal(
@@ -67,7 +67,7 @@ class Kruskal(object):
 class Prim(object):
     """プリム法 (最小全域木)
     """
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def prim(self, edges, start: int, n_vertex: int):
@@ -116,7 +116,7 @@ class Prime(object):
     """素数関係の関数群
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def prime_sequence(self, n: int) -> list[int]:
@@ -820,7 +820,7 @@ class LIS(object):
     """ 最長増加部分列 (LIS; Longest Increasing Subsequence)
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def lis(self, xs: list[int]) -> int:
@@ -1044,7 +1044,7 @@ def topological_sort_bfs(
         for x in v:
             cnt[x] += 1
 
-    q = deque()
+    q = deque[int]()
     for i, c in enumerate(cnt):
         if c == 0:
             q.append(i)
