@@ -70,7 +70,7 @@ class Prim(object):
     def __init__(self) -> None:
         pass
 
-    def prim(self, edges, start: int, n_vertex: int):
+    def prim(self, edges: list[tuple[int, int, int]], start: int, n_vertex: int) -> list[tuple[int, int, int]]:
         """プリム法で最小全域木を求めます。
            双方向を前提としています。
         * edges: [(cost, v1, v2)] (0 <= vn < n_vertex)
@@ -278,7 +278,7 @@ class MaxFlow(object):
 
     * edges: [(weight, vertex_1, vertex_2)]
     """
-    def __init__(self, edges):
+    def __init__(self, edges: list[tuple[int, int, int]]):
         pass
 
     def flow(self, start: int) -> int:
@@ -289,7 +289,9 @@ class SegmentTree(object):
     """
     セグメント木
     """
-    def __init__(self, arr, e, op):
+    from typing import Callable
+
+    def __init__(self, arr: list[int], e: int, op: Callable[[int, int], int]):
         """
             arr: 初期値
             e: 単位元
@@ -464,8 +466,8 @@ class LCA(object):
         """
         assert size > 0
         self.size = size
-        self.graph = [[] for _ in range(size)]
-        self.cost_edge = [[] for _ in range(size)]
+        self.graph: list[list[int]] = [[] for _ in range(size)]
+        self.cost_edge: list[list[int]] = [[] for _ in range(size)]
 
     def add_edge(self, x: int, y: int, cost: int = 1) -> None:
         """ 木の辺を追加します。
