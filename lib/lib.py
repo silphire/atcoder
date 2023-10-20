@@ -346,11 +346,11 @@ class SegmentTree(object):
         return x
 
     # TODO セグメント木の上での二分探索
-    def leftmost(self, x, f) -> int:
+    def leftmost(self, x: int, f: Callable[[int], bool]) -> int:
         return 0
 
     # TODO セグメント木の上での二分探索
-    def rightmost(self, x, f) -> int:
+    def rightmost(self, x: int, f: Callable[[int, bool]]) -> int:
         return 0
 
     @staticmethod
@@ -459,7 +459,7 @@ class LCA(object):
     """
     Lowest Common Ancestor
     """
-    def __init__(self, size):
+    def __init__(self, size: int) -> None:
         """ 保存領域の初期化。
             辺に重みがついている時の頂点間の重み計算にはcostを使えます。
             size: 頂点の数
