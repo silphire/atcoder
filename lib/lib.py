@@ -289,7 +289,7 @@ class SegmentTree(object):
     """
     セグメント木
     """
-    from typing import Callable
+    from collections.abc import Callable
 
     def __init__(self, arr: list[int], e: int, op: Callable[[int, int], int]):
         """
@@ -350,18 +350,18 @@ class SegmentTree(object):
         return 0
 
     # TODO セグメント木の上での二分探索
-    def rightmost(self, x: int, f: Callable[[int, bool]]) -> int:
+    def rightmost(self, x: int, f: Callable[[int], bool]) -> int:
         return 0
 
     @staticmethod
-    def rmq(arr):
+    def rmq(arr: list[int]):
         """ Range Minimum Query
         """
         import sys
         return SegmentTree(arr, sys.maxsize, lambda x, y: min(x, y))
 
     @staticmethod
-    def raq(arr):
+    def raq(arr: list[int]):
         """ Range Add Query
         """
         return SegmentTree(arr, 0, lambda x, y: x + y)
@@ -821,11 +821,12 @@ class SCC(object):
 class LIS(object):
     """ 最長増加部分列 (LIS; Longest Increasing Subsequence)
     """
+    from collections.abc import Sequence
 
     def __init__(self) -> None:
         pass
 
-    def lis(self, xs: list[int]) -> int:
+    def lis(self, xs: Sequence[int]) -> int:
         """ return: LISの長さ
         """
         n = len(xs)
