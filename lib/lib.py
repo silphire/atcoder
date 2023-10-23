@@ -70,7 +70,12 @@ class Prim(object):
     def __init__(self) -> None:
         pass
 
-    def prim(self, edges: list[tuple[int, int, int]], start: int, n_vertex: int) -> list[tuple[int, int, int]]:
+    def prim(
+        self,
+        edges: list[tuple[int, int, int]],
+        start: int,
+        n_vertex: int,
+    ) -> list[tuple[int, int, int]]:
         """プリム法で最小全域木を求めます。
            双方向を前提としています。
         * edges: [(cost, v1, v2)] (0 <= vn < n_vertex)
@@ -354,14 +359,14 @@ class SegmentTree(object):
         return 0
 
     @staticmethod
-    def rmq(arr: list[int]):
+    def rmq(arr: list[int]) -> 'SegmentTree':
         """ Range Minimum Query
         """
         import sys
         return SegmentTree(arr, sys.maxsize, lambda x, y: min(x, y))
 
     @staticmethod
-    def raq(arr: list[int]):
+    def raq(arr: list[int]) -> 'SegmentTree':
         """ Range Add Query
         """
         return SegmentTree(arr, 0, lambda x, y: x + y)
@@ -441,7 +446,7 @@ class RangeBinaryIndexedTree(object):
         return self.sum_range(pos, pos + 1)
 
 
-def inversion_number(arr) -> int:
+def inversion_number(arr: list[int]) -> int:
     """
     転倒数
     arr: [1, ..., n] が入っているリスト
@@ -490,7 +495,7 @@ class LCA(object):
         self.depth = [-1] * self.size
         self.cost_root = [0] * self.size
 
-        def dfs(v, par, d, c) -> None:
+        def dfs(v: int, par: int, d: int, c: int) -> None:
             self.parent[v][0] = par
             self.depth[v] = d
             self.cost_root[v] = c
@@ -971,6 +976,8 @@ def kadane(arr: list[int]) -> int:
 
 import typing
 from collections.abc import Sequence
+
+
 def lcs(s: Sequence[typing.Any], t: Sequence[typing.Any]) -> int:
     """最長部分共通列 (longest common sequence)
     """
