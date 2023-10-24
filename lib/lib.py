@@ -879,7 +879,7 @@ class MultiSet(object):
     def __init__(self) -> None:
         pass
 
-    def add(self, x):
+    def add(self, x) -> None:
         pass
 
     def lower_bound(self, x):
@@ -1087,7 +1087,7 @@ def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
     return True
 
 
-def crt(r, m):
+def crt(r: int, m: int) -> int:
     """ 中国剰余定理
     """
     pass
