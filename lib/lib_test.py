@@ -465,9 +465,11 @@ class TestSegtree(unittest.TestCase):
         lib.SegmentTree([], 0, lambda x, y: None)
 
     def test_rmq(self) -> None:
+        import sys
+
         st = lib.SegmentTree(
             [1, 2, 3, 4],
-            float('inf'),
+            sys.maxsize,
             lambda x, y: min(x, y),
         )
         self.assertEqual(1, st.get(0, 4))
