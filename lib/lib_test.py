@@ -502,20 +502,24 @@ class TestKadane(unittest.TestCase):
 
 class TestTopologicalSort(unittest.TestCase):
     def test_dfs(self) -> None:
-        self.assertSequenceEqual((), lib.topological_sort_dfs({}, 0))
-        self.assertSequenceEqual(
+        self.assertTupleEqual((), lib.topological_sort_dfs({}, 0))
+        self.assertTupleEqual(
             (0, 2, 3, 1),
             lib.topological_sort_bfs({0: [2], 2: [1, 3]}, 4))
-        self.assertIsNone(
-            lib.topological_sort_dfs({0: [2], 1: [0], 2: [1]}, 3))
+        self.assertTupleEqual(
+            (),
+            lib.topological_sort_dfs({0: [2], 1: [0], 2: [1]}, 3),
+        )
 
     def test_bfs(self) -> None:
-        self.assertSequenceEqual((), lib.topological_sort_bfs({}, 0))
-        self.assertSequenceEqual(
+        self.assertTupleEqual((), lib.topological_sort_bfs({}, 0))
+        self.assertTupleEqual(
             (0, 2, 3, 1),
             lib.topological_sort_bfs({0: [2], 2: [1, 3]}, 4))
-        self.assertIsNone(
-            lib.topological_sort_bfs({0: [2], 1: [0], 2: [1]}, 3))
+        self.assertTupleEqual(
+            (),
+            lib.topological_sort_bfs({0: [2], 1: [0], 2: [1]}, 3),
+        )
 
     def test_unique(self) -> None:
         self.assertFalse(lib.topological_sort_unique({3: [1, 2]}, [3, 1, 2]))

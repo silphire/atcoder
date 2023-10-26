@@ -1005,7 +1005,7 @@ def lcs(s: Sequence[typing.Any], t: Sequence[typing.Any]) -> int:
 def topological_sort_dfs(
     g: dict[int, list[int]],
     n: int,
-) -> tuple[int, ...] | None:
+) -> tuple[int, ...]:
     """トポロジカルソート (dfs版)
         g: グラフ
         n: ノードの数
@@ -1032,7 +1032,7 @@ def topological_sort_dfs(
     for v in range(n):
         if visited[v] == 0:
             if not dfs(v):
-                return None
+                return ()
 
     return tuple(reversed(ans))
 
@@ -1040,7 +1040,7 @@ def topological_sort_dfs(
 def topological_sort_bfs(
     g: dict[int, list[int]],
     n: int,
-) -> tuple[int, ...] | None:
+) -> tuple[int, ...]:
     """トポロジカルソート (bfs版)
         g: グラフ
         n: ノードの数
@@ -1075,7 +1075,7 @@ def topological_sort_bfs(
     if n == 0:
         return tuple(ans)
     else:
-        return None
+        return ()
 
 
 def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
