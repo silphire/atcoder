@@ -317,7 +317,7 @@ class SegmentTree(object):
         for i in range(self.p2 - 1, -1, -1):
             self.buf[i] = op(self.buf[2 * i], self.buf[2 * i + 1])
 
-    def set(self, i: int, x) -> None:
+    def set(self, i: int, x: int) -> None:
         """ i の位置を x に置き換える
         """
         assert 0 <= i < self.n
@@ -571,12 +571,12 @@ class ModInt(object):
     def __float__(self) -> float:
         return float(self.__x)
 
-    def __eq__(self, x) -> bool:
+    def __eq__(self, x: 'ModInt') -> bool:
         if not isinstance(x, ModInt):
             return NotImplemented
         return self.__x == x.__x
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'ModInt<{self.__x} mod {self.__modulo}>'
 
     @staticmethod
@@ -1090,7 +1090,7 @@ def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
 def crt(r: int, m: int) -> int:
     """ 中国剰余定理
     """
-    pass
+    return 0
 
 
 def edit_distance(s: str, t: str) -> int:
