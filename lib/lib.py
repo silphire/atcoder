@@ -876,19 +876,21 @@ class Tree(object):
 
 
 class MultiSet(object):
+    from typing import Any
+
     def __init__(self) -> None:
         pass
 
-    def add(self, x) -> None:
+    def add(self, x: Any) -> None:
         pass
 
-    def lower_bound(self, x):
+    def lower_bound(self, x: Any) -> None:
         pass
 
-    def upper_bound(self, x):
+    def upper_bound(self, x: Any) -> None:
         pass
 
-    def has(self, x) -> bool:
+    def has(self, x: Any) -> bool:
         return False
 
 
