@@ -163,6 +163,7 @@ class Dijkstra(object):
     * edges: [(weight, vertex_1, vertex_2)]
     """
 
+    # TODO enum化
     MIN = 1
     MAX = -1
 
