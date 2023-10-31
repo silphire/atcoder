@@ -163,15 +163,17 @@ class Dijkstra(object):
     * edges: [(weight, vertex_1, vertex_2)]
     """
 
-    # TODO enum化
-    MIN = 1
-    MAX = -1
+    from enum import Enum
+
+    class Priority(Enum):
+        MIN = 1
+        MAX = -1
 
     def __init__(
             self,
             edges: list[tuple[int, int, int]],
             n_vertex: int,
-            priority: int = MIN
+            priority: int = Priority.MIN
     ):
         from collections import defaultdict
 
