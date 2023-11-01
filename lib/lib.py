@@ -173,7 +173,7 @@ class Dijkstra(object):
             self,
             edges: list[tuple[int, int, int]],
             n_vertex: int,
-            priority: int = Priority.MIN
+            priority: Priority = Priority.MIN
     ):
         from collections import defaultdict
 
