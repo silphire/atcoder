@@ -163,9 +163,9 @@ class Dijkstra(object):
     * edges: [(weight, vertex_1, vertex_2)]
     """
 
-    from enum import Enum
+    from enum import IntEnum
 
-    class Priority(Enum):
+    class Priority(IntEnum):
         MIN = 1
         MAX = -1
 
