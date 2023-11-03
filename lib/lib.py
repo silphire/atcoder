@@ -878,8 +878,10 @@ class Tree(object):
         self.children = [None, None]
 
 
+from typing import Any
+
+
 class MultiSet(object):
-    from typing import Any
 
     def __init__(self) -> None:
         pass
