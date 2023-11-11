@@ -1161,6 +1161,7 @@ def bisect_boundary(arr: list, f) -> int:
 # メモリ使用量を抑える素因数分解
 # 区間操作
 # hash value
+# 重み付きUnion-Find
 
 if __name__ == '__main__':
     pass
