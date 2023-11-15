@@ -33,6 +33,10 @@ class UnionFind(object):
         return self.size[self.root(x)]
 
 
+class WeightedUnionFind(object):
+    pass
+
+
 class Kruskal(object):
     """
     クラスカル法 (最小全域木)
