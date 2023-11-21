@@ -33,8 +33,17 @@ class UnionFind(object):
         return self.size[self.root(x)]
 
 
-class WeightedUnionFind(object):
-    pass
+class WeightedUnionFind(UnionFind):
+    def __init__(self, n: int):
+        super().__init__(n)
+    
+    def unite(self, x: int, y: int, w: int) -> int:
+        super().unite(x, y)
+        return 0
+
+    def diff(self, x: int, y: int) -> int:
+        return 0
+
 
 
 class Kruskal(object):
