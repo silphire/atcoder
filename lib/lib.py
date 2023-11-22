@@ -35,14 +35,24 @@ class UnionFind(object):
 
 class WeightedUnionFind(UnionFind):
     def __init__(self, n: int):
+        self.weight = [0] * n
         super().__init__(n)
     
     def unite(self, x: int, y: int, w: int) -> int:
-        super().unite(x, y)
-        return 0
+        rx = self.root(x)
+        ry = self.root(y)
+        if rx == ry:
+            return rx
+
+        rz = super().unite(x, y)
+        self.weight[rz] = self.weight[rx] + self.weight[ry] + w
+
+        return rz
 
     def diff(self, x: int, y: int) -> int:
-        return 0
+        if self.is_same(x, y):
+            return self.weight[y] - self.weight[x]
+        return -1
 
 
 
