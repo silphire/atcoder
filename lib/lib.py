@@ -39,6 +39,7 @@ class WeightedUnionFind(UnionFind):
         super().__init__(n)
     
     def unite(self, x: int, y: int, w: int) -> int:
+        # TODO wの調整
         rx = self.root(x)
         ry = self.root(y)
         if rx == ry:
