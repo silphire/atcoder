@@ -40,6 +40,7 @@ class WeightedUnionFind(UnionFind):
     
     def unite(self, x: int, y: int, w: int) -> int:
         # TODO wの調整
+        # UnionFindから実装を独立する？
         rx = self.root(x)
         ry = self.root(y)
         if rx == ry:
