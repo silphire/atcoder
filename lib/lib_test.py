@@ -21,6 +21,9 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(2, x.get_size(0))
         self.assertEqual(2, x.get_size(1))
 
+    def test_weighted_union_find(self) -> None:
+        pass
+
 
 class TestKruskal(unittest.TestCase):
     def test_kruskal(self) -> None:
