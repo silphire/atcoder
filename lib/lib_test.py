@@ -28,6 +28,8 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(0, x.root(0))
         self.assertEqual(1, x.get_size(0))
 
+        # TODO test for weight
+
 
 class TestKruskal(unittest.TestCase):
     def test_kruskal(self) -> None:
