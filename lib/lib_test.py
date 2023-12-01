@@ -38,6 +38,7 @@ class TestUnionFind(unittest.TestCase):
         self.assertTrue(x.is_same(0, 1))
         self.assertEqual(2, x.get_size(0))
         self.assertEqual(2, x.get_size(1))
+        self.assertEqual(1, x.diff(0, 1))
 
         # TODO test for weight
 
