@@ -34,6 +34,9 @@ class UnionFind(object):
 
 
 class WeightedUnionFind(UnionFind):
+    """
+    Union-Find with weight
+    """
     def __init__(self, n: int):
         self.weight = [0] * n
         super().__init__(n)
