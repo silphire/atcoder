@@ -40,7 +40,7 @@ class WeightedUnionFind(UnionFind):
     def __init__(self, n: int):
         self.weight = [0] * n
         super().__init__(n)
-    
+
     def unite(self, x: int, y: int, w: int) -> int:
         # TODO wの調整
         # UnionFindから実装を独立する？
@@ -59,7 +59,6 @@ class WeightedUnionFind(UnionFind):
         if self.is_same(x, y):
             return self.weight[y] - self.weight[x]
         return -1
-
 
 
 class Kruskal(object):
