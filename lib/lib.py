@@ -925,6 +925,9 @@ class MultiSet(object):
 
     def has(self, x: Any) -> bool:
         return False
+    
+    def count(self, x: Any) -> int:
+        return 0
 
 
 def cumsum(arr: list[int]) -> list[int]:
