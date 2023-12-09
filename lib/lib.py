@@ -910,6 +910,10 @@ from typing import Any
 
 
 class MultiSet(object):
+    """
+    複数の値を入れられるset
+    lower_bound, upper_boundがある。
+    """
 
     def __init__(self) -> None:
         pass
