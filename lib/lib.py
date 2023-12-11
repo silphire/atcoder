@@ -909,31 +909,6 @@ class Tree(object):
 from typing import Any
 
 
-class MultiSet(object):
-    """
-    複数の値を入れられるset
-    lower_bound, upper_boundがある。
-    """
-
-    def __init__(self) -> None:
-        pass
-
-    def add(self, x: Any) -> None:
-        pass
-
-    def lower_bound(self, x: Any) -> None:
-        pass
-
-    def upper_bound(self, x: Any) -> None:
-        pass
-
-    def has(self, x: Any) -> bool:
-        return False
-    
-    def count(self, x: Any) -> int:
-        return 0
-
-
 def cumsum(arr: list[int]) -> list[int]:
     """
     累積和
