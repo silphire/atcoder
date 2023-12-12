@@ -1163,7 +1163,6 @@ def bisect_boundary(arr: list, f) -> int:
 
 # パスカルの三角形の計算
 # Grundy数
-# multiset, ordered set, 標準的な物があるなら
 # AVL木
 # 遅延セグメント木
 # 用途を限定したMultiSet (heapで代用できる物など)
