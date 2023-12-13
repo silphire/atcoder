@@ -1165,7 +1165,6 @@ def bisect_boundary(arr: list, f) -> int:
 # Grundy数
 # AVL木
 # 遅延セグメント木
-# 用途を限定したMultiSet (heapで代用できる物など)
 # trie
 # メモリ使用量を抑える素因数分解
 # 区間操作
