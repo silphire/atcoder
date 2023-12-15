@@ -1169,6 +1169,7 @@ def bisect_boundary(arr: list, f) -> int:
 # メモリ使用量を抑える素因数分解
 # 区間操作
 # hash value
+# numpyを使うための補助関数
 
 if __name__ == '__main__':
     pass
