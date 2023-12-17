@@ -1104,9 +1104,10 @@ def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
     return True
 
 
-def crt(r: int, m: int) -> int:
+def crt(r1: int, m1: int, r2: int, m1: int) -> int:
     """ 中国剰余定理
     """
+    # Python 3.8以降
     return 0
 
 
