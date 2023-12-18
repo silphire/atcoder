@@ -1104,11 +1104,25 @@ def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
     return True
 
 
-def crt(r1: int, m1: int, r2: int, m1: int) -> int:
+def crt(r1: int, m1: int, r2: int, m2: int) -> int:
     """ 中国剰余定理
     """
+    import math
+
     # Python 3.8以降
-    return 0
+    assert m1 != 0
+    assert m2 != 0
+
+    gcd = math.gcd(m1, m2)
+    if (r2 - r1) % gcd:
+        return -1
+    
+    m1 //= gcd
+    m2 //= gcd
+    r = (r2 - r1) // gcd
+    inv = pow(m1, -1, m2) * r % m2
+
+    return (m1 * inv + r1) % abs(m1 * m2 // gcd)
 
 
 def edit_distance(s: str, t: str) -> int:
