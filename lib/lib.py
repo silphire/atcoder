@@ -1106,6 +1106,7 @@ def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
 
 def crt(r1: int, m1: int, r2: int, m2: int) -> int:
     """ 中国剰余定理
+        TODO 3個以上
     """
     import math
 
