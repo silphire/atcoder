@@ -1125,6 +1125,11 @@ def crt(r1: int, m1: int, r2: int, m2: int) -> int:
 
     return (m1 * inv + r1) % abs(m1 * m2 // gcd)
 
+def crt_multi(r: list[int], m: list[int]) -> int:
+    """ 中国剰余定理 (3つ以上)
+    """
+    return -1
+
 
 def edit_distance(s: str, t: str) -> int:
     """ 編集距離 (レーベンシュタイン距離)
