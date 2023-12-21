@@ -1125,10 +1125,21 @@ def crt(r1: int, m1: int, r2: int, m2: int) -> int:
 
     return (m1 * inv + r1) % abs(m1 * m2 // gcd)
 
-def crt_multi(r: list[int], m: list[int]) -> int:
+def crt_multi(rr: list[int], mm: list[int]) -> int:
     """ 中国剰余定理 (3つ以上)
     """
-    return -1
+    import math
+
+    m = crt(rr[0], mm[0], rr[1], mm[1])
+    lcm = math.lcm(mm[0], mm[1])
+
+    for i in range(2, len(rr)):
+        if m == -1:
+            return -1
+        m = crt(rr[i], mm[i], m, lcm)
+        lcm = math.lcm(m, lcm)
+    
+    return m
 
 
 def edit_distance(s: str, t: str) -> int:
