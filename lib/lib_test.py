@@ -592,5 +592,10 @@ class TestBisectBoundary(unittest.TestCase):
         )
 
 
+class TestCRT(unittest.TestCase):
+    def test_crt(self) -> None:
+        self.assertEqual(5, lib.crt(3, 2, 5, 3))
+
+
 if __name__ == '__main__':
     unittest.main()
