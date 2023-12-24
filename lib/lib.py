@@ -1130,6 +1130,9 @@ def crt_multi(rr: list[int], mm: list[int]) -> int:
     """
     import math
 
+    for m in mm:
+        assert m != 0
+
     m = crt(rr[0], mm[0], rr[1], mm[1])
     lcm = math.lcm(mm[0], mm[1])
 
