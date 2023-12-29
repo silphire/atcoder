@@ -1116,13 +1116,14 @@ def crt(r1: int, m1: int, r2: int, m2: int) -> int:
     gcd = math.gcd(m1, m2)
     if (r2 - r1) % gcd:
         return -1
-    
+
     m1 //= gcd
     m2 //= gcd
     r = (r2 - r1) // gcd
     inv = pow(m1, -1, m2) * r % m2
 
     return (m1 * inv + r1) % abs(m1 * m2 // gcd)
+
 
 def crt_multi(rr: list[int], mm: list[int]) -> int:
     """ 中国剰余定理 (3つ以上)
@@ -1140,7 +1141,7 @@ def crt_multi(rr: list[int], mm: list[int]) -> int:
             return -1
         m = crt(rr[i], mm[i], m, lcm)
         lcm = math.lcm(m, lcm)
-    
+
     return m
 
 
