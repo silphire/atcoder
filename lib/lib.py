@@ -1205,6 +1205,7 @@ def bisect_boundary(arr: list, f) -> int:
 # 区間操作
 # hash value
 # numpyを使うための補助関数
+# z algorithm
 
 if __name__ == '__main__':
     pass
