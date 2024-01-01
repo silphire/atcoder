@@ -1196,6 +1196,10 @@ def bisect_boundary(arr: list, f) -> int:
     return left
 
 
+def z_algorithm(s: str) -> list[int]:
+    return []
+
+
 # パスカルの三角形の計算
 # Grundy数
 # AVL木
