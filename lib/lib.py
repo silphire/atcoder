@@ -1197,6 +1197,10 @@ def bisect_boundary(arr: list, f) -> int:
 
 
 def z_algorithm(s: str) -> list[int]:
+    """ Zーalgorithm
+        s: 対象の文字列
+        戻り値: postfixの長さ
+    """
     return []
 
 
