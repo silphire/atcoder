@@ -603,5 +603,9 @@ class TestCRT(unittest.TestCase):
         self.assertRaises(AssertionError, lib.crt_multi, (2, 3), (0, 1))
 
 
+class TestZAlgorithm(unittest.TestCase):
+    def test_z_algorithm(self) -> None:
+        self.assertEqual([], lib.z_algorithm, '')
+
 if __name__ == '__main__':
     unittest.main()
