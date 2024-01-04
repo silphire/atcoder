@@ -1197,11 +1197,16 @@ def bisect_boundary(arr: list, f) -> int:
 
 
 def z_algorithm(s: str) -> list[int]:
-    """ Zーalgorithm
+    """ Z-algorithm
         s: 対象の文字列
         戻り値: postfixの長さ
     """
-    return []
+    if not s:
+        return []
+    
+    z = [len(s)]
+
+    return z
 
 
 # パスカルの三角形の計算
