@@ -1204,7 +1204,27 @@ def z_algorithm(s: str) -> list[int]:
     if not s:
         return []
     
-    z = [len(s)]
+    n = len(s)
+    z = [0] * n
+    z[0] = n
+
+    i = 0
+    r = 1
+    while i < n:
+        while i < n and s[r] == s[i + r]:
+            r += 1
+        z[i] = r
+
+        if r == 0:
+            i += 1
+            continue
+
+        l = 1
+        while l < r and l + z[l] < r:
+            z[i + l] = z[l]
+            l += 1
+        i += l
+        r -= l
 
     return z
 
