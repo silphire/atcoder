@@ -606,6 +606,7 @@ class TestCRT(unittest.TestCase):
 class TestZAlgorithm(unittest.TestCase):
     def test_z_algorithm(self) -> None:
         self.assertEqual([], lib.z_algorithm(''))
+        self.assertEqual([1], lib.z_algorithm('a'))
 
 if __name__ == '__main__':
     unittest.main()

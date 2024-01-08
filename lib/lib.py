@@ -1211,7 +1211,7 @@ def z_algorithm(s: str) -> list[int]:
     i = 0
     r = 1
     while i < n:
-        while i < n and s[r] == s[i + r]:
+        while i + r < n and s[r] == s[i + r]:
             r += 1
         z[i] = r
 
