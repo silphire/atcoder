@@ -609,6 +609,7 @@ class TestZAlgorithm(unittest.TestCase):
         self.assertEqual([1], lib.z_algorithm('a'))
         self.assertEqual([3, 0, 0], lib.z_algorithm('aba'))
         self.assertEqual([4, 0, 0, 0], lib.z_algorithm('abaa'))
+        self.assertEqual([6, 0, 4, 0, 2, 0], lib.z_algorithm('ababab'))
 
 if __name__ == '__main__':
     unittest.main()
