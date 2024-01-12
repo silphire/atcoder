@@ -1238,7 +1238,6 @@ def z_algorithm(s: str) -> list[int]:
 # 区間操作
 # hash value
 # numpyを使うための補助関数
-# z algorithm
 
 if __name__ == '__main__':
     pass
