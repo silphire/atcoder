@@ -1203,7 +1203,7 @@ def z_algorithm(s: str) -> list[int]:
     """
     if not s:
         return []
-    
+
     n = len(s)
     z = [0] * n
     z[0] = n
