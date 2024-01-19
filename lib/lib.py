@@ -1209,22 +1209,22 @@ def z_algorithm(s: str) -> list[int]:
     z[0] = n
 
     i = 1
-    r = 0
+    right = 0
     while i < n:
-        while i + r < n and s[r] == s[i + r]:
-            r += 1
-        z[i] = r
+        while i + right < n and s[right] == s[i + right]:
+            right += 1
+        z[i] = right
 
-        if r == 0:
+        if right == 0:
             i += 1
             continue
 
-        l = 1
-        while l < r and l + z[l] < r:
-            z[i + l] = z[l]
-            l += 1
-        i += l
-        r -= l
+        left = 1
+        while left < right and left + z[left] < right:
+            z[i + left] = z[left]
+            left += 1
+        i += left
+        right -= left
 
     return z
 
