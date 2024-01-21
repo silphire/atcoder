@@ -599,7 +599,7 @@ class TestCRT(unittest.TestCase):
         self.assertRaises(AssertionError, lib.crt, 1, 0, 2, 3)
 
     def test_crt_multi(self) -> None:
-        self.assertEqual(23, lib.crt_multi((3, 5, 7), (2, 3, 2)))
+        self.assertEqual(23, lib.crt_multi([3, 5, 7], [2, 3, 2]))
         self.assertRaises(AssertionError, lib.crt_multi, (2, 3), (0, 1))
 
 
