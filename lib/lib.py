@@ -906,9 +906,6 @@ class Tree(object):
         self.children = [None, None]
 
 
-from typing import Any
-
-
 def cumsum(arr: list[int]) -> list[int]:
     """
     累積和
