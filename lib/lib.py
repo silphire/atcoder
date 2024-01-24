@@ -1060,7 +1060,7 @@ def topological_sort_bfs(
         n: ノードの数
         戻り値:
             トポロジカルソートした頂点の集合
-            閉路を検出した場合はNone
+            閉路を検出した場合は空tuple
         (Python 3.9以降はgraphlib.TopologicalSorterを使うべき)
     """
     from collections import deque
