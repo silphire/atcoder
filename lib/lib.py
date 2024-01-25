@@ -1235,6 +1235,9 @@ def z_algorithm(s: str) -> list[int]:
 # 区間操作
 # hash value
 # numpyを使うための補助関数
+# Mo's argorithm
+# 高速なmex
+# rolling hash
 
 if __name__ == '__main__':
     pass
