@@ -1235,7 +1235,7 @@ def z_algorithm(s: str) -> list[int]:
 # 区間操作
 # hash value
 # numpyを使うための補助関数
-# Mo's argorithm
+# Mo's argorithm (クエリ平方分割)
 # 高速なmex
 # rolling hash
 
