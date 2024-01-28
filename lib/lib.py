@@ -602,7 +602,7 @@ class ModInt(object):
     def __float__(self) -> float:
         return float(self.__x)
 
-    def __eq__(self, x: 'ModInt') -> bool:
+    def __eq__(self, x: object) -> bool:
         if not isinstance(x, ModInt):
             return NotImplemented
         return self.__x == x.__x
