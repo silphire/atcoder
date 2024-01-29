@@ -41,7 +41,7 @@ class WeightedUnionFind(UnionFind):
         self.weight = [0] * n
         super().__init__(n)
 
-    def unite(self, x: int, y: int, w: int) -> int:
+    def unite_weighted(self, x: int, y: int, w: int) -> int:
         # TODO wの調整
         # UnionFindから実装を独立する？
         # TODO introduce rank
