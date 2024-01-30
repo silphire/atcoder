@@ -34,7 +34,7 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(1, x.get_size(0))
         self.assertEqual(1, x.get_size(1))
         self.assertFalse(x.is_same(0, 1))
-        x.unite(0, 1, 1)
+        x.unite_weighted(0, 1, 1)
         self.assertTrue(x.is_same(0, 1))
         self.assertEqual(2, x.get_size(0))
         self.assertEqual(2, x.get_size(1))
