@@ -318,6 +318,9 @@ class MaxFlow(object):
         pass
 
     def flow(self, start: int) -> int:
+        """
+            start: 流し始める端点
+        """
         return -1
 
 
