@@ -296,9 +296,10 @@ class Dijkstra(object):
 
             if v == goal:
                 r = []
-                while v is not None:
-                    r.append(v)
-                    v = prev[v]
+                val: int | None = v
+                while val is not None:
+                    r.append(val)
+                    val = prev[val]
                 return self.priority * w, r[::-1]
 
             for wn, vn in self.route[v]:
