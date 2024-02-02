@@ -325,11 +325,13 @@ class MaxFlow(object):
         return -1
 
 
+from collections.abc import Callable
+
+
 class SegmentTree(object):
     """
     セグメント木
     """
-    from collections.abc import Callable
 
     def __init__(self, arr: list[int], e: int, op: Callable[[int, int], int]):
         """
