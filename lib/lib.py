@@ -1244,6 +1244,7 @@ def z_algorithm(s: str) -> list[int]:
 # Mo's argorithm (クエリ平方分割)
 # 高速なmex
 # rolling hash
+# venv対応 atcoderが用意するライブラリのバージョンと合わせるなど
 
 if __name__ == '__main__':
     pass
