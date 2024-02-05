@@ -143,6 +143,9 @@ class TestMaxFlow(unittest.TestCase):
     def test_init(self) -> None:
         pass
 
+    def test_flow(self) -> None:
+        pass
+
 
 class TestMOD(unittest.TestCase):
     def test_init(self) -> None:
