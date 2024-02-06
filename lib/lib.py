@@ -671,6 +671,12 @@ class ModInt(object):
             self.__modulo
         )
 
+    def __pos__(self) -> 'ModInt':
+        return NotImplemented
+
+    def __neg__(self) -> 'ModInt':
+        return NotImplemented
+
 
 class MOD(object):
     """ mod K 上の演算ライブラリ
