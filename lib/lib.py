@@ -672,10 +672,10 @@ class ModInt(object):
         )
 
     def __pos__(self) -> 'ModInt':
-        return NotImplemented
+        return self.__modret(self.__x)
 
     def __neg__(self) -> 'ModInt':
-        return NotImplemented
+        return self.__modret(-self.__x)
 
 
 class MOD(object):
