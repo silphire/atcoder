@@ -235,6 +235,12 @@ class TestModInt(unittest.TestCase):
             lib.ModInt(99, 100),
             +lib.ModInt(-1, 100),
         )
+    
+    def test_neg(self) -> None:
+        self.assertEqual(
+            lib.ModInt(99, 100),
+            -lib.ModInt(1, 100),
+        )
 
 
 class TestSCC(unittest.TestCase):
