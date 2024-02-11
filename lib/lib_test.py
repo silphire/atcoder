@@ -241,6 +241,10 @@ class TestModInt(unittest.TestCase):
             lib.ModInt(99, 100),
             -lib.ModInt(1, 100),
         )
+        self.assertEqual(
+            -lib.ModInt(-10, 100),
+            -lib.ModInt(-10, 100),
+        )
 
 
 class TestSCC(unittest.TestCase):
