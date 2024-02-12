@@ -201,6 +201,7 @@ class Dijkstra(object):
             self,
             edges: list[tuple[int, int, int]],
             n_vertex: int,
+            bidirectional: bool = True,
             priority: Priority = Priority.MIN
     ):
         from collections import defaultdict
@@ -217,7 +218,8 @@ class Dijkstra(object):
             w, v1, v2 = e[:3]
             assert w >= 0
             self.route[v1].append((self.priority * w, v2))
-            self.route[v2].append((self.priority * w, v1))
+            if bidirectional:
+                self.route[v2].append((self.priority * w, v1))
 
     def dijkstra(self, start: int, goal: int) -> int:
         """ startで示す頂点からgoalで示す頂点までの最短経路を求める
