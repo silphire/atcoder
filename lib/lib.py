@@ -740,20 +740,6 @@ class MOD(object):
         return u
 
 
-def lcm(a: int, b: int) -> int:
-    """ 最小公倍数
-    """
-    import math
-
-    if hasattr(math, 'lcm'):
-        return math.lcm(a, b)
-
-    if a == 0 or b == 0:
-        return 0
-
-    return a * b // math.gcd(b, a % b)
-
-
 class Geometry(object):
     """ 幾何ライブラリ
     """
