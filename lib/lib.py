@@ -1239,6 +1239,7 @@ def z_algorithm(s: str) -> list[int]:
 # 高速なmex
 # rolling hash
 # venv対応 atcoderが用意するライブラリのバージョンと合わせるなど
+# ac-library-pythonと重複する物の削除
 
 if __name__ == '__main__':
     pass
