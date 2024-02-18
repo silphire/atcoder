@@ -222,6 +222,8 @@ class TestModInt(unittest.TestCase):
             lib.ModInt(28, 100),
             lib.ModInt(2, 100) ** lib.ModInt(7, 100),
         )
+        with self.assertRaises(ValueError):
+            lib.ModInt(2, 100) ** lib.ModInt(-1, 100)
 
     def test_int(self) -> None:
         self.assertEqual(1, int(lib.ModInt(1, 100)))
