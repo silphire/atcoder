@@ -166,6 +166,7 @@ class TestMOD(unittest.TestCase):
 class TestModInt(unittest.TestCase):
     def test_init(self) -> None:
         self.assertRaises(AssertionError, lib.ModInt, 1, 0)
+        self.assertRaises(AssertionError, lib.ModInt, 1, -1)
 
     def test_add(self) -> None:
         self.assertEqual(
