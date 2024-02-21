@@ -213,6 +213,10 @@ class TestModInt(unittest.TestCase):
             lib.ModInt(10, 100),
             lib.ModInt(2, 100) * lib.ModInt(5, 100),
         )   # 2 // 5 => 10, 5 * 2 = 10
+        self.assertEqual(
+            lib.ModInt(2, 100),
+            lib.ModInt(7, 100) // lib.ModInt(3, 100),
+        )
 
     def test_pow(self) -> None:
         self.assertEqual(
