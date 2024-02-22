@@ -232,7 +232,7 @@ class TestModInt(unittest.TestCase):
 
     def test_int(self) -> None:
         self.assertEqual(1, int(lib.ModInt(1, 100)))
-    
+
     def test_pos(self) -> None:
         self.assertEqual(
             lib.ModInt(0, 100),
@@ -246,7 +246,7 @@ class TestModInt(unittest.TestCase):
             lib.ModInt(99, 100),
             +lib.ModInt(-1, 100),
         )
-    
+
     def test_neg(self) -> None:
         self.assertEqual(
             lib.ModInt(0, 100),
