@@ -515,7 +515,7 @@ class TestPermutation(unittest.TestCase):
 
 class TestSegtree(unittest.TestCase):
     def test_init(self) -> None:
-        lib.SegmentTree([], 0, lambda x, y: None)
+        lib.SegmentTree([], 0, lambda x, y: -1)
 
     def test_rmq(self) -> None:
         import sys
