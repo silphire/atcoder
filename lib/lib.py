@@ -1177,7 +1177,10 @@ def multidim(*x):
     return np.zeros(x, dtype=np.int64)
 
 
-def bisect_boundary(arr: list, f) -> int:
+from typing import Callable
+
+
+def bisect_boundary(arr: list, f: Callable[[int], bool]) -> int:
     """ [False, True]の境界の位置を検索する
     """
     assert callable(f)
