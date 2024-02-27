@@ -1092,7 +1092,7 @@ def topological_sort_bfs(
         return ()
 
 
-def topological_sort_unique(g: dict[int, list[int]], arr: list) -> bool:
+def topological_sort_unique(g: dict[int, list[int]], arr: list[int]) -> bool:
     """トポロジカルソートの結果が一意かどうか
     """
     for i in range(1, len(arr)):
