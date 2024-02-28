@@ -917,7 +917,7 @@ def cumsum(arr: list[int]) -> list[int]:
     return cs
 
 
-def next_permutation(arr: list) -> list:
+def next_permutation(arr: list[Any]) -> list[Any]:
     n = len(arr)
     if n <= 1:
         return arr
@@ -944,7 +944,7 @@ def next_permutation(arr: list) -> list:
     return arr
 
 
-def prev_permutation(arr: list) -> list:
+def prev_permutation(arr: list[Any]) -> list[Any]:
     n = len(arr)
     if n <= 1:
         return arr
