@@ -1,3 +1,6 @@
+from typing import Callable, Any
+
+
 class UnionFind(object):
     """
     Union-Find (Disjoint Set Union)
@@ -325,9 +328,6 @@ class MaxFlow(object):
             start: 流し始める端点
         """
         return -1
-
-
-from collections.abc import Callable
 
 
 class SegmentTree(object):
