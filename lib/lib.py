@@ -38,15 +38,15 @@ class UnionFind(object):
 
 class WeightedUnionFind(UnionFind):
     """
-    Union-Find with weight
+    Union-Find with weight parameter
     """
     def __init__(self, n: int):
         self.weight = [0] * n
         super().__init__(n)
 
     def unite_weighted(self, x: int, y: int, w: int) -> int:
-        # TODO wの調整
         # UnionFindから実装を独立する？
+        # TODO wの調整
         # TODO introduce rank
         rx = self.root(x)
         ry = self.root(y)
