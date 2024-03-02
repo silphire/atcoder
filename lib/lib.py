@@ -1170,7 +1170,7 @@ def edit_distance(s: str, t: str) -> int:
     return dp[ns][nt]
 
 
-def multidim(*x):
+def multidim(*x): # type:ignore
     """多次元配列 (NumPy)
     """
     import numpy as np
