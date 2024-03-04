@@ -918,6 +918,7 @@ def cumsum(arr: list[int]) -> list[int]:
 
 
 def next_permutation(arr: list[Any]) -> list[Any]:
+    # TODO 型変数
     n = len(arr)
     if n <= 1:
         return arr
