@@ -932,7 +932,6 @@ def next_permutation(arr: list[Any]) -> list[Any]:
     arr[i], arr[j] = arr[j], arr[i]
 
     if i == 0 and j == 0:
-        i = 0
         j = n - 1
     else:
         i = i + 1
@@ -959,7 +958,6 @@ def prev_permutation(arr: list[Any]) -> list[Any]:
     arr[i], arr[j] = arr[j], arr[i]
 
     if i == 0 and j == 0:
-        i = 0
         j = n - 1
     else:
         i = i + 1
