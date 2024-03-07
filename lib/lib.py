@@ -1,4 +1,6 @@
+import typing
 from typing import Callable, Any
+from collections.abc import Sequence
 
 
 class UnionFind(object):
@@ -985,10 +987,6 @@ def kadane(arr: list[int]) -> int:
     return r
 
 
-import typing
-from collections.abc import Sequence
-
-
 def lcs(s: Sequence[typing.Any], t: Sequence[typing.Any]) -> int:
     """最長部分共通列 (longest common sequence)
     """
@@ -1172,9 +1170,6 @@ def multidim(*x):  # type:ignore
     """
     import numpy as np
     return np.zeros(x, dtype=np.int64)
-
-
-from typing import Callable, Any
 
 
 def bisect_boundary(arr: list[Any], f: Callable[[int], bool]) -> int:
