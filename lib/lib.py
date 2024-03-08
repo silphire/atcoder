@@ -1141,6 +1141,9 @@ def crt_multi(rr: list[int], mm: list[int]) -> int:
 
 def edit_distance(s: str, t: str) -> int:
     """ 編集距離 (レーベンシュタイン距離)
+        s: 比較対象文字列1
+        t: 比較対象文字列2
+        return: 二つの文字列の間の編集距離
     """
     ns = len(s)
     nt = len(t)
