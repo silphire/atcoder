@@ -423,6 +423,7 @@ class BinaryIndexedTree(object):
         self.arr = [0] * self.size
 
     def add(self, pos: int, val: int) -> None:
+        # pos: 1-origin
         assert 0 < pos <= self.size
 
         p = pos
@@ -441,6 +442,7 @@ class BinaryIndexedTree(object):
         return ans
 
     def sum_range(self, left: int, right: int) -> int:
+        # right: 右端は含まない
         assert 0 < left <= self.size
         assert 0 < right <= self.size
         assert left < right
