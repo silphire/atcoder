@@ -990,7 +990,7 @@ def kadane(arr: list[int]) -> int:
 
 
 def lcs(s: Sequence[typing.Any], t: Sequence[typing.Any]) -> int:
-    """最長部分共通列 (longest common sequence)
+    """最長部分共通列 (longest common sequence) の長さを返す
     """
     ns = len(s)
     nt = len(t)
