@@ -1101,6 +1101,10 @@ def topological_sort_unique(g: dict[int, list[int]], arr: list[int]) -> bool:
 def crt(r1: int, m1: int, r2: int, m2: int) -> int:
     """ 中国剰余定理
         (Python 3.8以降)
+
+        x ≡ r1 (mod m1)
+        x ≡ r2 (mod m2)
+        を満たすxを返す
     """
     import math
 
