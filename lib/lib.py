@@ -886,6 +886,7 @@ class LIS(object):
 
 def divisors(n: int) -> list[int]:
     """ 約数列挙
+        例: divisors(12) -> [2, 2, 3]
     """
     assert n >= 0
 
