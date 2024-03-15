@@ -751,6 +751,7 @@ class Geometry(object):
     @staticmethod
     def rotate(x: float, y: float, theta: float) -> tuple[float, float]:
         """回転行列
+           (x, y)を原点を中心にtheta(ラジアン)回転させる
         """
         import math
         return (
