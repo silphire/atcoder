@@ -917,6 +917,7 @@ class Tree(object):
 def cumsum(arr: list[int]) -> list[int]:
     """
     累積和
+    TODO generator?
     """
     n = len(arr)
     cs = [0] * n
