@@ -599,6 +599,8 @@ class LCA(object):
 
 
 class ModInt(object):
+    """
+    """
     def __init__(self, x: int, modulo: int):
         assert modulo > 0
 
