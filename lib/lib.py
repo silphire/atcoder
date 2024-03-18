@@ -518,7 +518,7 @@ class LCA(object):
         self.cost_edge: list[list[int]] = [[] for _ in range(size)]
 
     def add_edge(self, x: int, y: int, cost: int = 1) -> None:
-        """ 木の辺を追加します。
+        """ 頂点xと頂点yを結ぶ辺を木に追加します。
         """
         assert 0 <= x < self.size
         assert 0 <= y < self.size
