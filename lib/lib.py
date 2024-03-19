@@ -393,6 +393,10 @@ class SegmentTree(object):
 
     # TODO セグメント木の上での二分探索
     def leftmost(self, x: int, f: Callable[[int], bool]) -> int:
+        """
+            x: ターゲットとなる値
+            f: 述語関数
+        """
         return 0
 
     # TODO セグメント木の上での二分探索
