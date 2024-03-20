@@ -14,6 +14,9 @@ class UnionFind(object):
         self.size = [1] * n
 
     def root(self, x: int) -> int:
+        """
+        xの根となるノードの番号を取得
+        """
         if self.parent[x] != x:
             self.parent[x] = self.root(self.parent[x])
         return self.parent[x]
