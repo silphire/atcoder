@@ -22,6 +22,9 @@ class UnionFind(object):
         return self.parent[x]
 
     def is_same(self, x: int, y: int) -> bool:
+        """
+        xとyの根が同じかどうか
+        """
         return self.root(x) == self.root(y)
 
     def unite(self, x: int, y: int) -> int:
