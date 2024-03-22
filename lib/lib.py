@@ -28,6 +28,9 @@ class UnionFind(object):
         return self.root(x) == self.root(y)
 
     def unite(self, x: int, y: int) -> int:
+        """
+        xとyを同じ根を持つようにする
+        """
         rx = self.root(x)
         ry = self.root(y)
         if rx == ry:
