@@ -44,6 +44,9 @@ class UnionFind(object):
         return rx
 
     def get_size(self, x: int) -> int:
+        """
+        xで指定する頂点の配下にある頂点の数を返す
+        """
         return self.size[self.root(x)]
 
 
