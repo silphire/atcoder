@@ -92,6 +92,7 @@ class Kruskal(object):
     ) -> list[tuple[int, int, int]]:
         """ クラスカル法で最小全域木を求める
             edges: (cost, vertex_1, vertex_2)
+            端点は[0, n_vertex)
             コストの小さい辺から採用していく
         """
         assert n_vertex > 0
