@@ -206,6 +206,7 @@ class Prime(object):
 
 class Dijkstra(object):
     """
+    ダイクストラ法 -- 最短経路探索
     * edges: [(weight, vertex_1, vertex_2)]
     """
 
