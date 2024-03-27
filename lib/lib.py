@@ -242,6 +242,9 @@ class Dijkstra(object):
 
     def dijkstra(self, start: int, goal: int) -> int:
         """ startで示す頂点からgoalで示す頂点までの最短経路を求める
+            start: 始点の頂点
+            goal: 終点の頂点
+            return: 始点から終点までの最短距離。到達できないなら-maxsize
         """
         import heapq
         import sys
