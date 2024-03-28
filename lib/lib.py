@@ -271,6 +271,8 @@ class Dijkstra(object):
 
     def dijkstra_all_dests(self, start: int) -> list[int]:
         """ startで示す頂点から全頂点への最短経路を求める
+            start: 始点
+            return: 各頂点への最短距離。到達できない場合はmaxsize
         """
         import heapq
         import sys
