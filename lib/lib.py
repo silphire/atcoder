@@ -456,7 +456,7 @@ class BinaryIndexedTree(object):
 
     def sum(self, pos: int) -> int:
         """
-            pos: ここまでの和。右端は含まない。
+            pos: 左端からここまでの和。右端は含まない。
         """
         assert 0 <= pos <= self.size
 
