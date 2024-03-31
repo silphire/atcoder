@@ -726,6 +726,7 @@ class MOD(object):
 
     def comb(self, n: int, k: int) -> int:
         """ nCk (組み合わせ) を求める
+            最近のPythonには存在するのでもはや要らない
         """
         import math
         if hasattr(math, 'comb'):
