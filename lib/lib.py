@@ -1139,6 +1139,8 @@ def crt(r1: int, m1: int, r2: int, m2: int) -> int:
         x ≡ r1 (mod m1)
         x ≡ r2 (mod m2)
         を満たすxを返す
+
+        atcoderではsympyが使えるのでそちらを使うべき
     """
     import math
 
