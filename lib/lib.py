@@ -1009,6 +1009,8 @@ def prev_permutation(arr: list[Any]) -> list[Any]:
 def kadane(arr: list[int]) -> int:
     """ Kadane's algorithm
         最大部分列問題(部分列の和の最大を求める)をO(n)で解く
+        arr: 整数列
+        return: 部分和の最大
     """
     import sys
 
