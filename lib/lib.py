@@ -984,6 +984,8 @@ def next_permutation(arr: list[Any]) -> list[Any]:
 
 
 def prev_permutation(arr: list[Any]) -> list[Any]:
+    """順列の辞書順における「前」を返す
+    """
     n = len(arr)
     if n <= 1:
         return arr
