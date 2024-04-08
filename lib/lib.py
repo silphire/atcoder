@@ -1228,7 +1228,7 @@ def multidim(*x):  # type:ignore
     return np.zeros(x, dtype=np.int64)
 
 
-def bisect_boundary(arr: list[Any], f: Callable[[int], bool]) -> int:
+def bisect_boundary(arr: Sequence[Any], f: Callable[[int], bool]) -> int:
     """ [False, True]の境界の位置を検索する
     """
     assert callable(f)
@@ -1292,7 +1292,7 @@ def z_algorithm(s: str) -> list[int]:
 # venv対応 atcoderが用意するライブラリのバージョンと合わせるなど
 # ac-library-pythonと重複する物の削除
 # 型変数でlistの代わりにより抽象的な物を使う
-# TODO
+# 木の重心？
 
 if __name__ == '__main__':
     pass
