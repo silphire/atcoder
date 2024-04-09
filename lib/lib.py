@@ -1010,7 +1010,7 @@ def prev_permutation(arr: list[Any]) -> list[Any]:
     return arr
 
 
-def kadane(arr: list[int]) -> int:
+def kadane(arr: Sequence[int]) -> int:
     """ Kadane's algorithm
         最大部分列問題(部分列の和の最大を求める)をO(n)で解く
         arr: 整数列
