@@ -515,7 +515,7 @@ class RangeBinaryIndexedTree(object):
         return self.sum_range(pos, pos + 1)
 
 
-def inversion_number(arr: list[int]) -> int:
+def inversion_number(arr: Sequence[int]) -> int:
     """
     転倒数
     arr: [1, ..., n] が入っているリスト
