@@ -1,4 +1,3 @@
-import typing
 from typing import Callable, Any
 from collections.abc import Sequence
 
@@ -1029,7 +1028,7 @@ def kadane(arr: Sequence[int]) -> int:
     return r
 
 
-def lcs(s: Sequence[typing.Any], t: Sequence[typing.Any]) -> int:
+def lcs(s: Sequence[Any], t: Sequence[Any]) -> int:
     """最長部分共通列 (longest common sequence) の長さを返す
     """
     ns = len(s)
