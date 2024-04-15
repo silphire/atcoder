@@ -402,11 +402,11 @@ class TestLCS(unittest.TestCase):
 class TestMath(unittest.TestCase):
     def test_divisors(self) -> None:
         self.assertRaises(AssertionError, lib.divisors, -1)
-        self.assertEqual([], lib.divisors(0))
-        self.assertEqual([1], lib.divisors(1))
-        self.assertEqual([1, 2], lib.divisors(2))
-        self.assertEqual([1, 2, 3, 6], lib.divisors(6))
-        self.assertEqual([1, 7], lib.divisors(7))
+        self.assertSequenceEqual([], lib.divisors(0))
+        self.assertSequenceEqual([1], lib.divisors(1))
+        self.assertSequenceEqual([1, 2], lib.divisors(2))
+        self.assertSequenceEqual([1, 2, 3, 6], lib.divisors(6))
+        self.assertSequenceEqual([1, 7], lib.divisors(7))
 
 
 class TestBinaryIndexedTree(unittest.TestCase):
