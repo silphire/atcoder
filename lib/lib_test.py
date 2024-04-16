@@ -637,12 +637,12 @@ class TestCRT(unittest.TestCase):
 
 class TestZAlgorithm(unittest.TestCase):
     def test_z_algorithm(self) -> None:
-        self.assertEqual([], lib.z_algorithm(''))
-        self.assertEqual([1], lib.z_algorithm('a'))
-        self.assertEqual([3, 0, 1], lib.z_algorithm('aba'))
-        self.assertEqual([4, 0, 1, 1], lib.z_algorithm('abaa'))
-        self.assertEqual([6, 0, 4, 0, 2, 0], lib.z_algorithm('ababab'))
-        self.assertEqual([4, 3, 2, 1], lib.z_algorithm('xxxx'))
+        self.assertSequenceEqual([], lib.z_algorithm(''))
+        self.assertSequenceEqual([1], lib.z_algorithm('a'))
+        self.assertSequenceEqual([3, 0, 1], lib.z_algorithm('aba'))
+        self.assertSequenceEqual([4, 0, 1, 1], lib.z_algorithm('abaa'))
+        self.assertSequenceEqual([6, 0, 4, 0, 2, 0], lib.z_algorithm('ababab'))
+        self.assertSequenceEqual([4, 3, 2, 1], lib.z_algorithm('xxxx'))
 
 
 if __name__ == '__main__':
