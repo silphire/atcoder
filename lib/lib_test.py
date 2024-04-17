@@ -484,33 +484,33 @@ class TestCumsum(unittest.TestCase):
 class TestPermutation(unittest.TestCase):
     def test_next_permutation(self) -> None:
         a = [1, 2, 3]
-        self.assertEqual([1, 3, 2], lib.next_permutation(a))
-        self.assertEqual([2, 1, 3], lib.next_permutation(a))
-        self.assertEqual([2, 3, 1], lib.next_permutation(a))
-        self.assertEqual([3, 1, 2], lib.next_permutation(a))
-        self.assertEqual([3, 2, 1], lib.next_permutation(a))
-        self.assertEqual([1, 2, 3], lib.next_permutation(a))
+        self.assertSequenceEqual([1, 3, 2], lib.next_permutation(a))
+        self.assertSequenceEqual([2, 1, 3], lib.next_permutation(a))
+        self.assertSequenceEqual([2, 3, 1], lib.next_permutation(a))
+        self.assertSequenceEqual([3, 1, 2], lib.next_permutation(a))
+        self.assertSequenceEqual([3, 2, 1], lib.next_permutation(a))
+        self.assertSequenceEqual([1, 2, 3], lib.next_permutation(a))
 
     def test_prev_permutation(self) -> None:
         a = [3, 2, 1]
-        self.assertEqual([3, 1, 2], lib.prev_permutation(a))
-        self.assertEqual([2, 3, 1], lib.prev_permutation(a))
-        self.assertEqual([2, 1, 3], lib.prev_permutation(a))
-        self.assertEqual([1, 3, 2], lib.prev_permutation(a))
-        self.assertEqual([1, 2, 3], lib.prev_permutation(a))
-        self.assertEqual([3, 2, 1], lib.prev_permutation(a))
+        self.assertSequenceEqual([3, 1, 2], lib.prev_permutation(a))
+        self.assertSequenceEqual([2, 3, 1], lib.prev_permutation(a))
+        self.assertSequenceEqual([2, 1, 3], lib.prev_permutation(a))
+        self.assertSequenceEqual([1, 3, 2], lib.prev_permutation(a))
+        self.assertSequenceEqual([1, 2, 3], lib.prev_permutation(a))
+        self.assertSequenceEqual([3, 2, 1], lib.prev_permutation(a))
 
     def test_empty_list_permutation(self) -> None:
-        self.assertEqual([], lib.next_permutation([]))
-        self.assertEqual([], lib.prev_permutation([]))
+        self.assertSequenceEqual([], lib.next_permutation([]))
+        self.assertSequenceEqual([], lib.prev_permutation([]))
 
     def test_single_element_permutation(self) -> None:
-        self.assertEqual([1], lib.next_permutation([1]))
-        self.assertEqual([1], lib.prev_permutation([1]))
+        self.assertSequenceEqual([1], lib.next_permutation([1]))
+        self.assertSequenceEqual([1], lib.prev_permutation([1]))
 
     def test_same_element_permutation(self) -> None:
-        self.assertEqual([0, 0, 0], lib.next_permutation([0, 0, 0]))
-        self.assertEqual([0, 0, 0], lib.prev_permutation([0, 0, 0]))
+        self.assertSequenceEqual([0, 0, 0], lib.next_permutation([0, 0, 0]))
+        self.assertSequenceEqual([0, 0, 0], lib.prev_permutation([0, 0, 0]))
 
 
 class TestSegtree(unittest.TestCase):
