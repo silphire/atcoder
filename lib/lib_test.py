@@ -112,15 +112,15 @@ class TestDijkstra(unittest.TestCase):
         )
 
     def test_dijkstra_all_dests(self) -> None:
-        self.assertEqual(
+        self.assertSequenceEqual(
             [0, 1],
             lib.Dijkstra([(1, 0, 1)], 2).dijkstra_all_dests(0),
         )
-        self.assertEqual(
+        self.assertSequenceEqual(
             [0, 1, 3],
             lib.Dijkstra([(1, 0, 1), (3, 0, 2)], 3).dijkstra_all_dests(0),
         )
-        self.assertEqual(
+        self.assertSequenceEqual(
             [0, 1, 4],
             lib.Dijkstra([(1, 0, 1), (3, 1, 2)], 3).dijkstra_all_dests(0),
         )
