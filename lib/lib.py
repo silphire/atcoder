@@ -6,7 +6,7 @@ class UnionFind(object):
     """
     Union-Find (Disjoint Set Union)
     """
-    def __init__(self, n: int):
+    def __init__(self, n: int) -> None:
         assert n > 0
 
         self.parent = list(range(n))
