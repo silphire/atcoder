@@ -16,6 +16,9 @@ class UnionFind(object):
         """
         xの根となるノードの番号を取得
         """
+
+        assert x >= 0
+
         if self.parent[x] != x:
             self.parent[x] = self.root(self.parent[x])
         return self.parent[x]
@@ -24,12 +27,19 @@ class UnionFind(object):
         """
         xとyの根が同じかどうか
         """
+        assert x >= 0
+        assert y >= 0
+
         return self.root(x) == self.root(y)
 
     def unite(self, x: int, y: int) -> int:
         """
         xとyを同じ根を持つようにする
         """
+
+        assert x >= 0
+        assert y >= 0
+
         rx = self.root(x)
         ry = self.root(y)
         if rx == ry:
@@ -46,6 +56,8 @@ class UnionFind(object):
         """
         xで指定する頂点の配下にある頂点の数を返す
         """
+        assert x >= 0
+
         return self.size[self.root(x)]
 
 
