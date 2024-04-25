@@ -7,8 +7,14 @@ class TestUnionFind(unittest.TestCase):
         self.assertRaises(AssertionError, lib.UnionFind, 0)
 
         x = lib.UnionFind(1)
+        
+        self.assertRaises(AssertionError, x.root, -1)
+        self.assertRaises(AssertionError, x.get_size, -1)
+        self.assertRaises(AssertionError, x.unite, -1, -2)
+
         self.assertEqual(0, x.root(0))
         self.assertEqual(1, x.get_size(0))
+
 
         x = lib.UnionFind(2)
         self.assertEqual(0, x.root(0))
