@@ -290,7 +290,7 @@ class Dijkstra(object):
         import heapq
         import sys
 
-        assert start < self.n_vertex
+        assert 0 <= start < self.n_vertex
 
         visited: list[bool] = [False] * self.n_vertex
         distance: list[int] = [sys.maxsize] * self.n_vertex
