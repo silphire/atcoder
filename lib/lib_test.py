@@ -106,6 +106,10 @@ class TestDijkstra(unittest.TestCase):
     def test_dijkstra(self) -> None:
         self.assertRaises(AssertionError, lib.Dijkstra, [], 0)
         self.assertEqual(0, lib.Dijkstra([], 1).dijkstra(0, 0))
+        with self.assertRaises(AssertionError):
+            lib.Dijkstra([], 1).dijkstra(-1, 0)
+        with self.assertRaises(AssertionError):
+            lib.Dijkstra([], 1).dijkstra(0, -1)
         self.assertEqual(1, lib.Dijkstra([(1, 0, 1)], 2).dijkstra(0, 1))
         self.assertEqual(
             1,
