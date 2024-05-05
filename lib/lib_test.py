@@ -345,6 +345,8 @@ class TestLCA(unittest.TestCase):
         lca = lib.LCA(2)
         self.assertRaises(AssertionError, lca.add_edge, 1, 3)
         self.assertRaises(AssertionError, lca.add_edge, 3, 1)
+        self.assertRaises(AssertionError, lca.add_edge, -1, 1)
+        self.assertRaises(AssertionError, lca.add_edge, 2, -2)
 
     def test_lca(self) -> None:
         tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
