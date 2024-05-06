@@ -97,6 +97,7 @@ class TestPrime(unittest.TestCase):
         self.assertEqual([2, 3], lib.Prime().prime_sequence(3))
 
     def test_prime_factorize(self) -> None:
+        self.assertRaises(AssertionError, lib.Prime().prime_factorize, -1)
         self.assertCountEqual([], lib.Prime().prime_factorize(1))
         self.assertCountEqual([2, 2, 3], lib.Prime().prime_factorize(12))
         self.assertCountEqual([2, 2, 5, 5], lib.Prime().prime_factorize(100))
