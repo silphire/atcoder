@@ -364,6 +364,8 @@ class TestLCA(unittest.TestCase):
         self.assertEqual(0, lca.lca(2, 4))
         self.assertRaises(AssertionError, lca.dist, 1, 7)
         self.assertRaises(AssertionError, lca.dist, 7, 1)
+        self.assertRaises(AssertionError, lca.dist, 1, -1)
+        self.assertRaises(AssertionError, lca.dist, -1, 1)
 
     def test_dist(self) -> None:
         tree = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]
