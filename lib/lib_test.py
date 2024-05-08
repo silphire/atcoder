@@ -171,6 +171,8 @@ class TestMOD(unittest.TestCase):
     def test_modinv(self) -> None:
         self.assertEqual(1, lib.MOD.modinv(5, 2))
         self.assertEqual(2, lib.MOD.modinv(5, 3))
+        with self.assertRaises(AssertionError):
+            lib.MOD.modinv(1, 0)
 
 
 class TestModInt(unittest.TestCase):
