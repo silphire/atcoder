@@ -10,6 +10,8 @@ class TestUnionFind(unittest.TestCase):
 
         self.assertRaises(AssertionError, x.root, -1)
         self.assertRaises(AssertionError, x.get_size, -1)
+        self.assertRaises(AssertionError, x.unite, 1, -2)
+        self.assertRaises(AssertionError, x.unite, -1, 2)
         self.assertRaises(AssertionError, x.unite, -1, -2)
 
         self.assertEqual(0, x.root(0))
