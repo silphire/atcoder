@@ -5,6 +5,7 @@ import lib
 class TestUnionFind(unittest.TestCase):
     def test_union_find(self) -> None:
         self.assertRaises(AssertionError, lib.UnionFind, 0)
+        self.assertRaises(AssertionError, lib.UnionFind, -1)
 
         x = lib.UnionFind(1)
 
