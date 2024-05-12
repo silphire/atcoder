@@ -30,7 +30,9 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(2, x.get_size(1))
 
     def test_weighted_union_find(self) -> None:
+        #
         self.assertRaises(AssertionError, lib.WeightedUnionFind, 0)
+        self.assertRaises(AssertionError, lib.WeightedUnionFind, -1)
 
         x = lib.WeightedUnionFind(1)
         self.assertEqual(0, x.root(0))
