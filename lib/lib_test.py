@@ -30,7 +30,6 @@ class TestUnionFind(unittest.TestCase):
         self.assertEqual(2, x.get_size(1))
 
     def test_weighted_union_find(self) -> None:
-        #
         self.assertRaises(AssertionError, lib.WeightedUnionFind, 0)
         self.assertRaises(AssertionError, lib.WeightedUnionFind, -1)
 
@@ -164,8 +163,7 @@ class TestMaxFlow(unittest.TestCase):
 
 class TestMOD(unittest.TestCase):
     def test_init(self) -> None:
-        with self.assertRaises(AssertionError):
-            lib.MOD(0)
+        self.assertRaises(AssertionError, lib.MOD, 0)
 
     def test_mod_comb(self) -> None:
         self.assertEqual(1, lib.MOD(10 ** 9 + 7).comb(1, 1))
