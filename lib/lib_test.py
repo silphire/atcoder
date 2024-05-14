@@ -164,6 +164,7 @@ class TestMaxFlow(unittest.TestCase):
 class TestMOD(unittest.TestCase):
     def test_init(self) -> None:
         self.assertRaises(AssertionError, lib.MOD, 0)
+        self.assertRaises(AssertionError, lib.MOD, -1)
 
     def test_mod_comb(self) -> None:
         self.assertEqual(1, lib.MOD(10 ** 9 + 7).comb(1, 1))
