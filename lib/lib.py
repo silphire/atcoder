@@ -640,7 +640,7 @@ class LCA(object):
 
 
 class ModInt(object):
-    """
+    """ moduloを法とする四則演算など
     """
     def __init__(self, x: int, modulo: int):
         assert modulo > 0
