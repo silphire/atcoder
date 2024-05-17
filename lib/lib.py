@@ -546,7 +546,7 @@ def inversion_number(arr: Sequence[int]) -> int:
 
 class LCA(object):
     """
-    Lowest Common Ancestor
+    Lowest Common Ancestor (最小共通祖先)
     """
     def __init__(self, size: int) -> None:
         """ 保存領域の初期化。
