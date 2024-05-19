@@ -12,13 +12,14 @@ class UnionFind(object):
 
         self.parent = list(range(n))
         self.size = [1] * n
+        self.n = n
 
     def root(self, x: int) -> int:
         """
         xの根となるノードの番号を取得
         """
 
-        assert x >= 0
+        assert 0 <= x < self.n
 
         if self.parent[x] != x:
             self.parent[x] = self.root(self.parent[x])
