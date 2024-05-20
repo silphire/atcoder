@@ -29,8 +29,8 @@ class UnionFind(object):
         """
         xとyの根が同じかどうか
         """
-        assert x >= 0
-        assert y >= 0
+        assert 0 <= x < self.n
+        assert 0 <= y < self.n
 
         return self.root(x) == self.root(y)
 
