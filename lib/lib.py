@@ -39,8 +39,8 @@ class UnionFind(object):
         xとyを同じ根を持つようにする
         """
 
-        assert x >= 0
-        assert y >= 0
+        assert 0 <= x < self.n
+        assert 0 <= y < self.n
 
         rx = self.root(x)
         ry = self.root(y)
