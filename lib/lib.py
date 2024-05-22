@@ -58,7 +58,7 @@ class UnionFind(object):
         """
         xで指定する頂点の配下にある頂点の数を返す
         """
-        assert x >= 0
+        assert 0 <= x < self.n
 
         return self.size[self.root(x)]
 
