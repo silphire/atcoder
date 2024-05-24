@@ -473,7 +473,7 @@ class BinaryIndexedTree(object):
 
     def sum(self, pos: int) -> int:
         """
-            pos: 左端からここまでの和。右端は含まない。
+            pos: 左端からposで指定した位置までの和。右端は含まない。
         """
         assert 0 <= pos <= self.size
 
@@ -498,7 +498,7 @@ class BinaryIndexedTree(object):
 
 
 class RangeBinaryIndexedTree(object):
-    """
+    """#
     Fenwick Tree with multiple addition
     """
     def __init__(self, size: int):
