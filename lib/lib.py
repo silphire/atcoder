@@ -498,7 +498,7 @@ class BinaryIndexedTree(object):
 
 
 class RangeBinaryIndexedTree(object):
-    """#
+    """
     Fenwick Tree with multiple addition
     """
     def __init__(self, size: int):
@@ -960,16 +960,15 @@ class Tree(object):
         self.children = [None, None]
 
 
-def cumsum(arr: list[int]) -> list[int]:
+def cumsum(arr: list[int]):
     """
     累積和
-    TODO generator?
     """
     n = len(arr)
-    cs = [0] * n
+    acc = 0
     for i in range(n):
-        cs[i] = arr[i] + (cs[i - 1] if i > 0 else 0)
-    return cs
+        acc += arr[i]
+        yield acc
 
 
 def next_permutation(arr: list[Any]) -> list[Any]:
