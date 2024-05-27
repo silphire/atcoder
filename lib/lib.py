@@ -966,8 +966,8 @@ def cumsum(arr: list[int]):
     """
     n = len(arr)
     acc = 0
-    for i in range(n):
-        acc += arr[i]
+    for a in arr:
+        acc += a
         yield acc
 
 
