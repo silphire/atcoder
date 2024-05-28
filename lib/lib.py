@@ -964,7 +964,6 @@ def cumsum(arr: list[int]):
     """
     累積和
     """
-    n = len(arr)
     acc = 0
     for a in arr:
         acc += a
