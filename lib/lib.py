@@ -1082,7 +1082,6 @@ def topological_sort_dfs(
             閉路を検出した場合はNone
         (Python 3.9以降はgraphlib.TopologicalSorterを使うべき)
     """
-    assert n > 0
 
     ans = []
     visited = [0] * n
