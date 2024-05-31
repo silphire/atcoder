@@ -1165,6 +1165,7 @@ def crt(r1: int, m1: int, r2: int, m2: int) -> int:
         を満たすxを返す
 
         atcoderではsympyが使えるのでそちらを使うべき
+        sympy.ntheory.modular.crt(m: list[int], r: list[int])
     """
     import math
 
