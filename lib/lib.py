@@ -1191,6 +1191,9 @@ def crt_multi(rr: list[int], mm: list[int]) -> int:
         x ≡ r2 (mod m2)
         ...
         を満たすxを返す
+
+        atcoderではsympyが使えるのでそちらを使うべき
+        sympy.ntheory.modular.crt(m: list[int], r: list[int])
     """
     import math
 
