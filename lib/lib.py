@@ -366,7 +366,7 @@ class MaxFlow(object):
         assert 0 <= start < self.size
 
         return -1
-    
+
     # TODO min_cut(), add_edge(), change_edge()
 
 
