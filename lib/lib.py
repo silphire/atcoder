@@ -367,6 +367,9 @@ class MaxFlow(object):
 
         return -1
 
+    def add_edge(self, edge: tuple[int, int, int]) -> None:
+        pass
+
     # TODO min_cut(), add_edge(), change_edge()
 
 
