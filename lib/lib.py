@@ -370,7 +370,10 @@ class MaxFlow(object):
     def add_edge(self, edge: tuple[int, int, int]) -> None:
         pass
 
-    # TODO min_cut(), add_edge(), change_edge()
+    def min_cut(self, s: int) -> tuple[list]:
+        return []
+
+    # TODO add_edge(), change_edge()
 
 
 class SegmentTree(object):
