@@ -376,6 +376,8 @@ class MaxFlow(object):
         return []
 
     def change_edge(self, i: int, cap: int, flow: int) -> None:
+        """ i番目の追加した辺の容量と流用を変更する
+        """
         pass
 
 
