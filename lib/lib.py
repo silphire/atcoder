@@ -372,7 +372,7 @@ class MaxFlow(object):
         """
         pass
 
-    def min_cut(self, s: int) -> tuple[list]:
+    def min_cut(self, s: int) -> tuple[list[int]]:
         return []
 
     def change_edge(self, i: int, cap: int, flow: int) -> None:
