@@ -357,6 +357,7 @@ class MaxFlow(object):
     * edges: [(weight, vertex_1, vertex_2)]
     """
     def __init__(self, edges: list[tuple[int, int, int]]):
+        assert len(edges) > 0
         self.size = len(edges)
 
     def flow(self, start: int) -> int:
