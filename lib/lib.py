@@ -380,7 +380,7 @@ class MaxFlow(object):
     def change_edge(self, i: int, cap: int, flow: int) -> None:
         """ i番目の追加した辺の容量と流用を変更する
         """
-        assert i >= 0
+        assert 0 <= i < self.size
 
 
 class SegmentTree(object):
