@@ -368,7 +368,7 @@ class MaxFlow(object):
 
         return -1
 
-    def add_edge(self, edge: tuple[int, int, int]) -> None:
+    def add_edge(self, weight: int, vertex_1: int, vertex_2: int) -> None:
         """ 辺 (weight, vertex_1, vertex_2) を追加
         """
         pass
