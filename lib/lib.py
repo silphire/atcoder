@@ -371,7 +371,8 @@ class MaxFlow(object):
     def add_edge(self, weight: int, vertex_1: int, vertex_2: int) -> None:
         """ 辺 (weight, vertex_1, vertex_2) を追加
         """
-        pass
+        assert 0 <= vertex_1 < self.size
+        assert 0 <= vertex_2 < self.size
 
     def min_cut(self, s: int) -> tuple[list[int]]:
         assert s < self.size
