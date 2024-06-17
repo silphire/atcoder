@@ -163,6 +163,9 @@ class TestMaxFlow(unittest.TestCase):
     def test_add_edge(self) -> None:
         pass
 
+    def test_min_cut(self) -> None:
+        pass
+
 
 class TestMOD(unittest.TestCase):
     def test_init(self) -> None:
