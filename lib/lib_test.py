@@ -155,7 +155,7 @@ class TestDijkstra(unittest.TestCase):
 
 class TestMaxFlow(unittest.TestCase):
     def test_init(self) -> None:
-        pass
+        self.assertRaises(AssertionError, lib.MaxFlow, [])
 
     def test_flow(self) -> None:
         pass
