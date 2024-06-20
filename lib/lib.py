@@ -376,7 +376,7 @@ class MaxFlow(object):
 
     def min_cut(self, s: int) -> tuple[list[int]]:
         assert s < self.size
-        return []
+        return ()
 
     def change_edge(self, i: int, cap: int, flow: int) -> None:
         """ i番目の追加した辺の容量と流用を変更する
