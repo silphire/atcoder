@@ -375,7 +375,7 @@ class MaxFlow(object):
         assert 0 <= vertex_2 < self.size
 
     def min_cut(self, s: int) -> tuple[list[int]]:
-        assert s < self.size
+        assert 0 <= s < self.size
         return ()
 
     def change_edge(self, i: int, cap: int, flow: int) -> None:
