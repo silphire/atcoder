@@ -382,6 +382,7 @@ class MaxFlow(object):
         """ i番目の追加した辺の容量をcapに、流用をflowに変更する
         """
         assert 0 <= i < self.size
+        assert cat >= 0
 
 
 class SegmentTree(object):
