@@ -383,6 +383,7 @@ class MaxFlow(object):
         """
         assert 0 <= i < self.size
         assert cat >= 0
+        assert flow >= 0
 
 
 class SegmentTree(object):
