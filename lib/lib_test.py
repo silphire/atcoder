@@ -169,7 +169,7 @@ class TestMaxFlow(unittest.TestCase):
         self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).min_cut, 2)
 
     def test_change_edge(self) -> None:
-        pass
+        self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).change_edge, 2, 1, 1)
 
 
 class TestMOD(unittest.TestCase):
