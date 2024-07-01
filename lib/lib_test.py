@@ -159,6 +159,7 @@ class TestMaxFlow(unittest.TestCase):
 
     def test_flow(self) -> None:
         self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).flow, -1)
+        self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).flow, 2)
 
     def test_add_edge(self) -> None:
         self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).add_edge, 1, -1, 1)
