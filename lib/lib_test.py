@@ -171,6 +171,7 @@ class TestMaxFlow(unittest.TestCase):
 
     def test_change_edge(self) -> None:
         self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).change_edge, 2, 1, 1)
+        self.assertRaises(AssertionError, lib.MaxFlow([(1, 0, 1)]).change_edge, -1, 1, 1)
 
 
 class TestMOD(unittest.TestCase):
