@@ -1334,6 +1334,7 @@ def z_algorithm(s: str) -> list[int]:
 # ac-library-pythonと重複する物の削除
 # 木の重心？
 # ゼータ・メビウス変換
+# dataclassesを使う
 
 if __name__ == '__main__':
     pass
