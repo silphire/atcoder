@@ -462,7 +462,7 @@ class SegmentTree(object):
         """ Range Minimum Query
         """
         import sys
-        return SegmentTree(arr, sys.maxsize, lambda x, y: min(x, y))
+        return SegmentTree(arr, sys.maxsize, min)
 
     @staticmethod
     def raq(arr: list[int]) -> 'SegmentTree':
