@@ -468,7 +468,8 @@ class SegmentTree(object):
     def raq(arr: list[int]) -> 'SegmentTree':
         """ Range Add Query
         """
-        return SegmentTree(arr, 0, lambda x, y: x + y)
+        import operator
+        return SegmentTree(arr, 0, operator.add)
 
 
 class BinaryIndexedTree(object):
