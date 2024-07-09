@@ -879,9 +879,6 @@ class SCC(object):
             n_vertex: 頂点の数
             return: [(v11, v12, v13, ...), (v21, v22, ...), ...]
         """
-        assert len(edges) > 0
-        assert n_vertex > 0
-
         from collections import defaultdict
 
         gf = defaultdict(set)
