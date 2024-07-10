@@ -374,7 +374,11 @@ class MaxFlow(object):
         assert 0 <= vertex_1 < self.size
         assert 0 <= vertex_2 < self.size
 
-    def min_cut(self, s: int) -> tuple[list[int]]:
+    def min_cut(self, s: int) -> tuple[bool]:
+        """
+        s: 始点
+        戻り値: 到達可能ならTrue
+        """
         assert 0 <= s < self.size
         return ()
 
