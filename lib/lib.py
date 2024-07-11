@@ -376,6 +376,7 @@ class MaxFlow(object):
 
     def min_cut(self, s: int) -> tuple[bool]:
         """
+        各頂点への到達可能性を返す
         s: 始点
         戻り値: 到達可能ならTrue
         """
