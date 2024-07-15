@@ -983,8 +983,9 @@ class Tree(object):
     def __init__(self) -> None:
         self.children = [None, None]
 
+from typing import Generator
 
-def cumsum(arr: list[int]):
+def cumsum(arr: list[int]) -> Generator[int, None, None]:
     """
     累積和
     """
