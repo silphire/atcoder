@@ -1,4 +1,4 @@
-from typing import Callable, Any
+from typing import Callable, Any, Generator
 from collections.abc import Sequence
 
 
@@ -983,7 +983,6 @@ class Tree(object):
     def __init__(self) -> None:
         self.children = [None, None]
 
-from typing import Generator
 
 def cumsum(arr: list[int]) -> Generator[int, None, None]:
     """
