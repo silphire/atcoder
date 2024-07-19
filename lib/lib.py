@@ -374,14 +374,14 @@ class MaxFlow(object):
         assert 0 <= vertex_1 < self.size
         assert 0 <= vertex_2 < self.size
 
-    def min_cut(self, s: int) -> tuple[bool]:
+    def min_cut(self, s: int) -> list[bool]:
         """
         各頂点への到達可能性を返す
         s: 始点
         戻り値: 到達可能ならTrue
         """
         assert 0 <= s < self.size
-        return ()
+        return []
 
     def change_edge(self, i: int, cap: int, flow: int) -> None:
         """ i番目の追加した辺の容量をcapに、流用をflowに変更する
