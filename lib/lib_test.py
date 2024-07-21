@@ -533,6 +533,7 @@ class TestCumsum(unittest.TestCase):
 
 
 class TestPermutation(unittest.TestCase):
+    # TODO generator test
     def test_next_permutation(self) -> None:
         a = [1, 2, 3]
         self.assertSequenceEqual([1, 3, 2], lib.next_permutation(a))
