@@ -5,7 +5,6 @@ from collections.abc import Sequence
 class UnionFind(object):
     """
     Union-Find (Disjoint Set Union)
-    TODO: 右端チェック
     """
     def __init__(self, n: int) -> None:
         assert n > 0
