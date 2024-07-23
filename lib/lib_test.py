@@ -677,6 +677,7 @@ class TestBisectBoundary(unittest.TestCase):
 
 
 class TestCRT(unittest.TestCase):
+    # TODO sympy.ntheory.modular.crt対応？
     def test_crt(self) -> None:
         self.assertEqual(5, lib.crt(3, 2, 5, 3))
         self.assertRaises(AssertionError, lib.crt, 1, 2, 3, 0)
