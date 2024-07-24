@@ -996,7 +996,6 @@ def cumsum(arr: list[int]) -> Generator[int, None, None]:
 def next_permutation(arr: list[Any]) -> list[Any]:
     """順列の辞書順における「次」を返す
     """
-    # TODO 型変数
     n = len(arr)
     if n <= 1:
         return arr
