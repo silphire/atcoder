@@ -1,5 +1,5 @@
-from typing import Callable, Any, Generator
-from collections.abc import Sequence
+from typing import Callable, Any
+from collections.abc import Sequence, Generator
 
 
 class UnionFind(object):
