@@ -1336,6 +1336,7 @@ def z_algorithm(s: str) -> list[int]:
 # 木の重心？
 # ゼータ・メビウス変換
 # dataclassesを使う
+# 型変数対応
 
 if __name__ == '__main__':
     pass
