@@ -1333,6 +1333,7 @@ def z_algorithm(s: str) -> list[int]:
 # rolling hash
 # venv対応 atcoderが用意するライブラリのバージョンと合わせるなど
 # ac-library-pythonと重複する物の削除
+# sortedcontainers対応
 # 木の重心？
 # ゼータ・メビウス変換
 # dataclassesを使う
