@@ -1169,6 +1169,8 @@ def topological_sort_bfs(
 
 def topological_sort_unique(g: dict[int, list[int]], arr: list[int]) -> bool:
     """トポロジカルソートの結果が一意かどうか
+       g: トポロジカルソート対象のグラフ
+       arr: トポロジカルソートの結果
     """
     for i in range(1, len(arr)):
         if arr[i] not in g.get(arr[i - 1], []):
