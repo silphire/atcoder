@@ -986,6 +986,7 @@ class Tree(object):
 def cumsum(arr: list[int]) -> Generator[int, None, None]:
     """
     累積和
+    TODO 現在ではpandasが使える
     """
     acc = 0
     for a in arr:
