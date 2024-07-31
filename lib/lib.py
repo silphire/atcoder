@@ -959,6 +959,7 @@ class LIS(object):
 def divisors(n: int) -> list[int]:
     """ 約数列挙
         例: divisors(12) -> [2, 2, 3]
+        戻り値は昇順
     """
     assert n >= 0
 
