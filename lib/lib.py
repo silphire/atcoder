@@ -1294,6 +1294,7 @@ def z_algorithm(s: str) -> list[int]:
     """ Z-algorithm
         s: 対象の文字列
         戻り値: postfixの長さ
+        TODO コンテナ
     """
     if not s:
         return []
