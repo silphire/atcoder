@@ -2,6 +2,9 @@ from typing import Callable, Any
 from collections.abc import Sequence, Generator
 
 
+# TODO importを実際に使う所にも重複して書く？
+
+
 class UnionFind(object):
     """
     Union-Find (Disjoint Set Union)
