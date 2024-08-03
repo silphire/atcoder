@@ -2,7 +2,7 @@ from typing import Callable, Any
 from collections.abc import Sequence, Generator
 
 
-# TODO importを実際に使う所にも重複して書く？
+# TODO importを実際に使う所にも重複して書く？ (top-levelでは無理)
 
 
 class UnionFind(object):
