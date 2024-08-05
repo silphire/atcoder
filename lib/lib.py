@@ -1,8 +1,16 @@
 from typing import Callable, Any
 from collections.abc import Sequence, Generator
+from dataclasses import dataclass
 
 
 # TODO importを実際に使う所にも重複して書く？ (top-levelでは無理)
+
+
+@dataclass
+class WeightedEdge:
+    w: int
+    v1: int
+    v2: int
 
 
 class UnionFind(object):
