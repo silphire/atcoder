@@ -117,7 +117,7 @@ class Kruskal(object):
             edges: (cost, vertex_1, vertex_2)
             端点は[0, n_vertex)
             コストの小さい辺から採用していく
-            TODO tuple -> namedtuple
+            TODO tuple -> dataclass
         """
         assert n_vertex > 0
 
