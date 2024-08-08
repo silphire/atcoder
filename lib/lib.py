@@ -234,6 +234,8 @@ class Dijkstra(object):
     """
     ダイクストラ法 -- 最短経路探索
     * edges: [(weight, vertex_1, vertex_2)]
+
+    TODO tuple -> dataclass
     """
 
     from enum import IntEnum
