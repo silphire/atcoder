@@ -366,6 +366,7 @@ class MaxFlow(object):
     """
     ford-fulkerson法
     TODO Dinic法
+    TODO dataclasses
 
     * edges: [(weight, vertex_1, vertex_2)]
     """
