@@ -1359,6 +1359,7 @@ def z_algorithm(s: str) -> list[int]:
 # dataclassesを使う
 # 型変数対応
 # NumPyを利用した諸々
+# sortedcontainers対応
 
 if __name__ == '__main__':
     pass
