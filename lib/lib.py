@@ -1347,13 +1347,11 @@ def z_algorithm(s: str) -> list[int]:
 # メモリ使用量を抑える素因数分解
 # 区間操作
 # hash value
-# numpyを使うための補助関数
 # Mo's argorithm (クエリ平方分割)
 # 高速なmex
 # rolling hash
 # venv対応 atcoderが用意するライブラリのバージョンと合わせるなど
 # ac-library-pythonと重複する物の削除
-# sortedcontainers対応
 # 木の重心？
 # ゼータ・メビウス変換
 # dataclassesを使う
