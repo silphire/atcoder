@@ -999,17 +999,6 @@ class Tree(object):
         self.children = [None, None]
 
 
-def cumsum(arr: list[int]) -> Generator[int, None, None]:
-    """
-    累積和
-    TODO 現在ではpandas, NumPyが使える
-    """
-    acc = 0
-    for a in arr:
-        acc += a
-        yield acc
-
-
 def next_permutation(arr: list[Any]) -> list[Any]:
     """順列の辞書順における「次」を返す
     """
