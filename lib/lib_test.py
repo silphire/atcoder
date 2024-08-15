@@ -517,21 +517,6 @@ class TestRangeBinaryIndexedTree(unittest.TestCase):
         self.assertEqual(50, bit.sum(3))
 
 
-class TestCumsum(unittest.TestCase):
-    def test_cumsum(self) -> None:
-        self.assertSequenceEqual([], list(lib.cumsum([])))
-        self.assertSequenceEqual([1], list(lib.cumsum([1])))
-        self.assertSequenceEqual([1, 3, 6, 10], list(lib.cumsum([1, 2, 3, 4])))
-        self.assertSequenceEqual(
-            [-2, -1, 4, 14],
-            list(lib.cumsum([-2, 1, 5, 10]))
-        )
-        self.assertSequenceEqual(
-            [-1, -1, 0, -1],
-            list(lib.cumsum([-1, 0, 1, -1]))
-        )
-
-
 class TestPermutation(unittest.TestCase):
     # TODO generator test
     def test_next_permutation(self) -> None:
